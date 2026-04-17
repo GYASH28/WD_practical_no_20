@@ -4,396 +4,734 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Designing Quiz | CWIT</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-dark: #050505;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --secondary: #a855f7;
+            --accent: #ec4899;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f0f4ff;
-            color: #222;
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%);
+            background-attachment: fixed;
         }
 
-        /* NAV */
+        /* Ambient animated blobs */
+        .ambient-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+            animation: float 10s infinite alternate;
+        }
+        .blob-1 { top: -10%; left: -10%; width: 40vw; height: 40vw; background: rgba(99, 102, 241, 0.2); }
+        .blob-2 { bottom: -10%; right: -10%; width: 50vw; height: 50vw; background: rgba(168, 85, 247, 0.15); animation-delay: -5s; }
+        .blob-3 { top: 40%; left: 50%; width: 30vw; height: 30vw; background: rgba(236, 72, 153, 0.1); transform: translate(-50%, -50%); animation-duration: 15s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 50px) scale(1.1); }
+        }
+
+        /* HEADER */
         header {
-            background: #1a237e;
-            color: white;
-            padding: 14px 30px;
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+        
+        .header-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
         header h1 {
-            font-size: 1.3rem;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
         }
         header p {
-            font-size: 0.72rem;
-            color: #aab6fb;
-            margin-top: 2px;
-        }
-        nav {
-            display: flex;
-            gap: 8px;
-        }
-        nav button {
-            background: transparent;
-            border: 1px solid #aab6fb;
-            color: #aab6fb;
-            padding: 7px 14px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-        nav button:hover, nav button.active {
-            background: #3949ab;
-            color: white;
-            border-color: #3949ab;
-        }
-
-        /* PAGES */
-        .page { display: none; padding: 30px 20px; max-width: 950px; margin: 0 auto; }
-        .page.active { display: block; }
-
-        /* HOME PAGE */
-        .home-hero {
-            background: white;
-            border-radius: 10px;
-            padding: 40px 35px;
-            text-align: center;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-        }
-        .home-hero h2 {
-            font-size: 1.9rem;
-            color: #1a237e;
-            margin-bottom: 10px;
-        }
-        .home-hero p {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto 25px;
-        }
-        .btn-main {
-            background: #1a237e;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            margin: 5px;
-        }
-        .btn-main:hover { background: #283593; }
-        .btn-outline {
-            background: white;
-            color: #1a237e;
-            border: 2px solid #1a237e;
-            padding: 12px 30px;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            margin: 5px;
-        }
-        .btn-outline:hover { background: #e8eaf6; }
-
-        .unit-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 16px;
-        }
-        .unit-card {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            border-left: 5px solid #3949ab;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-        }
-        .unit-card h4 {
-            color: #1a237e;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 6px;
+        }
+        
+        nav { display: flex; gap: 12px; }
+        nav button {
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        nav button::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0; transition: opacity 0.3s; z-index: -1;
+        }
+        nav button:hover { color: #fff; border-color: rgba(255,255,255,0.3); transform: translateY(-1px); }
+        nav button.active {
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+        nav button.active::before { opacity: 1; }
+
+        /* PAGE CONTAINER */
+        .page { 
+            display: none; 
+            padding: 3rem 5%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .page.active { display: block; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* GLASS CARD UTILITY */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* HOME HERO */
+        .home-hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .home-hero::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .home-hero h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .home-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn-main, .btn-outline {
+            font-family: var(--font-main);
+            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-main {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+        .btn-main:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+        }
+        .btn-main:active { transform: translateY(1px); }
+        
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .credits {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .credits strong {
+            color: #e2e8f0;
+            background: rgba(255,255,255,0.05);
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* UNIT CARDS */
+        .unit-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .unit-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        .unit-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            border-radius: 4px 0 0 4px;
+        }
+        .unit-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 20px rgba(99, 102, 241, 0.2);
+        }
+        .unit-card h4 {
+            color: var(--secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
         }
         .unit-card h3 {
-            font-size: 1rem;
-            color: #222;
-            margin-bottom: 8px;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
         }
         .unit-card p {
-            font-size: 0.8rem;
-            color: #666;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        /* NOTES PAGE */
+        /* NOTES TABS */
         .notes-tabs {
             display: flex;
-            gap: 6px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 2rem;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
         }
         .tab-btn {
-            padding: 8px 16px;
-            border: 1px solid #c5cae9;
-            background: white;
-            border-radius: 5px;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            background: transparent;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 0.82rem;
-            color: #333;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s;
+            font-family: var(--font-main);
         }
-        .tab-btn:hover { background: #e8eaf6; }
-        .tab-btn.active { background: #1a237e; color: white; border-color: #1a237e; }
+        .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
 
-        .note-content {
-            background: white;
-            border-radius: 8px;
-            padding: 28px;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.07);
-        }
+        .note-content { padding: 3rem; }
         .note-content h2 {
-            color: #1a237e;
-            font-size: 1.2rem;
-            border-bottom: 2px solid #e8eaf6;
-            padding-bottom: 10px;
-            margin-bottom: 18px;
+            font-family: var(--font-heading);
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            display: inline-block;
         }
-        .note-section { margin-bottom: 22px; }
+        
+        .note-section {
+            margin-bottom: 2.5rem;
+            background: rgba(0,0,0,0.15);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
         .note-section h3 {
-            font-size: 0.92rem;
-            font-weight: bold;
-            color: #283593;
-            margin-bottom: 8px;
-            padding-left: 10px;
-            border-left: 3px solid #3949ab;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: #c4b5fd;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .note-section h3::before {
+            content: '';
+            display: block;
+            width: 8px; height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
         }
         .note-section p, .note-section li {
-            font-size: 0.85rem;
-            color: #444;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.8;
         }
-        .note-section ul { padding-left: 20px; }
-        .note-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.82rem; }
-        .note-table th { background: #e8eaf6; color: #1a237e; padding: 8px; text-align: left; border: 1px solid #c5cae9; }
-        .note-table td { padding: 8px; border: 1px solid #e0e0e0; color: #444; }
+        .note-section ul { padding-left: 1.5rem; margin-top: 0.5rem; }
+        .note-section li { margin-bottom: 0.5rem; }
+        
+        .note-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+        .note-table th {
+            background: rgba(99, 102, 241, 0.2);
+            color: #fff;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .note-table td {
+            padding: 12px 15px;
+            color: #cbd5e1;
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid var(--glass-border);
+        }
 
-        /* QUIZ PAGE */
+        /* QUIZ SETUP */
         .quiz-setup {
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.07);
             max-width: 600px;
             margin: 0 auto;
+            padding: 3rem;
+            text-align: center;
         }
-        .quiz-setup h2 { color: #1a237e; margin-bottom: 12px; }
-        .quiz-setup p { color: #555; font-size: 0.9rem; margin-bottom: 22px; line-height: 1.5; }
-        .setup-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 22px; }
-        .setup-options label { font-size: 0.88rem; color: #333; display: flex; align-items: center; gap: 8px; cursor: pointer; }
-        .setup-options input[type=radio] { accent-color: #1a237e; }
+        .quiz-setup h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .quiz-setup p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .setup-options {
+            text-align: left;
+            background: rgba(0,0,0,0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            margin-bottom: 2rem;
+        }
+        .setup-options label.title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
         .setup-options select {
             width: 100%;
-            padding: 9px;
-            border: 1px solid #c5cae9;
-            border-radius: 5px;
-            font-size: 0.88rem;
-            color: #333;
+            padding: 12px 15px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .setup-options select:focus { border-color: var(--primary); }
+        .setup-options select option { background: #0f172a; }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.02);
+            transition: all 0.2s;
+        }
+        .radio-label:hover { background: rgba(255,255,255,0.05); }
+        .radio-label input[type=radio] {
+            appearance: none;
+            width: 18px; height: 18px;
+            border: 2px solid var(--text-muted);
+            border-radius: 50%;
+            outline: none;
+            position: relative;
+        }
+        .radio-label input[type=radio]:checked {
+            border-color: var(--primary);
+        }
+        .radio-label input[type=radio]:checked::after {
+            content: ''; position: absolute;
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 10px; height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
         }
 
+        /* QUIZ ACTIVE */
         .quiz-box {
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+            padding: 3rem;
+            position: relative;
         }
         .quiz-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 18px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid #e8eaf6;
-            flex-wrap: wrap;
-            gap: 10px;
+            margin-bottom: 1.5rem;
         }
         .quiz-meta span {
-            font-size: 0.78rem;
-            font-weight: bold;
-            color: #3949ab;
-            background: #e8eaf6;
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin-right: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-right: 8px;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
         }
-        .quiz-counter { font-size: 0.82rem; color: #888; }
+        .quiz-counter {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.05);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        
         .progress-bar {
             width: 100%;
-            height: 5px;
-            background: #e0e0e0;
-            border-radius: 5px;
-            margin-bottom: 22px;
+            height: 6px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+            position: relative;
         }
-        .progress-fill { height: 100%; background: #3949ab; border-radius: 5px; transition: width 0.3s; }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .progress-fill::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
         .question-text {
-            font-size: 1.05rem;
-            font-weight: bold;
-            color: #1a237e;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #fff;
             line-height: 1.5;
-            margin-bottom: 22px;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        .options-list { display: flex; flex-direction: column; gap: 10px; }
+
+        .options-list { display: flex; flex-direction: column; gap: 12px; }
         .option-btn {
-            background: #f8f9ff;
-            border: 2px solid #e0e0e0;
-            border-radius: 7px;
-            padding: 13px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px 20px;
             text-align: left;
             cursor: pointer;
-            font-size: 0.9rem;
-            color: #222;
-            transition: 0.15s;
+            font-size: 1rem;
+            color: #e2e8f0;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            font-family: var(--font-main);
         }
-        .option-btn:hover { border-color: #3949ab; background: #e8eaf6; }
+        .option-btn:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+        }
         .option-btn .opt-label {
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: #e8eaf6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: bold;
-            color: #3949ab;
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
             flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .option-btn:hover .opt-label {
+            background: var(--primary);
+            color: #fff;
         }
 
         .wrong-msg {
-            background: #fff3f3;
-            border: 1px solid #ffcdd2;
-            border-radius: 7px;
-            padding: 14px 18px;
-            margin-bottom: 18px;
-            font-size: 0.88rem;
-            color: #c62828;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: #fca5a5;
             display: none;
+            animation: shake 0.4s;
         }
-        .wrong-msg strong { display: block; margin-bottom: 4px; }
+        .wrong-msg strong { display: block; margin-bottom: 6px; color: #ef4444; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
 
         /* RESULT PAGE */
         .result-box {
-            background: white;
-            border-radius: 10px;
-            padding: 40px;
+            padding: 4rem;
             text-align: center;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.07);
-            max-width: 600px;
-            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
+        .result-box::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(99,102,241,0.1) 360deg);
+            animation: rotate 10s linear infinite;
+            z-index: -1;
+        }
+        @keyframes rotate { 100% { transform: rotate(360deg); } }
+        
         .result-score {
-            font-size: 3.5rem;
-            font-weight: bold;
-            color: #1a237e;
-            margin: 14px 0 6px;
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 800;
+            background: linear-gradient(to bottom right, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0;
+            text-shadow: 0 10px 30px rgba(99,102,241,0.3);
         }
-        .result-box p { color: #555; font-size: 0.92rem; margin-bottom: 20px; }
+        #result-msg { font-size: 1.2rem; color: #c4b5fd; margin-bottom: 2.5rem; }
+        
         .result-breakdown {
             display: flex;
             justify-content: center;
-            gap: 18px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin: 18px 0 26px;
+            margin-bottom: 3rem;
         }
         .breakdown-item {
-            background: #f0f4ff;
-            border-radius: 7px;
-            padding: 12px 18px;
-            min-width: 90px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            min-width: 120px;
         }
-        .breakdown-item .val { font-size: 1.4rem; font-weight: bold; color: #1a237e; }
-        .breakdown-item .lbl { font-size: 0.72rem; color: #666; }
+        .breakdown-item .val { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 5px; font-family: var(--font-heading); }
+        .breakdown-item .lbl { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
 
-        /* FOOTER */
         footer {
             text-align: center;
-            padding: 20px;
-            font-size: 0.78rem;
-            color: #888;
-            border-top: 1px solid #e0e0e0;
-            margin-top: 40px;
-            background: white;
+            padding: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--glass-border);
+            margin-top: 5rem;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
         }
 
-        /* Note content hidden */
-        .tab-content { display: none; }
+        .tab-content { display: none; animation: fadeIn 0.4s; }
         .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
+
     </style>
+
 </head>
 <body>
+<!-- Ambient Background elements -->
+<div class="ambient-blob blob-1"></div>
+<div class="ambient-blob blob-2"></div>
+<div class="ambient-blob blob-3"></div>
 
 <header>
-    <div>
+    <div class="header-brand">
         <h1>Web Designing Quiz</h1>
-        <p>Cusrow Wadia Institute of Technology, Pune &nbsp;|&nbsp; Units 1-6</p>
+        <p>CWIT, Pune • Units 1-6</p>
     </div>
     <nav>
         <button onclick="showPage('home')" id="btn-home" class="active">Home</button>
         <button onclick="showPage('notes')" id="btn-notes">Notes</button>
+        <button onclick="showPage('report')" id="btn-report">Report</button>
         <button onclick="startQuiz()" id="btn-quiz">Start Quiz</button>
     </nav>
 </header>
 
+
+
 <div id="home" class="page active">
-    <div class="home-hero">
-        <h2>Web Designing - Unit Quiz</h2>
-        <p>Test your knowledge across all 6 units of Web Designing. Each quiz session has 25 questions. You can also browse notes from all units below.</p>
-        <button class="btn-main" onclick="startQuiz()">&#9654; Start Quiz (25 Questions)</button>
-        <button class="btn-outline" onclick="showPage('notes')">&#128218; Browse Notes</button>
-        <p style="margin-top: 22px; font-size: 0.78rem; color: #888; border-top: 1px solid #eee; padding-top: 16px;">
-            Made by &nbsp;<strong style="color:#1a237e;">Yash Krishna Ganesh</strong> (255044) &nbsp;&bull;&nbsp;
-            <strong style="color:#1a237e;">Swarit Pawar</strong> (255042) &nbsp;&bull;&nbsp;
-            <strong style="color:#1a237e;">Shreyash Sangawade</strong> (255047) &nbsp;&bull;&nbsp;
-            <strong style="color:#1a237e;">Shreyash Asalkar</strong> (255028) &nbsp;&mdash;&nbsp; Div A, CWIT
-        </p>
+    <div class="home-hero glass-card">
+        <h2>Web Designing Masterclass</h2>
+        <p>Elevate your knowledge across all 6 units of Web Designing. Engage with our interactive quiz featuring 25 hand-picked questions, or dive deep into comprehensive notes.</p>
+        <button class="btn-main" onclick="startQuiz()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Start Quiz Challenge
+        </button>
+        <button class="btn-outline" onclick="showPage('notes')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            Browse Course Notes
+        </button>
+        <div class="credits">
+            Crafted by:
+            <strong>Yash Krishna Ganesh (255044)</strong>
+            <strong>Swarit Pawar (255042)</strong>
+            <strong>Shreyash Sangawade (255047)</strong>
+            <strong>Shreyash Asalkar (255028)</strong>
+            <span>Div A, CWIT</span>
+        </div>
     </div>
     <div class="unit-cards">
         <div class="unit-card">
             <h4>Unit 1</h4>
-            <h3>Introduction to Web Designing</h3>
-            <p>HTML basics, structure of HTML page, heading tags, paragraph, br, hr, pre, formatting tags, block elements</p>
+            <h3>Introduction to Web</h3>
+            <p>Master HTML basics, structuring elements, heading tags, block formatting, and foundational web concepts.</p>
         </div>
         <div class="unit-card">
             <h4>Unit 2</h4>
-            <h3>Lists and Linking HTML Documents</h3>
-            <p>Ordered list, unordered list, description list, anchor tag, href attribute, link states, marquee, target attribute</p>
+            <h3>Lists & Linking</h3>
+            <p>Explore ordered and unordered lists, description lists, anchor tags, navigation, and page linking states.</p>
         </div>
         <div class="unit-card">
             <h4>Unit 3</h4>
             <h3>Multimedia Elements</h3>
-            <p>Image formats (JPEG, PNG, GIF, BMP), color codes (hex, RGB), CSS borders, padding, background properties</p>
+            <p>Integrate image formats, master color codes, apply CSS borders, padding, and dynamic background properties.</p>
         </div>
         <div class="unit-card">
             <h4>Unit 4</h4>
-            <h3>Table, Frames and Forms</h3>
-            <p>HTML tables, table attributes, rowspan, colspan, cellpadding, cellspacing, iframe, HTML forms, input types</p>
+            <h3>Tables & Forms</h3>
+            <p>Construct complex HTML tables, utilize iframes, and build interactive user forms with various inputs.</p>
         </div>
         <div class="unit-card">
             <h4>Unit 5</h4>
             <h3>HTML Style (CSS)</h3>
-            <p>CSS syntax, box model, margin, padding, border, display, position, z-index, animations, keyframes, visibility</p>
+            <p>Dive into CSS syntax, box model, advanced positioning, z-index layering, and stunning keyframe animations.</p>
         </div>
         <div class="unit-card">
             <h4>Unit 6</h4>
-            <h3>Website Designing Tools</h3>
-            <p>Photoshop tools, Adobe XD, HTTP methods, HTTP error codes, web hosting types, DNS, name servers</p>
+            <h3>Design Tools</h3>
+            <p>Learn Photoshop mechanics, Adobe XD vs Procreate, HTTP protocols, web hosting, and DNS architecture.</p>
         </div>
     </div>
+</div>
+
 </div>
 
 <div id="notes" class="page">
@@ -405,7 +743,7 @@
         <button class="tab-btn" onclick="showTab('t5', this)">Unit 5 - CSS</button>
         <button class="tab-btn" onclick="showTab('t6', this)">Unit 6 - Tools & Hosting</button>
     </div>
-    <div class="note-content">
+    <div class="note-content glass-card">
 
         <div id="t1" class="tab-content active">
             <h2>Unit 1 – Introduction to Web Designing</h2>
@@ -735,15 +1073,16 @@
     </div>
 </div>
 
+
 <div id="quiz" class="page">
-    <div id="quiz-setup" class="quiz-setup">
-        <h2>Quiz Settings</h2>
-        <p>Select how you want to take the quiz. Questions are taken from your Units 1-6 syllabus.</p>
+    <div id="quiz-setup" class="quiz-setup glass-card">
+        <h2>Configure Your Quiz</h2>
+        <p>Customize your learning experience. Select a specific unit to focus on, or test yourself across all topics.</p>
         <div class="setup-options">
             <div>
-                <label style="font-weight:bold; display:block; margin-bottom:8px;">Select Unit:</label>
+                <label class="title">Target Syllabus</label>
                 <select id="unit-select">
-                    <option value="all">All Units (Mixed)</option>
+                    <option value="all">All Units (Comprehensive)</option>
                     <option value="1">Unit 1 – Introduction to Web Designing</option>
                     <option value="2">Unit 2 – Lists and Linking</option>
                     <option value="3">Unit 3 – Multimedia Elements</option>
@@ -752,18 +1091,26 @@
                     <option value="6">Unit 6 – Tools and Hosting</option>
                 </select>
             </div>
-            <div style="margin-top:12px;">
-                <label style="font-weight:bold; display:block; margin-bottom:8px;">Quiz Mode:</label>
-                <label><input type="radio" name="mode" value="practice" checked> Practice Mode (see explanation on wrong answer)</label><br><br>
-                <label><input type="radio" name="mode" value="exam"> Exam Mode (no hints)</label>
+            <div>
+                <label class="title">Evaluation Mode</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="mode" value="practice" checked>
+                        <span><strong>Practice Mode</strong> — Reveals explanations and allows retries on wrong answers.</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="mode" value="exam">
+                        <span><strong>Exam Mode</strong> — Strict evaluation. No hints, no second chances.</span>
+                    </label>
+                </div>
             </div>
         </div>
-        <button class="btn-main" onclick="beginQuiz()">Begin Quiz &#9654;</button>
-        <button class="btn-outline" onclick="showPage('home')" style="margin-left:8px;">Cancel</button>
+        <button class="btn-main" onclick="beginQuiz()">Initialize Quiz</button>
+        <button class="btn-outline" onclick="showPage('home')">Return Home</button>
     </div>
 
-    <div id="quiz-active" style="display:none; max-width:700px; margin:0 auto;">
-        <div class="quiz-box">
+    <div id="quiz-active" style="display:none; max-width:800px; margin:0 auto;">
+        <div class="quiz-box glass-card">
             <div class="quiz-top">
                 <div class="quiz-meta">
                     <span id="q-unit-tag">Unit 1</span>
@@ -772,38 +1119,109 @@
                 <div class="quiz-counter" id="q-counter">Q 1 / 25</div>
             </div>
             <div class="progress-bar"><div class="progress-fill" id="q-progress" style="width:4%"></div></div>
+            
             <div id="wrong-notice" class="wrong-msg">
-                <strong>❌ Wrong Answer!</strong>
+                <strong>Incorrect Answer Selected</strong>
                 <span id="wrong-explain"></span>
             </div>
+            
             <p class="question-text" id="q-text">Loading...</p>
             <div class="options-list" id="q-options"></div>
         </div>
     </div>
 
     <div id="quiz-result" style="display:none;">
-        <div class="result-box">
-            <div style="font-size:2.5rem;">🎓</div>
+        <div class="result-box glass-card" style="max-width: 700px; margin: 0 auto;">
+            <div style="font-size:3.5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(99,102,241,0.5));">🏆</div>
+            <p id="result-msg" style="margin-bottom: 0;">Evaluation Complete</p>
             <div class="result-score" id="result-score">0/25</div>
-            <p id="result-msg">Quiz Complete!</p>
+            
             <div class="result-breakdown" id="result-breakdown"></div>
-            <button class="btn-main" onclick="beginQuiz()">Try Again</button>
-            <button class="btn-outline" onclick="document.getElementById('quiz-setup').style.display='block'; document.getElementById('quiz-result').style.display='none';" style="margin-left:8px;">Change Settings</button>
+            
+            <button class="btn-main" onclick="beginQuiz()">Restart Assessment</button>
+            <button class="btn-outline" onclick="document.getElementById('quiz-setup').style.display='block'; document.getElementById('quiz-result').style.display='none';">Configure Settings</button>
+        </div>
+    </div>
+</div>
+
+<div id="report" class="page">
+    <div class="glass-card" style="padding: 3rem; background: rgba(0,0,0,0.4);">
+        <h2 style="font-family: var(--font-heading); color: #fff; font-size: 2.2rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--glass-border); display: inline-block;">Project Report</h2>
+        
+        <div class="note-section" style="margin-bottom: 2rem;">
+            <h3>5. Team Members & Contributions</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">This project was developed by a four-member group from Division A, First Year Diploma in Computer Engineering & IoT, CWIT Pune — Academic Year 2025-2026.</p>
+            <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1rem; list-style-type: none;">
+                <li style="margin-bottom: 1.2rem;">
+                    <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Yash Krishna Ganesh (Roll No. 255044)</strong> — Lead Developer & Project Head<br>
+                    <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Sole developer of the application codebase. Built the quiz engine, designed the full UI/UX, handled debugging, and authored 150+ MCQs.</span>
+                </li>
+                <li style="margin-bottom: 1.2rem;">
+                    <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Swarit Pawar (Roll No. 255042)</strong> — Content Reviewer & Documentation<br>
+                    <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Contributed to report documentation and formatting. Reviewed and cross-verified MCQ accuracy against syllabus.</span>
+                </li>
+                <li style="margin-bottom: 1.2rem;">
+                    <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Shreyash Sangawade (Roll No. 255047)</strong> — Testing & Quality Assurance<br>
+                    <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Performed systematic testing of all quiz modes and units. Reported UI/logic issues during development.</span>
+                </li>
+                <li style="margin-bottom: 1.2rem;">
+                    <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Shreyash Asalkar (Roll No. 255028)</strong> — Co-Tester & Deployment Assistant<br>
+                    <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Assisted in testing the application on various devices and platforms. Assisted in final review and submission preparation.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="note-section" style="margin-bottom: 2rem;">
+            <h3>6. Applications</h3>
+            <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
+                <li>Useful for competitive exam preparation covering HTML, CSS, and web basics.</li>
+                <li>Can be embedded in college websites or LMS portals as a standalone widget.</li>
+                <li>The quiz format can be adapted for any subject by updating the question bank.</li>
+                <li>Teachers can project it in class for live interactive quiz sessions.</li>
+                <li>Students can use it as a self-revision tool before internal and external exams.</li>
+            </ul>
+        </div>
+
+        <div class="note-section" style="margin-bottom: 2rem;">
+            <h3>7. Advantages</h3>
+            <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
+                <li>Offline capable — can be saved and used without internet.</li>
+                <li>Fully responsive — works on phones, tablets, and desktops.</li>
+                <li>Both Practice and Exam modes cater to different learning needs.</li>
+                <li>Randomized questions ensure genuine knowledge testing.</li>
+                <li>Instant score and feedback — no manual checking required.</li>
+                <li>Zero setup — works directly from a browser with no installation.</li>
+            </ul>
+        </div>
+
+        <div class="note-section" style="margin-bottom: 2rem;">
+            <h3>8. Disadvantages</h3>
+            <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
+                <li>Limited to MCQ format — no support for fill-in-the-blank or coding questions.</li>
+                <li>No user authentication or leaderboard functionality.</li>
+                <li>Adding new questions requires editing the HTML file directly.</li>
+                <li>No persistent storage — scores are not saved across sessions.</li>
+            </ul>
+        </div>
+
+        <div class="note-section" style="margin-bottom: 1rem;">
+            <h3>9. Conclusion</h3>
+            <p style="color: #cbd5e1; line-height: 1.8;">The Web Designing Quiz Application was successfully designed, developed, and tested as a fully client-side interactive quiz platform. The project demonstrates strong proficiency in HTML5, CSS3, and JavaScript — particularly in DOM manipulation, dynamic rendering, and responsive UI design. Its offline capability, dual quiz modes, integrated notes, and randomized question engine make it a practical and well-rounded academic tool.</p>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>Cusrow Wadia Institute of Technology, Pune &nbsp;|&nbsp; Web Designing Quiz &nbsp;|&nbsp; Units 1–6</p>
-    <p style="margin-top:8px; font-weight: bold; color: #555;">Made by:</p>
-    <p style="margin-top:4px;">
-        Yash Krishna Ganesh &nbsp;(Roll No. 255044) &nbsp;|&nbsp;
-        Swarit Pawar &nbsp;(Roll No. 255042) &nbsp;|&nbsp;
-        Shreyash Sangawade &nbsp;(Roll No. 255047) &nbsp;|&nbsp;
-        Shreyash Asalkar &nbsp;(Roll No. 255028)
-    </p>
-    <p style="margin-top:4px;">Div A &nbsp;•&nbsp; Academic Year 2026</p>
+    <p>Cusrow Wadia Institute of Technology, Pune &nbsp;|&nbsp; Web Designing Masterclass</p>
+    <div style="margin-top:12px; display:flex; justify-content:center; gap: 10px; flex-wrap:wrap; opacity: 0.7;">
+        <span>Yash Krishna Ganesh (255044)</span> • 
+        <span>Swarit Pawar (255042)</span> • 
+        <span>Shreyash Sangawade (255047)</span> • 
+        <span>Shreyash Asalkar (255028)</span>
+    </div>
+    <p style="margin-top:10px; opacity: 0.5;">Div A &nbsp;•&nbsp; Academic Year 2026</p>
 </footer>
+
 
 <script>
 // ============================================================
@@ -1066,7 +1484,8 @@ function renderQuestion() {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
         btn.innerHTML = `<span class="opt-label">${labels[i]}</span> ${escHtml(o.text)}`;
-        btn.onclick = () => handleAnswer(o.correct, o.text, q.explain);
+        btn.dataset.correct = o.correct;
+        btn.onclick = function() { handleAnswer(o.correct, o.text, this, q.explain); };
         container.appendChild(btn);
     });
 }
@@ -1075,39 +1494,66 @@ function escHtml(str) {
     return str.replace(/&/g,'&amp;').replace(/</g,'&gt;');
 }
 
-function handleAnswer(isCorrect, chosen, explain) {
-    if (isCorrect) {
-        score++;
-        currentIdx++;
-        if (currentIdx >= totalQ) {
-            showResult();
-        } else {
-            renderQuestion();
-        }
+function handleAnswer(isCorrect, chosen, btnElement, explain) {
+    // Disable all options
+    const btns = document.querySelectorAll('.option-btn');
+    btns.forEach(b => b.style.pointerEvents = 'none');
+
+    if (isCorrect) score++;
+    else wrongCount++;
+
+    if (quizMode === 'exam') {
+        // Strict mode: immediately go to next question with no hints
+        nextQuestion();
     } else {
-        wrongCount++;
-        if (quizMode === 'practice') {
-            const notice = document.getElementById('wrong-notice');
-            notice.style.display = 'block';
-            document.getElementById('wrong-explain').textContent = ' ' + explain;
+        // Practice mode: Show detailed explanation
+        const notice = document.getElementById('wrong-notice');
+        notice.style.display = 'block';
+        
+        if (isCorrect) {
+            notice.style.background = 'rgba(34, 197, 94, 0.1)';
+            notice.style.borderColor = 'rgba(34, 197, 94, 0.3)';
+            notice.style.color = '#86efac';
+            notice.innerHTML = `<strong>✅ Correct!</strong> <span id="wrong-explain">${explain}</span>`;
+            btnElement.style.borderColor = '#22c55e';
+            btnElement.style.background = 'rgba(34, 197, 94, 0.1)';
+        } else {
+            notice.style.background = 'rgba(239, 68, 68, 0.1)';
+            notice.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+            notice.style.color = '#fca5a5';
+            notice.innerHTML = `<strong>❌ Incorrect!</strong> <span id="wrong-explain">The correct answer was highlighted. Details: ${explain}</span>`;
+            btnElement.style.borderColor = '#ef4444';
+            btnElement.style.background = 'rgba(239, 68, 68, 0.1)';
+            
+            // Highlight the correct option
+            btns.forEach(b => {
+                if (b.dataset.correct === "true") {
+                    b.style.borderColor = '#22c55e';
+                    b.style.background = 'rgba(34, 197, 94, 0.1)';
+                }
+            });
         }
-        // Dim options, disable
-        const btns = document.querySelectorAll('.option-btn');
-        btns.forEach(b => {
-            b.style.opacity = '0.45';
-            b.style.pointerEvents = 'none';
-        });
-        // Add retry button
-        const retryBtn = document.createElement('button');
-        retryBtn.className = 'btn-main';
-        retryBtn.style.marginTop = '14px';
-        retryBtn.textContent = 'Try Again';
-        retryBtn.onclick = () => {
-            btns.forEach(b => { b.style.opacity='1'; b.style.pointerEvents='auto'; });
-            retryBtn.remove();
-            document.getElementById('wrong-notice').style.display = 'none';
+        
+        // Add Next button
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'btn-main';
+        nextBtn.style.marginTop = '14px';
+        nextBtn.textContent = 'Next Question ➔';
+        nextBtn.onclick = () => {
+            notice.style.display = 'none';
+            nextBtn.remove();
+            nextQuestion();
         };
-        document.getElementById('q-options').appendChild(retryBtn);
+        document.getElementById('q-options').appendChild(nextBtn);
+    }
+}
+
+function nextQuestion() {
+    currentIdx++;
+    if (currentIdx >= totalQ) {
+        showResult();
+    } else {
+        renderQuestion();
     }
 }
 
@@ -1129,7 +1575,6 @@ function showResult() {
     breakdown.innerHTML = `
         <div class="breakdown-item"><div class="val">${score}</div><div class="lbl">Correct</div></div>
         <div class="breakdown-item"><div class="val">${totalQ - score}</div><div class="lbl">Wrong</div></div>
-        <div class="breakdown-item"><div class="val">${wrongCount}</div><div class="lbl">Retries</div></div>
         <div class="breakdown-item"><div class="val">${pct}%</div><div class="lbl">Score</div></div>
     `;
 }
