@@ -5,7 +5,7 @@ This project demonstrates the use of HTML, CSS, and JavaScript to create a funct
 
 ## 🚀 Live Demo
 You can view the live project here:
-[https://gyash28.github.io/WD_practical_no_20/](https://gyash28.github.io/WD_practical_no_20/webdesign_quiz.html)
+[https://gyash28.github.io/WD_practical_no_20/](https://gyash28.github.io/WD_practical_no_20/)
 
 ## 🛠️ Features
 - **Responsive Design:** Works on both desktop and mobile browsers.
