@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Designing Quiz | CWIT</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-dark: #050505;
@@ -24,7 +27,11 @@
             --font-heading: 'Outfit', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: var(--font-main);
@@ -32,7 +39,7 @@
             color: var(--text-main);
             min-height: 100vh;
             overflow-x: hidden;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15), transparent 25%),
                 radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15), transparent 25%);
             background-attachment: fixed;
@@ -47,13 +54,42 @@
             opacity: 0.6;
             animation: float 10s infinite alternate;
         }
-        .blob-1 { top: -10%; left: -10%; width: 40vw; height: 40vw; background: rgba(99, 102, 241, 0.2); }
-        .blob-2 { bottom: -10%; right: -10%; width: 50vw; height: 50vw; background: rgba(168, 85, 247, 0.15); animation-delay: -5s; }
-        .blob-3 { top: 40%; left: 50%; width: 30vw; height: 30vw; background: rgba(236, 72, 153, 0.1); transform: translate(-50%, -50%); animation-duration: 15s; }
+
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 40vw;
+            height: 40vw;
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: rgba(168, 85, 247, 0.15);
+            animation-delay: -5s;
+        }
+
+        .blob-3 {
+            top: 40%;
+            left: 50%;
+            width: 30vw;
+            height: 30vw;
+            background: rgba(236, 72, 153, 0.1);
+            transform: translate(-50%, -50%);
+            animation-duration: 15s;
+        }
 
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 50px) scale(1.1); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(30px, 50px) scale(1.1);
+            }
         }
 
         /* HEADER */
@@ -70,7 +106,7 @@
             top: 0;
             z-index: 100;
         }
-        
+
         .header-brand {
             display: flex;
             flex-direction: column;
@@ -85,6 +121,7 @@
             -webkit-text-fill-color: transparent;
             letter-spacing: 0.5px;
         }
+
         header p {
             font-size: 0.75rem;
             color: var(--text-muted);
@@ -93,8 +130,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
-        nav { display: flex; gap: 12px; }
+
+        nav {
+            display: flex;
+            gap: 12px;
+        }
+
         nav button {
             background: transparent;
             border: 1px solid var(--glass-border);
@@ -109,32 +150,59 @@
             position: relative;
             overflow: hidden;
         }
+
         nav button::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            opacity: 0; transition: opacity 0.3s; z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
         }
-        nav button:hover { color: #fff; border-color: rgba(255,255,255,0.3); transform: translateY(-1px); }
+
+        nav button:hover {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
         nav button.active {
             color: #fff;
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
         }
-        nav button.active::before { opacity: 1; }
+
+        nav button.active::before {
+            opacity: 1;
+        }
 
         /* PAGE CONTAINER */
-        .page { 
-            display: none; 
-            padding: 3rem 5%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
+        .page {
+            display: none;
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
             animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .page.active { display: block; }
+
+        .page.active {
+            display: block;
+        }
 
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* GLASS CARD UTILITY */
@@ -155,14 +223,19 @@
             position: relative;
             overflow: hidden;
         }
+
         .home-hero::after {
             content: '';
             position: absolute;
-            top: 0; right: 0; width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%);
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
+
         .home-hero h2 {
             font-family: var(--font-heading);
             font-size: 3rem;
@@ -172,6 +245,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .home-hero p {
             color: var(--text-muted);
             font-size: 1.1rem;
@@ -179,8 +253,9 @@
             max-width: 700px;
             margin: 0 auto 2rem;
         }
-        
-        .btn-main, .btn-outline {
+
+        .btn-main,
+        .btn-outline {
             font-family: var(--font-main);
             font-weight: 600;
             padding: 14px 32px;
@@ -194,24 +269,30 @@
             justify-content: center;
             gap: 8px;
         }
+
         .btn-main {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
         }
+
         .btn-main:hover {
             transform: translateY(-2px) scale(1.02);
             box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
         }
-        .btn-main:active { transform: translateY(1px); }
-        
+
+        .btn-main:active {
+            transform: translateY(1px);
+        }
+
         .btn-outline {
             background: rgba(255, 255, 255, 0.05);
             color: #fff;
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
         }
+
         .btn-outline:hover {
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.4);
@@ -229,12 +310,13 @@
             flex-wrap: wrap;
             gap: 15px;
         }
+
         .credits strong {
             color: #e2e8f0;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             padding: 4px 10px;
             border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* UNIT CARDS */
@@ -243,6 +325,7 @@
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
         }
+
         .unit-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -252,19 +335,25 @@
             position: relative;
             overflow: hidden;
         }
+
         .unit-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
             background: linear-gradient(to bottom, var(--primary), var(--accent));
             border-radius: 4px 0 0 4px;
         }
+
         .unit-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 20px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.2);
         }
+
         .unit-card h4 {
             color: var(--secondary);
             font-size: 0.8rem;
@@ -273,12 +362,14 @@
             margin-bottom: 0.5rem;
             font-weight: 700;
         }
+
         .unit-card h3 {
             font-family: var(--font-heading);
             font-size: 1.25rem;
             color: #fff;
             margin-bottom: 0.75rem;
         }
+
         .unit-card p {
             font-size: 0.9rem;
             color: var(--text-muted);
@@ -291,11 +382,12 @@
             gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 2rem;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.2);
             padding: 10px;
             border-radius: 16px;
             border: 1px solid var(--glass-border);
         }
+
         .tab-btn {
             padding: 10px 20px;
             border: 1px solid transparent;
@@ -308,14 +400,22 @@
             transition: all 0.3s;
             font-family: var(--font-main);
         }
-        .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+
+        .tab-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
         .tab-btn.active {
             background: var(--primary);
             color: white;
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
         }
 
-        .note-content { padding: 3rem; }
+        .note-content {
+            padding: 3rem;
+        }
+
         .note-content h2 {
             font-family: var(--font-heading);
             color: #fff;
@@ -325,14 +425,15 @@
             border-bottom: 1px solid var(--glass-border);
             display: inline-block;
         }
-        
+
         .note-section {
             margin-bottom: 2.5rem;
-            background: rgba(0,0,0,0.15);
+            background: rgba(0, 0, 0, 0.15);
             padding: 1.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.03);
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
+
         .note-section h3 {
             font-family: var(--font-heading);
             font-size: 1.1rem;
@@ -342,22 +443,33 @@
             align-items: center;
             gap: 10px;
         }
+
         .note-section h3::before {
             content: '';
             display: block;
-            width: 8px; height: 8px;
+            width: 8px;
+            height: 8px;
             background: var(--accent);
             border-radius: 50%;
             box-shadow: 0 0 10px var(--accent);
         }
-        .note-section p, .note-section li {
+
+        .note-section p,
+        .note-section li {
             font-size: 0.95rem;
             color: #cbd5e1;
             line-height: 1.8;
         }
-        .note-section ul { padding-left: 1.5rem; margin-top: 0.5rem; }
-        .note-section li { margin-bottom: 0.5rem; }
-        
+
+        .note-section ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .note-section li {
+            margin-bottom: 0.5rem;
+        }
+
         .note-table {
             width: 100%;
             border-collapse: separate;
@@ -367,6 +479,7 @@
             overflow: hidden;
             border: 1px solid var(--glass-border);
         }
+
         .note-table th {
             background: rgba(99, 102, 241, 0.2);
             color: #fff;
@@ -374,10 +487,11 @@
             text-align: left;
             font-weight: 600;
         }
+
         .note-table td {
             padding: 12px 15px;
             color: #cbd5e1;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.2);
             border-top: 1px solid var(--glass-border);
         }
 
@@ -388,25 +502,28 @@
             padding: 3rem;
             text-align: center;
         }
+
         .quiz-setup h2 {
             font-family: var(--font-heading);
             font-size: 2rem;
             color: #fff;
             margin-bottom: 1rem;
         }
+
         .quiz-setup p {
             color: var(--text-muted);
             margin-bottom: 2rem;
         }
-        
+
         .setup-options {
             text-align: left;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0, 0, 0, 0.2);
             padding: 2rem;
             border-radius: 16px;
             border: 1px solid var(--glass-border);
             margin-bottom: 2rem;
         }
+
         .setup-options label.title {
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -416,11 +533,12 @@
             margin-bottom: 10px;
             display: block;
         }
+
         .setup-options select {
             width: 100%;
             padding: 12px 15px;
             background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             color: #fff;
             font-family: var(--font-main);
@@ -429,14 +547,21 @@
             outline: none;
             transition: border-color 0.3s;
         }
-        .setup-options select:focus { border-color: var(--primary); }
-        .setup-options select option { background: #0f172a; }
-        
+
+        .setup-options select:focus {
+            border-color: var(--primary);
+        }
+
+        .setup-options select option {
+            background: #0f172a;
+        }
+
         .radio-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
+
         .radio-label {
             display: flex;
             align-items: center;
@@ -444,26 +569,37 @@
             cursor: pointer;
             padding: 12px 15px;
             border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
-            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
             transition: all 0.2s;
         }
-        .radio-label:hover { background: rgba(255,255,255,0.05); }
+
+        .radio-label:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
         .radio-label input[type=radio] {
             appearance: none;
-            width: 18px; height: 18px;
+            width: 18px;
+            height: 18px;
             border: 2px solid var(--text-muted);
             border-radius: 50%;
             outline: none;
             position: relative;
         }
+
         .radio-label input[type=radio]:checked {
             border-color: var(--primary);
         }
+
         .radio-label input[type=radio]:checked::after {
-            content: ''; position: absolute;
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 10px; height: 10px;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
             background: var(--primary);
             border-radius: 50%;
         }
@@ -473,12 +609,14 @@
             padding: 3rem;
             position: relative;
         }
+
         .quiz-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1.5rem;
         }
+
         .quiz-meta span {
             font-size: 0.75rem;
             font-weight: 700;
@@ -491,24 +629,26 @@
             margin-right: 8px;
             box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
         }
+
         .quiz-counter {
             font-size: 0.9rem;
             font-weight: 600;
             color: var(--text-muted);
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             padding: 5px 12px;
             border-radius: 20px;
         }
-        
+
         .progress-bar {
             width: 100%;
             height: 6px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             margin-bottom: 2.5rem;
             overflow: hidden;
             position: relative;
         }
+
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--primary), var(--accent));
@@ -516,12 +656,27 @@
             transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
+
         .progress-fill::after {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             animation: shimmer 1.5s infinite;
         }
-        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
 
         .question-text {
             font-family: var(--font-heading);
@@ -530,10 +685,15 @@
             color: #fff;
             line-height: 1.5;
             margin-bottom: 2rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        .options-list { display: flex; flex-direction: column; gap: 12px; }
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
         .option-btn {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -549,22 +709,28 @@
             gap: 15px;
             font-family: var(--font-main);
         }
+
         .option-btn:hover {
             border-color: var(--primary);
             background: rgba(99, 102, 241, 0.1);
             transform: translateX(5px);
         }
+
         .option-btn .opt-label {
-            width: 32px; height: 32px;
+            width: 32px;
+            height: 32px;
             border-radius: 8px;
-            background: rgba(255,255,255,0.05);
-            display: flex; align-items: center; justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 0.85rem;
             font-weight: 700;
             color: var(--primary);
             flex-shrink: 0;
             transition: all 0.2s;
         }
+
         .option-btn:hover .opt-label {
             background: var(--primary);
             color: #fff;
@@ -581,11 +747,27 @@
             display: none;
             animation: shake 0.4s;
         }
-        .wrong-msg strong { display: block; margin-bottom: 6px; color: #ef4444; }
+
+        .wrong-msg strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #ef4444;
+        }
+
         @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
         }
 
         /* RESULT PAGE */
@@ -595,14 +777,25 @@
             position: relative;
             overflow: hidden;
         }
+
         .result-box::before {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(99,102,241,0.1) 360deg);
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(99, 102, 241, 0.1) 360deg);
             animation: rotate 10s linear infinite;
             z-index: -1;
         }
-        @keyframes rotate { 100% { transform: rotate(360deg); } }
-        
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
         .result-score {
             font-family: var(--font-heading);
             font-size: 4.5rem;
@@ -611,10 +804,15 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 1rem 0;
-            text-shadow: 0 10px 30px rgba(99,102,241,0.3);
+            text-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
         }
-        #result-msg { font-size: 1.2rem; color: #c4b5fd; margin-bottom: 2.5rem; }
-        
+
+        #result-msg {
+            font-size: 1.2rem;
+            color: #c4b5fd;
+            margin-bottom: 2.5rem;
+        }
+
         .result-breakdown {
             display: flex;
             justify-content: center;
@@ -622,15 +820,29 @@
             flex-wrap: wrap;
             margin-bottom: 3rem;
         }
+
         .breakdown-item {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             padding: 1.5rem;
             min-width: 120px;
         }
-        .breakdown-item .val { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 5px; font-family: var(--font-heading); }
-        .breakdown-item .lbl { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+
+        .breakdown-item .val {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+            font-family: var(--font-heading);
+        }
+
+        .breakdown-item .lbl {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
 
         footer {
             text-align: center;
@@ -639,946 +851,1261 @@
             color: var(--text-muted);
             border-top: 1px solid var(--glass-border);
             margin-top: 5rem;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
         }
 
-        .tab-content { display: none; animation: fadeIn 0.4s; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s;
+        }
 
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page {
+                padding: 1.5rem 5%;
+            }
+
+            .home-hero {
+                padding: 2rem 1rem;
+            }
+
+            .home-hero h2 {
+                font-size: 2rem;
+            }
+
+            .note-content,
+            .quiz-setup,
+            .quiz-box,
+            .result-box {
+                padding: 1.5rem;
+            }
+
+            #report>.glass-card {
+                padding: 1.5rem !important;
+            }
+
+            #report h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .result-score {
+                font-size: 3rem;
+            }
+
+            .credits {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .credits strong {
+                text-align: center;
+            }
+
+            .setup-options {
+                padding: 1.5rem;
+            }
+
+            .btn-main,
+            .btn-outline {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
     </style>
 
 </head>
+
 <body>
-<!-- Ambient Background elements -->
-<div class="ambient-blob blob-1"></div>
-<div class="ambient-blob blob-2"></div>
-<div class="ambient-blob blob-3"></div>
+    <!-- Ambient Background elements -->
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div class="ambient-blob blob-3"></div>
 
-<header>
-    <div class="header-brand">
-        <h1>Web Designing Quiz</h1>
-        <p>CWIT, Pune • Units 1-6</p>
-    </div>
-    <nav>
-        <button onclick="showPage('home')" id="btn-home" class="active">Home</button>
-        <button onclick="showPage('notes')" id="btn-notes">Notes</button>
-        <button onclick="showPage('report')" id="btn-report">Report</button>
-        <button onclick="startQuiz()" id="btn-quiz">Start Quiz</button>
-    </nav>
-</header>
+    <header>
+        <div class="header-brand">
+            <h1>Web Designing Quiz</h1>
+            <p>CWIT, Pune • Units 1-6</p>
+        </div>
+        <nav>
+            <button onclick="showPage('home')" id="btn-home" class="active">Home</button>
+            <button onclick="showPage('notes')" id="btn-notes">Notes</button>
+            <button onclick="showPage('report')" id="btn-report">Report</button>
+            <button onclick="startQuiz()" id="btn-quiz">Start Quiz</button>
+        </nav>
+    </header>
 
 
 
-<div id="home" class="page active">
-    <div class="home-hero glass-card">
-        <h2>Web Designing Masterclass</h2>
-        <p>Elevate your knowledge across all 6 units of Web Designing. Engage with our interactive quiz featuring 25 hand-picked questions, or dive deep into comprehensive notes.</p>
-        <button class="btn-main" onclick="startQuiz()">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            Start Quiz Challenge
-        </button>
-        <button class="btn-outline" onclick="showPage('notes')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-            Browse Course Notes
-        </button>
-        <div class="credits">
-            Crafted by:
-            <strong>Yash Krishna Ganesh (255044)</strong>
-            <strong>Swarit Pawar (255042)</strong>
-            <strong>Shreyash Sangawade (255047)</strong>
-            <strong>Shreyash Asalkar (255028)</strong>
-            <span>Div A, CWIT</span>
+    <div id="home" class="page active">
+        <div class="home-hero glass-card">
+            <h2>Web Designing Masterclass</h2>
+            <p>Elevate your knowledge across all 6 units of Web Designing. Engage with our interactive quiz featuring 25
+                hand-picked questions, or dive deep into comprehensive notes.</p>
+            <button class="btn-main" onclick="startQuiz()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                Start Quiz Challenge
+            </button>
+            <button class="btn-outline" onclick="showPage('notes')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                Browse Course Notes
+            </button>
+            <div class="credits">
+                Crafted by:
+                <strong>Yash Krishna Ganesh (255044)</strong>
+                <strong>Swarit Pawar (255042)</strong>
+                <strong>Shreyash Sangawade (255047)</strong>
+                <strong>Shreyash Asalkar (255028)</strong>
+                <span>Div A, CWIT</span>
+            </div>
+        </div>
+        <div class="unit-cards">
+            <div class="unit-card">
+                <h4>Unit 1</h4>
+                <h3>Introduction to Web</h3>
+                <p>Master HTML basics, structuring elements, heading tags, block formatting, and foundational web
+                    concepts.</p>
+            </div>
+            <div class="unit-card">
+                <h4>Unit 2</h4>
+                <h3>Lists & Linking</h3>
+                <p>Explore ordered and unordered lists, description lists, anchor tags, navigation, and page linking
+                    states.</p>
+            </div>
+            <div class="unit-card">
+                <h4>Unit 3</h4>
+                <h3>Multimedia Elements</h3>
+                <p>Integrate image formats, master color codes, apply CSS borders, padding, and dynamic background
+                    properties.</p>
+            </div>
+            <div class="unit-card">
+                <h4>Unit 4</h4>
+                <h3>Tables & Forms</h3>
+                <p>Construct complex HTML tables, utilize iframes, and build interactive user forms with various inputs.
+                </p>
+            </div>
+            <div class="unit-card">
+                <h4>Unit 5</h4>
+                <h3>HTML Style (CSS)</h3>
+                <p>Dive into CSS syntax, box model, advanced positioning, z-index layering, and stunning keyframe
+                    animations.</p>
+            </div>
+            <div class="unit-card">
+                <h4>Unit 6</h4>
+                <h3>Design Tools</h3>
+                <p>Learn Photoshop mechanics, Adobe XD vs Procreate, HTTP protocols, web hosting, and DNS architecture.
+                </p>
+            </div>
         </div>
     </div>
-    <div class="unit-cards">
-        <div class="unit-card">
-            <h4>Unit 1</h4>
-            <h3>Introduction to Web</h3>
-            <p>Master HTML basics, structuring elements, heading tags, block formatting, and foundational web concepts.</p>
-        </div>
-        <div class="unit-card">
-            <h4>Unit 2</h4>
-            <h3>Lists & Linking</h3>
-            <p>Explore ordered and unordered lists, description lists, anchor tags, navigation, and page linking states.</p>
-        </div>
-        <div class="unit-card">
-            <h4>Unit 3</h4>
-            <h3>Multimedia Elements</h3>
-            <p>Integrate image formats, master color codes, apply CSS borders, padding, and dynamic background properties.</p>
-        </div>
-        <div class="unit-card">
-            <h4>Unit 4</h4>
-            <h3>Tables & Forms</h3>
-            <p>Construct complex HTML tables, utilize iframes, and build interactive user forms with various inputs.</p>
-        </div>
-        <div class="unit-card">
-            <h4>Unit 5</h4>
-            <h3>HTML Style (CSS)</h3>
-            <p>Dive into CSS syntax, box model, advanced positioning, z-index layering, and stunning keyframe animations.</p>
-        </div>
-        <div class="unit-card">
-            <h4>Unit 6</h4>
-            <h3>Design Tools</h3>
-            <p>Learn Photoshop mechanics, Adobe XD vs Procreate, HTTP protocols, web hosting, and DNS architecture.</p>
-        </div>
-    </div>
-</div>
-
-</div>
-
-<div id="notes" class="page">
-    <div class="notes-tabs">
-        <button class="tab-btn active" onclick="showTab('t1', this)">Unit 1 - HTML Basics</button>
-        <button class="tab-btn" onclick="showTab('t2', this)">Unit 2 - Lists & Links</button>
-        <button class="tab-btn" onclick="showTab('t3', this)">Unit 3 - Multimedia</button>
-        <button class="tab-btn" onclick="showTab('t4', this)">Unit 4 - Tables & Forms</button>
-        <button class="tab-btn" onclick="showTab('t5', this)">Unit 5 - CSS</button>
-        <button class="tab-btn" onclick="showTab('t6', this)">Unit 6 - Tools & Hosting</button>
-    </div>
-    <div class="note-content glass-card">
-
-        <div id="t1" class="tab-content active">
-            <h2>Unit 1 – Introduction to Web Designing</h2>
-            <div class="note-section">
-                <h3>1.1 What is HTML?</h3>
-                <p>The first version of HTML was written by <strong>Tim Berners-Lee in 1993</strong>. HTML stands for <strong>Hyper Text Markup Language</strong>. It is the standard markup language for creating web pages. HTML describes the structure of a web page using a series of elements.</p>
-            </div>
-            <div class="note-section">
-                <h3>1.2 Basic Web Terms</h3>
-                <ul>
-                    <li><strong>Web Page:</strong> A document displayed in a web browser, written in HTML.</li>
-                    <li><strong>Website:</strong> A collection of web pages grouped together with links connecting them.</li>
-                    <li><strong>Web Server:</strong> A computer that hosts a website on the Internet.</li>
-                    <li><strong>Search Engine:</strong> A web service that helps you find other web pages (Google, Bing, Yahoo).</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>1.3 Structure of an HTML Page</h3>
-                <table class="note-table">
-                    <tr><th>Tag</th><th>Purpose</th><th>Type</th></tr>
-                    <tr><td>&lt;!DOCTYPE html&gt;</td><td>Specifies HTML5 version</td><td>Unpaired</td></tr>
-                    <tr><td>&lt;html&gt;</td><td>Root element, wraps all HTML content</td><td>Paired</td></tr>
-                    <tr><td>&lt;head&gt;</td><td>Contains title, CSS/JS links</td><td>Paired</td></tr>
-                    <tr><td>&lt;title&gt;</td><td>Title shown in browser tab — placed inside &lt;head&gt;</td><td>Paired</td></tr>
-                    <tr><td>&lt;body&gt;</td><td>All visible content goes here</td><td>Paired</td></tr>
-                </table>
-            </div>
-            <div class="note-section">
-                <h3>1.4 Heading Tags</h3>
-                <p>HTML provides 6 levels of headings: &lt;h1&gt; to &lt;h6&gt;. <strong>&lt;h1&gt; is the largest/most important</strong>, &lt;h6&gt; is the smallest. All are paired tags.</p>
-            </div>
-            <div class="note-section">
-                <h3>1.5 Other Block-Level Tags</h3>
-                <ul>
-                    <li><strong>&lt;p&gt;:</strong> Paragraph tag — creates paragraphs with spacing.</li>
-                    <li><strong>&lt;pre&gt;:</strong> Preformatted text — preserves spaces and line breaks. Fixed-width font.</li>
-                    <li><strong>&lt;br&gt;:</strong> Line break — unpaired tag, no closing tag.</li>
-                    <li><strong>&lt;hr&gt;:</strong> Horizontal rule — draws a horizontal line.</li>
-                    <li><strong>&lt;center&gt;:</strong> Centers text (not supported in HTML5, use CSS instead).</li>
-                    <li><strong>&lt;div&gt;:</strong> Block-level container element.</li>
-                    <li><strong>&lt;span&gt;:</strong> Inline container element.</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>1.6 Formatting Tags</h3>
-                <ul>
-                    <li><strong>&lt;b&gt;:</strong> Physical bold (just visual)</li>
-                    <li><strong>&lt;strong&gt;:</strong> Logical bold — implies high importance (used for SEO)</li>
-                    <li><strong>&lt;i&gt;:</strong> Physical italic</li>
-                    <li><strong>&lt;em&gt;:</strong> Logical italic — emphasis</li>
-                    <li><strong>&lt;mark&gt;:</strong> Highlights text with yellow background</li>
-                    <li><strong>&lt;img&gt;:</strong> Image tag — unpaired tag</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="t2" class="tab-content">
-            <h2>Unit 2 – Lists and Linking HTML Documents</h2>
-            <div class="note-section">
-                <h3>2.1 Types of Lists</h3>
-                <table class="note-table">
-                    <tr><th>Type</th><th>Tag</th><th>Description</th></tr>
-                    <tr><td>Ordered List</td><td>&lt;ol&gt;</td><td>Numbered list (1, I, i, A, a)</td></tr>
-                    <tr><td>Unordered List</td><td>&lt;ul&gt;</td><td>Bulleted list (disc, circle, square, none)</td></tr>
-                    <tr><td>Description List</td><td>&lt;dl&gt;</td><td>Term-definition format like a dictionary</td></tr>
-                    <tr><td>List Item</td><td>&lt;li&gt;</td><td>Used inside &lt;ol&gt; and &lt;ul&gt;</td></tr>
-                    <tr><td>Data Term</td><td>&lt;dt&gt;</td><td>Used inside &lt;dl&gt; for the term</td></tr>
-                    <tr><td>Data Definition</td><td>&lt;dd&gt;</td><td>Used inside &lt;dl&gt; for the description</td></tr>
-                </table>
-            </div>
-            <div class="note-section">
-                <h3>2.2 Anchor Tag (Linking)</h3>
-                <ul>
-                    <li>The anchor tag <strong>&lt;a href="..."&gt;</strong> creates hyperlinks to other pages or URLs.</li>
-                    <li><strong>href</strong> = Hypertext Reference — points to destination page.</li>
-                    <li><strong>target="_blank"</strong> opens link in a new tab.</li>
-                    <li><strong>target="_self"</strong> opens in the same tab (default).</li>
-                    <li><strong>target="_parent"</strong> opens in parent frame.</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>2.3 Link States / Appearance</h3>
-                <ul>
-                    <li><strong>Unvisited link:</strong> Underlined and Blue</li>
-                    <li><strong>Visited link:</strong> Underlined and Purple</li>
-                    <li><strong>Active link:</strong> Underlined and Red</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>2.4 Marquee</h3>
-                <ul>
-                    <li>Default marquee speed = <strong>6px per second</strong></li>
-                    <li><strong>scrollamount</strong> attribute changes speed</li>
-                    <li><strong>scrolldelay</strong> adds delay between scrolls</li>
-                    <li>Stop on mouseover: <code>onmouseover="stop()"</code></li>
-                    <li>Start on mouseout: <code>onmouseout="start()"</code></li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>2.5 Special Characters</h3>
-                <ul>
-                    <li><strong>&amp;nbsp;</strong> = Non-breaking space</li>
-                    <li><strong>&amp;ensp;</strong> = En space</li>
-                    <li><strong>&amp;emsp;</strong> = Em space (wider)</li>
-                    <li><strong>&lt;nav&gt;</strong> tag groups navigation links</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="t3" class="tab-content">
-            <h2>Unit 3 – Multimedia Elements</h2>
-            <div class="note-section">
-                <h3>3.1 Image Formats</h3>
-                <table class="note-table">
-                    <tr><th>Format</th><th>Full Name</th><th>Key Feature</th></tr>
-                    <tr><td>JPEG</td><td>Joint Photographic Experts Group</td><td>Lossy compression, good for photos</td></tr>
-                    <tr><td>GIF</td><td>Graphics Interchange Format</td><td>Supports animation, 256 colors</td></tr>
-                    <tr><td>PNG</td><td>Portable Network Graphics</td><td>Lossless, replaced GIF, supports transparency</td></tr>
-                    <tr><td>BMP</td><td>Bitmap</td><td>Lossless, large file size</td></tr>
-                </table>
-            </div>
-            <div class="note-section">
-                <h3>3.2 Color Codes</h3>
-                <table class="note-table">
-                    <tr><th>Color</th><th>Hex Code</th><th>RGB Code</th></tr>
-                    <tr><td>Black</td><td>#000000</td><td>rgb(0, 0, 0)</td></tr>
-                    <tr><td>Red</td><td>#FF0000</td><td>rgb(255, 0, 0)</td></tr>
-                    <tr><td>Yellow</td><td>#FFFF00</td><td>rgb(255, 255, 0)</td></tr>
-                    <tr><td>White</td><td>#FFFFFF</td><td>rgb(255, 255, 255)</td></tr>
-                    <tr><td>Maroon</td><td>#800000</td><td>rgb(128, 0, 0)</td></tr>
-                </table>
-            </div>
-            <div class="note-section">
-                <h3>3.3 CSS Background Properties</h3>
-                <ul>
-                    <li><strong>background-color:</strong> Sets background color</li>
-                    <li><strong>background-image:</strong> Sets an image as background</li>
-                    <li><strong>background-repeat: repeat-x:</strong> Repeats image horizontally</li>
-                    <li><strong>background-repeat: repeat-y:</strong> Repeats image vertically</li>
-                    <li><strong>background-repeat: no-repeat:</strong> Shows image once only</li>
-                    <li><strong>background-attachment: fixed:</strong> Image stays fixed while scrolling</li>
-                    <li><strong>background-attachment: scroll:</strong> Image scrolls with the page</li>
-                    <li><strong>background-position:</strong> Sets position of background image</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>3.4 CSS Border Styles</h3>
-                <p>Values for border-style: <strong>dotted, dashed, solid, double, groove, ridge, inset, outset, none, hidden</strong></p>
-                <p style="margin-top:6px;"><strong>groove</strong> = 3D grooved effect | <strong>ridge</strong> = 3D ridged effect | <strong>inset</strong> = 3D inset | <strong>outset</strong> = 3D outset</p>
-                <p style="margin-top:6px;"><strong>border-radius: 50%</strong> makes an image appear as a circle.</p>
-            </div>
-            <div class="note-section">
-                <h3>3.5 CSS Padding</h3>
-                <p>Padding creates space around an element's content, <strong>inside</strong> any defined borders. Properties: padding-top, padding-right, padding-bottom, padding-left. Negative values are NOT allowed.</p>
-            </div>
-        </div>
-
-        <div id="t4" class="tab-content">
-            <h2>Unit 4 – Table, Frames and Forms</h2>
-            <div class="note-section">
-                <h3>4.1 HTML Table Tags</h3>
-                <table class="note-table">
-                    <tr><th>Tag</th><th>Purpose</th></tr>
-                    <tr><td>&lt;table&gt;</td><td>Defines the table</td></tr>
-                    <tr><td>&lt;tr&gt;</td><td>Defines a table row</td></tr>
-                    <tr><td>&lt;th&gt;</td><td>Defines a header cell (bold, centered by default)</td></tr>
-                    <tr><td>&lt;td&gt;</td><td>Defines a data cell</td></tr>
-                    <tr><td>&lt;caption&gt;</td><td>Table caption</td></tr>
-                    <tr><td>&lt;thead&gt;</td><td>Groups header rows</td></tr>
-                    <tr><td>&lt;tbody&gt;</td><td>Groups body rows</td></tr>
-                    <tr><td>&lt;tfoot&gt;</td><td>Groups footer rows</td></tr>
-                </table>
-            </div>
-            <div class="note-section">
-                <h3>4.2 Table Attributes</h3>
-                <ul>
-                    <li><strong>border:</strong> Width of border around table</li>
-                    <li><strong>cellspacing:</strong> Space between cells</li>
-                    <li><strong>cellpadding:</strong> Space between cell wall and content</li>
-                    <li><strong>rowspan:</strong> Merges cells vertically (row-wise)</li>
-                    <li><strong>colspan:</strong> Merges cells horizontally (column-wise)</li>
-                    <li><strong>align:</strong> Aligns table to left, right, center</li>
-                    <li><strong>bgcolor:</strong> Background color of table/cell</li>
-                    <li><strong>valign:</strong> Vertical alignment — top, middle, bottom</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>4.3 HTML Forms</h3>
-                <ul>
-                    <li><strong>GET method:</strong> Appends form data to the URL (visible in address bar)</li>
-                    <li><strong>POST method:</strong> Sends form data in the request body (not visible in URL)</li>
-                    <li><strong>action attribute:</strong> Specifies where to send the form data</li>
-                    <li><strong>input type="text":</strong> Single line text input</li>
-                    <li><strong>input type="password":</strong> Obscured/hidden text input</li>
-                    <li><strong>input type="reset":</strong> Clears all form controls</li>
-                    <li><strong>input type="submit":</strong> Submits the form</li>
-                    <li><strong>&lt;select&gt;</strong> uses <strong>&lt;option&gt;</strong> tags for dropdown menu items</li>
-                    <li><strong>&lt;textarea&gt;:</strong> Multi-line text input</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>4.4 Frames / iFrame</h3>
-                <p><strong>&lt;iframe&gt;</strong> is used to embed another HTML document inside the current page. The src attribute specifies the URL of the embedded document.</p>
-            </div>
-        </div>
-
-        <div id="t5" class="tab-content">
-            <h2>Unit 5 – HTML Style (CSS)</h2>
-            <div class="note-section">
-                <h3>5.1 CSS Basics</h3>
-                <ul>
-                    <li>CSS = <strong>Cascading Style Sheet</strong></li>
-                    <li>Used to design and style HTML elements</li>
-                    <li>Syntax: <strong>selector { property: value; }</strong> — called a Declaration Block</li>
-                    <li>Three ways to insert CSS: <strong>External, Internal, Inline</strong></li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>5.2 CSS Box Model (inside to outside)</h3>
-                <p>Content &rarr; Padding &rarr; Border &rarr; Margin</p>
-                <ul>
-                    <li><strong>Content:</strong> Innermost — actual text/images</li>
-                    <li><strong>Padding:</strong> Space between content and border (transparent)</li>
-                    <li><strong>Border:</strong> Outline around padding</li>
-                    <li><strong>Margin:</strong> Outermost — space outside the border</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>5.3 Display, Position, Z-index</h3>
-                <ul>
-                    <li><strong>display: block</strong> — default for &lt;div&gt;</li>
-                    <li><strong>display: none</strong> — removes element from layout (space gone too)</li>
-                    <li><strong>visibility: hidden</strong> — hides element but <strong>keeps its space</strong></li>
-                    <li><strong>position: fixed</strong> — element stays in place while page scrolls</li>
-                    <li><strong>position: absolute</strong> — positioned relative to parent</li>
-                    <li><strong>position: relative</strong> — positioned relative to itself</li>
-                    <li><strong>z-index</strong> — controls stacking order (overlap order)</li>
-                    <li><strong>margin: auto</strong> — centers a block element horizontally</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>5.4 CSS Animations</h3>
-                <ul>
-                    <li>Animation steps are defined using <strong>@keyframes</strong> rule</li>
-                    <li><strong>animation-name:</strong> Name of the @keyframes</li>
-                    <li><strong>animation-duration:</strong> How long the animation runs</li>
-                    <li><strong>animation-delay:</strong> Delay before starting</li>
-                    <li><strong>animation-iteration-count:</strong> How many times to run</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>5.5 Margin vs Padding</h3>
-                <ul>
-                    <li><strong>Margin:</strong> Space outside the border — can be negative — auto is allowed</li>
-                    <li><strong>Padding:</strong> Space inside the border — cannot be negative</li>
-                    <li>Both have: top, right, bottom, left variants</li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="t6" class="tab-content">
-            <h2>Unit 6 – Website Designing Tools</h2>
-            <div class="note-section">
-                <h3>6.1 Photoshop Tools</h3>
-                <ul>
-                    <li><strong>Lasso Tool:</strong> Used for complex freehand selections</li>
-                    <li><strong>Magic Wand:</strong> Selects areas based on color similarity</li>
-                    <li><strong>Quick Select:</strong> Quickly selects a region</li>
-                    <li><strong>Clone Stamp:</strong> Copies/retouches pixels from one area to another</li>
-                    <li><strong>Healing Brush / Spot Healing:</strong> Fixes blemishes and spots</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>6.2 Adobe XD vs Procreate</h3>
-                <table class="note-table">
-                    <tr><th>Feature</th><th>Adobe XD</th><th>Procreate</th></tr>
-                    <tr><td>Purpose</td><td>UI/UX wireframing and prototyping</td><td>Digital painting and illustration</td></tr>
-                    <tr><td>Platform</td><td>Desktop + mobile</td><td>iPad/iPhone only</td></tr>
-                    <tr><td>Target</td><td>UI/UX Designers, developers</td><td>Artists, illustrators</td></tr>
-                </table>
-            </div>
-            <div class="note-section">
-                <h3>6.3 HTTP Protocol</h3>
-                <ul>
-                    <li>HTTP = <strong>Hypertext Transfer Protocol</strong></li>
-                    <li>HTTP is a <strong>stateless protocol</strong> (each request is independent)</li>
-                    <li>Uses client-server model — client requests, server responds</li>
-                    <li><strong>GET:</strong> Retrieves data from server</li>
-                    <li><strong>POST:</strong> Submits/creates data on server</li>
-                    <li><strong>PUT:</strong> Replaces an existing resource</li>
-                    <li><strong>DELETE:</strong> Deletes a resource</li>
-                    <li><strong>PATCH:</strong> Partially updates a resource</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>6.4 HTTP Status/Error Codes</h3>
-                <table class="note-table">
-                    <tr><th>Code</th><th>Meaning</th></tr>
-                    <tr><td>400</td><td>Bad Request</td></tr>
-                    <tr><td>401</td><td>Unauthorized</td></tr>
-                    <tr><td>403</td><td>Forbidden</td></tr>
-                    <tr><td>404</td><td>Not Found</td></tr>
-                    <tr><td>500</td><td>Internal Server Error</td></tr>
-                    <tr><td>503</td><td>Service Unavailable</td></tr>
-                    <tr><td>502</td><td>Bad Gateway</td></tr>
-                </table>
-            </div>
-            <div class="note-section">
-                <h3>6.5 Web Hosting</h3>
-                <ul>
-                    <li>Web hosting = renting/purchasing space on the web to host a website</li>
-                    <li><strong>Shared Hosting:</strong> Multiple websites share same server</li>
-                    <li><strong>VPS (Virtual Private Server):</strong> Dedicated virtual resources on shared hardware</li>
-                    <li><strong>Dedicated Hosting:</strong> Entire server dedicated to one user</li>
-                </ul>
-            </div>
-            <div class="note-section">
-                <h3>6.6 DNS (Domain Name System)</h3>
-                <ul>
-                    <li>DNS translates human-readable domain names into IP addresses</li>
-                    <li>There are <strong>13 different IP addresses</strong> that serve the DNS root zone</li>
-                    <li>Hundreds of redundant root servers exist worldwide</li>
-                </ul>
-            </div>
-        </div>
 
     </div>
-</div>
 
+    <div id="notes" class="page">
+        <div class="notes-tabs">
+            <button class="tab-btn active" onclick="showTab('t1', this)">Unit 1 - HTML Basics</button>
+            <button class="tab-btn" onclick="showTab('t2', this)">Unit 2 - Lists & Links</button>
+            <button class="tab-btn" onclick="showTab('t3', this)">Unit 3 - Multimedia</button>
+            <button class="tab-btn" onclick="showTab('t4', this)">Unit 4 - Tables & Forms</button>
+            <button class="tab-btn" onclick="showTab('t5', this)">Unit 5 - CSS</button>
+            <button class="tab-btn" onclick="showTab('t6', this)">Unit 6 - Tools & Hosting</button>
+        </div>
+        <div class="note-content glass-card">
 
-<div id="quiz" class="page">
-    <div id="quiz-setup" class="quiz-setup glass-card">
-        <h2>Configure Your Quiz</h2>
-        <p>Customize your learning experience. Select a specific unit to focus on, or test yourself across all topics.</p>
-        <div class="setup-options">
-            <div>
-                <label class="title">Target Syllabus</label>
-                <select id="unit-select">
-                    <option value="all">All Units (Comprehensive)</option>
-                    <option value="1">Unit 1 – Introduction to Web Designing</option>
-                    <option value="2">Unit 2 – Lists and Linking</option>
-                    <option value="3">Unit 3 – Multimedia Elements</option>
-                    <option value="4">Unit 4 – Tables and Forms</option>
-                    <option value="5">Unit 5 – CSS (HTML Style)</option>
-                    <option value="6">Unit 6 – Tools and Hosting</option>
-                </select>
-            </div>
-            <div>
-                <label class="title">Evaluation Mode</label>
-                <div class="radio-group">
-                    <label class="radio-label">
-                        <input type="radio" name="mode" value="practice" checked>
-                        <span><strong>Practice Mode</strong> — Reveals explanations and allows retries on wrong answers.</span>
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="mode" value="exam">
-                        <span><strong>Exam Mode</strong> — Strict evaluation. No hints, no second chances.</span>
-                    </label>
+            <div id="t1" class="tab-content active">
+                <h2>Unit 1 – Introduction to Web Designing</h2>
+                <div class="note-section">
+                    <h3>1.1 What is HTML?</h3>
+                    <p>The first version of HTML was written by <strong>Tim Berners-Lee in 1993</strong>. HTML stands
+                        for <strong>Hyper Text Markup Language</strong>. It is the standard markup language for creating
+                        web pages. HTML describes the structure of a web page using a series of elements.</p>
+                </div>
+                <div class="note-section">
+                    <h3>1.2 Basic Web Terms</h3>
+                    <ul>
+                        <li><strong>Web Page:</strong> A document displayed in a web browser, written in HTML.</li>
+                        <li><strong>Website:</strong> A collection of web pages grouped together with links connecting
+                            them.</li>
+                        <li><strong>Web Server:</strong> A computer that hosts a website on the Internet.</li>
+                        <li><strong>Search Engine:</strong> A web service that helps you find other web pages (Google,
+                            Bing, Yahoo).</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>1.3 Structure of an HTML Page</h3>
+                    <table class="note-table">
+                        <tr>
+                            <th>Tag</th>
+                            <th>Purpose</th>
+                            <th>Type</th>
+                        </tr>
+                        <tr>
+                            <td>&lt;!DOCTYPE html&gt;</td>
+                            <td>Specifies HTML5 version</td>
+                            <td>Unpaired</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;html&gt;</td>
+                            <td>Root element, wraps all HTML content</td>
+                            <td>Paired</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;head&gt;</td>
+                            <td>Contains title, CSS/JS links</td>
+                            <td>Paired</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;title&gt;</td>
+                            <td>Title shown in browser tab — placed inside &lt;head&gt;</td>
+                            <td>Paired</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;body&gt;</td>
+                            <td>All visible content goes here</td>
+                            <td>Paired</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="note-section">
+                    <h3>1.4 Heading Tags</h3>
+                    <p>HTML provides 6 levels of headings: &lt;h1&gt; to &lt;h6&gt;. <strong>&lt;h1&gt; is the
+                            largest/most important</strong>, &lt;h6&gt; is the smallest. All are paired tags.</p>
+                </div>
+                <div class="note-section">
+                    <h3>1.5 Other Block-Level Tags</h3>
+                    <ul>
+                        <li><strong>&lt;p&gt;:</strong> Paragraph tag — creates paragraphs with spacing.</li>
+                        <li><strong>&lt;pre&gt;:</strong> Preformatted text — preserves spaces and line breaks.
+                            Fixed-width font.</li>
+                        <li><strong>&lt;br&gt;:</strong> Line break — unpaired tag, no closing tag.</li>
+                        <li><strong>&lt;hr&gt;:</strong> Horizontal rule — draws a horizontal line.</li>
+                        <li><strong>&lt;center&gt;:</strong> Centers text (not supported in HTML5, use CSS instead).
+                        </li>
+                        <li><strong>&lt;div&gt;:</strong> Block-level container element.</li>
+                        <li><strong>&lt;span&gt;:</strong> Inline container element.</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>1.6 Formatting Tags</h3>
+                    <ul>
+                        <li><strong>&lt;b&gt;:</strong> Physical bold (just visual)</li>
+                        <li><strong>&lt;strong&gt;:</strong> Logical bold — implies high importance (used for SEO)</li>
+                        <li><strong>&lt;i&gt;:</strong> Physical italic</li>
+                        <li><strong>&lt;em&gt;:</strong> Logical italic — emphasis</li>
+                        <li><strong>&lt;mark&gt;:</strong> Highlights text with yellow background</li>
+                        <li><strong>&lt;img&gt;:</strong> Image tag — unpaired tag</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <button class="btn-main" onclick="beginQuiz()">Initialize Quiz</button>
-        <button class="btn-outline" onclick="showPage('home')">Return Home</button>
-    </div>
 
-    <div id="quiz-active" style="display:none; max-width:800px; margin:0 auto;">
-        <div class="quiz-box glass-card">
-            <div class="quiz-top">
-                <div class="quiz-meta">
-                    <span id="q-unit-tag">Unit 1</span>
-                    <span id="q-topic-tag">HTML Basics</span>
+            <div id="t2" class="tab-content">
+                <h2>Unit 2 – Lists and Linking HTML Documents</h2>
+                <div class="note-section">
+                    <h3>2.1 Types of Lists</h3>
+                    <table class="note-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Tag</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Ordered List</td>
+                            <td>&lt;ol&gt;</td>
+                            <td>Numbered list (1, I, i, A, a)</td>
+                        </tr>
+                        <tr>
+                            <td>Unordered List</td>
+                            <td>&lt;ul&gt;</td>
+                            <td>Bulleted list (disc, circle, square, none)</td>
+                        </tr>
+                        <tr>
+                            <td>Description List</td>
+                            <td>&lt;dl&gt;</td>
+                            <td>Term-definition format like a dictionary</td>
+                        </tr>
+                        <tr>
+                            <td>List Item</td>
+                            <td>&lt;li&gt;</td>
+                            <td>Used inside &lt;ol&gt; and &lt;ul&gt;</td>
+                        </tr>
+                        <tr>
+                            <td>Data Term</td>
+                            <td>&lt;dt&gt;</td>
+                            <td>Used inside &lt;dl&gt; for the term</td>
+                        </tr>
+                        <tr>
+                            <td>Data Definition</td>
+                            <td>&lt;dd&gt;</td>
+                            <td>Used inside &lt;dl&gt; for the description</td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="quiz-counter" id="q-counter">Q 1 / 25</div>
+                <div class="note-section">
+                    <h3>2.2 Anchor Tag (Linking)</h3>
+                    <ul>
+                        <li>The anchor tag <strong>&lt;a href="..."&gt;</strong> creates hyperlinks to other pages or
+                            URLs.</li>
+                        <li><strong>href</strong> = Hypertext Reference — points to destination page.</li>
+                        <li><strong>target="_blank"</strong> opens link in a new tab.</li>
+                        <li><strong>target="_self"</strong> opens in the same tab (default).</li>
+                        <li><strong>target="_parent"</strong> opens in parent frame.</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>2.3 Link States / Appearance</h3>
+                    <ul>
+                        <li><strong>Unvisited link:</strong> Underlined and Blue</li>
+                        <li><strong>Visited link:</strong> Underlined and Purple</li>
+                        <li><strong>Active link:</strong> Underlined and Red</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>2.4 Marquee</h3>
+                    <ul>
+                        <li>Default marquee speed = <strong>6px per second</strong></li>
+                        <li><strong>scrollamount</strong> attribute changes speed</li>
+                        <li><strong>scrolldelay</strong> adds delay between scrolls</li>
+                        <li>Stop on mouseover: <code>onmouseover="stop()"</code></li>
+                        <li>Start on mouseout: <code>onmouseout="start()"</code></li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>2.5 Special Characters</h3>
+                    <ul>
+                        <li><strong>&amp;nbsp;</strong> = Non-breaking space</li>
+                        <li><strong>&amp;ensp;</strong> = En space</li>
+                        <li><strong>&amp;emsp;</strong> = Em space (wider)</li>
+                        <li><strong>&lt;nav&gt;</strong> tag groups navigation links</li>
+                    </ul>
+                </div>
             </div>
-            <div class="progress-bar"><div class="progress-fill" id="q-progress" style="width:4%"></div></div>
-            
-            <div id="wrong-notice" class="wrong-msg">
-                <strong>Incorrect Answer Selected</strong>
-                <span id="wrong-explain"></span>
+
+            <div id="t3" class="tab-content">
+                <h2>Unit 3 – Multimedia Elements</h2>
+                <div class="note-section">
+                    <h3>3.1 Image Formats</h3>
+                    <table class="note-table">
+                        <tr>
+                            <th>Format</th>
+                            <th>Full Name</th>
+                            <th>Key Feature</th>
+                        </tr>
+                        <tr>
+                            <td>JPEG</td>
+                            <td>Joint Photographic Experts Group</td>
+                            <td>Lossy compression, good for photos</td>
+                        </tr>
+                        <tr>
+                            <td>GIF</td>
+                            <td>Graphics Interchange Format</td>
+                            <td>Supports animation, 256 colors</td>
+                        </tr>
+                        <tr>
+                            <td>PNG</td>
+                            <td>Portable Network Graphics</td>
+                            <td>Lossless, replaced GIF, supports transparency</td>
+                        </tr>
+                        <tr>
+                            <td>BMP</td>
+                            <td>Bitmap</td>
+                            <td>Lossless, large file size</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="note-section">
+                    <h3>3.2 Color Codes</h3>
+                    <table class="note-table">
+                        <tr>
+                            <th>Color</th>
+                            <th>Hex Code</th>
+                            <th>RGB Code</th>
+                        </tr>
+                        <tr>
+                            <td>Black</td>
+                            <td>#000000</td>
+                            <td>rgb(0, 0, 0)</td>
+                        </tr>
+                        <tr>
+                            <td>Red</td>
+                            <td>#FF0000</td>
+                            <td>rgb(255, 0, 0)</td>
+                        </tr>
+                        <tr>
+                            <td>Yellow</td>
+                            <td>#FFFF00</td>
+                            <td>rgb(255, 255, 0)</td>
+                        </tr>
+                        <tr>
+                            <td>White</td>
+                            <td>#FFFFFF</td>
+                            <td>rgb(255, 255, 255)</td>
+                        </tr>
+                        <tr>
+                            <td>Maroon</td>
+                            <td>#800000</td>
+                            <td>rgb(128, 0, 0)</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="note-section">
+                    <h3>3.3 CSS Background Properties</h3>
+                    <ul>
+                        <li><strong>background-color:</strong> Sets background color</li>
+                        <li><strong>background-image:</strong> Sets an image as background</li>
+                        <li><strong>background-repeat: repeat-x:</strong> Repeats image horizontally</li>
+                        <li><strong>background-repeat: repeat-y:</strong> Repeats image vertically</li>
+                        <li><strong>background-repeat: no-repeat:</strong> Shows image once only</li>
+                        <li><strong>background-attachment: fixed:</strong> Image stays fixed while scrolling</li>
+                        <li><strong>background-attachment: scroll:</strong> Image scrolls with the page</li>
+                        <li><strong>background-position:</strong> Sets position of background image</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>3.4 CSS Border Styles</h3>
+                    <p>Values for border-style: <strong>dotted, dashed, solid, double, groove, ridge, inset, outset,
+                            none, hidden</strong></p>
+                    <p style="margin-top:6px;"><strong>groove</strong> = 3D grooved effect | <strong>ridge</strong> = 3D
+                        ridged effect | <strong>inset</strong> = 3D inset | <strong>outset</strong> = 3D outset</p>
+                    <p style="margin-top:6px;"><strong>border-radius: 50%</strong> makes an image appear as a circle.
+                    </p>
+                </div>
+                <div class="note-section">
+                    <h3>3.5 CSS Padding</h3>
+                    <p>Padding creates space around an element's content, <strong>inside</strong> any defined borders.
+                        Properties: padding-top, padding-right, padding-bottom, padding-left. Negative values are NOT
+                        allowed.</p>
+                </div>
             </div>
-            
-            <p class="question-text" id="q-text">Loading...</p>
-            <div class="options-list" id="q-options"></div>
+
+            <div id="t4" class="tab-content">
+                <h2>Unit 4 – Table, Frames and Forms</h2>
+                <div class="note-section">
+                    <h3>4.1 HTML Table Tags</h3>
+                    <table class="note-table">
+                        <tr>
+                            <th>Tag</th>
+                            <th>Purpose</th>
+                        </tr>
+                        <tr>
+                            <td>&lt;table&gt;</td>
+                            <td>Defines the table</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;tr&gt;</td>
+                            <td>Defines a table row</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;th&gt;</td>
+                            <td>Defines a header cell (bold, centered by default)</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;td&gt;</td>
+                            <td>Defines a data cell</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;caption&gt;</td>
+                            <td>Table caption</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;thead&gt;</td>
+                            <td>Groups header rows</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;tbody&gt;</td>
+                            <td>Groups body rows</td>
+                        </tr>
+                        <tr>
+                            <td>&lt;tfoot&gt;</td>
+                            <td>Groups footer rows</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="note-section">
+                    <h3>4.2 Table Attributes</h3>
+                    <ul>
+                        <li><strong>border:</strong> Width of border around table</li>
+                        <li><strong>cellspacing:</strong> Space between cells</li>
+                        <li><strong>cellpadding:</strong> Space between cell wall and content</li>
+                        <li><strong>rowspan:</strong> Merges cells vertically (row-wise)</li>
+                        <li><strong>colspan:</strong> Merges cells horizontally (column-wise)</li>
+                        <li><strong>align:</strong> Aligns table to left, right, center</li>
+                        <li><strong>bgcolor:</strong> Background color of table/cell</li>
+                        <li><strong>valign:</strong> Vertical alignment — top, middle, bottom</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>4.3 HTML Forms</h3>
+                    <ul>
+                        <li><strong>GET method:</strong> Appends form data to the URL (visible in address bar)</li>
+                        <li><strong>POST method:</strong> Sends form data in the request body (not visible in URL)</li>
+                        <li><strong>action attribute:</strong> Specifies where to send the form data</li>
+                        <li><strong>input type="text":</strong> Single line text input</li>
+                        <li><strong>input type="password":</strong> Obscured/hidden text input</li>
+                        <li><strong>input type="reset":</strong> Clears all form controls</li>
+                        <li><strong>input type="submit":</strong> Submits the form</li>
+                        <li><strong>&lt;select&gt;</strong> uses <strong>&lt;option&gt;</strong> tags for dropdown menu
+                            items</li>
+                        <li><strong>&lt;textarea&gt;:</strong> Multi-line text input</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>4.4 Frames / iFrame</h3>
+                    <p><strong>&lt;iframe&gt;</strong> is used to embed another HTML document inside the current page.
+                        The src attribute specifies the URL of the embedded document.</p>
+                </div>
+            </div>
+
+            <div id="t5" class="tab-content">
+                <h2>Unit 5 – HTML Style (CSS)</h2>
+                <div class="note-section">
+                    <h3>5.1 CSS Basics</h3>
+                    <ul>
+                        <li>CSS = <strong>Cascading Style Sheet</strong></li>
+                        <li>Used to design and style HTML elements</li>
+                        <li>Syntax: <strong>selector { property: value; }</strong> — called a Declaration Block</li>
+                        <li>Three ways to insert CSS: <strong>External, Internal, Inline</strong></li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>5.2 CSS Box Model (inside to outside)</h3>
+                    <p>Content &rarr; Padding &rarr; Border &rarr; Margin</p>
+                    <ul>
+                        <li><strong>Content:</strong> Innermost — actual text/images</li>
+                        <li><strong>Padding:</strong> Space between content and border (transparent)</li>
+                        <li><strong>Border:</strong> Outline around padding</li>
+                        <li><strong>Margin:</strong> Outermost — space outside the border</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>5.3 Display, Position, Z-index</h3>
+                    <ul>
+                        <li><strong>display: block</strong> — default for &lt;div&gt;</li>
+                        <li><strong>display: none</strong> — removes element from layout (space gone too)</li>
+                        <li><strong>visibility: hidden</strong> — hides element but <strong>keeps its space</strong>
+                        </li>
+                        <li><strong>position: fixed</strong> — element stays in place while page scrolls</li>
+                        <li><strong>position: absolute</strong> — positioned relative to parent</li>
+                        <li><strong>position: relative</strong> — positioned relative to itself</li>
+                        <li><strong>z-index</strong> — controls stacking order (overlap order)</li>
+                        <li><strong>margin: auto</strong> — centers a block element horizontally</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>5.4 CSS Animations</h3>
+                    <ul>
+                        <li>Animation steps are defined using <strong>@keyframes</strong> rule</li>
+                        <li><strong>animation-name:</strong> Name of the @keyframes</li>
+                        <li><strong>animation-duration:</strong> How long the animation runs</li>
+                        <li><strong>animation-delay:</strong> Delay before starting</li>
+                        <li><strong>animation-iteration-count:</strong> How many times to run</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>5.5 Margin vs Padding</h3>
+                    <ul>
+                        <li><strong>Margin:</strong> Space outside the border — can be negative — auto is allowed</li>
+                        <li><strong>Padding:</strong> Space inside the border — cannot be negative</li>
+                        <li>Both have: top, right, bottom, left variants</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="t6" class="tab-content">
+                <h2>Unit 6 – Website Designing Tools</h2>
+                <div class="note-section">
+                    <h3>6.1 Photoshop Tools</h3>
+                    <ul>
+                        <li><strong>Lasso Tool:</strong> Used for complex freehand selections</li>
+                        <li><strong>Magic Wand:</strong> Selects areas based on color similarity</li>
+                        <li><strong>Quick Select:</strong> Quickly selects a region</li>
+                        <li><strong>Clone Stamp:</strong> Copies/retouches pixels from one area to another</li>
+                        <li><strong>Healing Brush / Spot Healing:</strong> Fixes blemishes and spots</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>6.2 Adobe XD vs Procreate</h3>
+                    <table class="note-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Adobe XD</th>
+                            <th>Procreate</th>
+                        </tr>
+                        <tr>
+                            <td>Purpose</td>
+                            <td>UI/UX wireframing and prototyping</td>
+                            <td>Digital painting and illustration</td>
+                        </tr>
+                        <tr>
+                            <td>Platform</td>
+                            <td>Desktop + mobile</td>
+                            <td>iPad/iPhone only</td>
+                        </tr>
+                        <tr>
+                            <td>Target</td>
+                            <td>UI/UX Designers, developers</td>
+                            <td>Artists, illustrators</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="note-section">
+                    <h3>6.3 HTTP Protocol</h3>
+                    <ul>
+                        <li>HTTP = <strong>Hypertext Transfer Protocol</strong></li>
+                        <li>HTTP is a <strong>stateless protocol</strong> (each request is independent)</li>
+                        <li>Uses client-server model — client requests, server responds</li>
+                        <li><strong>GET:</strong> Retrieves data from server</li>
+                        <li><strong>POST:</strong> Submits/creates data on server</li>
+                        <li><strong>PUT:</strong> Replaces an existing resource</li>
+                        <li><strong>DELETE:</strong> Deletes a resource</li>
+                        <li><strong>PATCH:</strong> Partially updates a resource</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>6.4 HTTP Status/Error Codes</h3>
+                    <table class="note-table">
+                        <tr>
+                            <th>Code</th>
+                            <th>Meaning</th>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td>Bad Request</td>
+                        </tr>
+                        <tr>
+                            <td>401</td>
+                            <td>Unauthorized</td>
+                        </tr>
+                        <tr>
+                            <td>403</td>
+                            <td>Forbidden</td>
+                        </tr>
+                        <tr>
+                            <td>404</td>
+                            <td>Not Found</td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td>Internal Server Error</td>
+                        </tr>
+                        <tr>
+                            <td>503</td>
+                            <td>Service Unavailable</td>
+                        </tr>
+                        <tr>
+                            <td>502</td>
+                            <td>Bad Gateway</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="note-section">
+                    <h3>6.5 Web Hosting</h3>
+                    <ul>
+                        <li>Web hosting = renting/purchasing space on the web to host a website</li>
+                        <li><strong>Shared Hosting:</strong> Multiple websites share same server</li>
+                        <li><strong>VPS (Virtual Private Server):</strong> Dedicated virtual resources on shared
+                            hardware</li>
+                        <li><strong>Dedicated Hosting:</strong> Entire server dedicated to one user</li>
+                    </ul>
+                </div>
+                <div class="note-section">
+                    <h3>6.6 DNS (Domain Name System)</h3>
+                    <ul>
+                        <li>DNS translates human-readable domain names into IP addresses</li>
+                        <li>There are <strong>13 different IP addresses</strong> that serve the DNS root zone</li>
+                        <li>Hundreds of redundant root servers exist worldwide</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div id="quiz-result" style="display:none;">
-        <div class="result-box glass-card" style="max-width: 700px; margin: 0 auto;">
-            <div style="font-size:3.5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(99,102,241,0.5));">🏆</div>
-            <p id="result-msg" style="margin-bottom: 0;">Evaluation Complete</p>
-            <div class="result-score" id="result-score">0/25</div>
-            
-            <div class="result-breakdown" id="result-breakdown"></div>
-            
-            <button class="btn-main" onclick="beginQuiz()">Restart Assessment</button>
-            <button class="btn-outline" onclick="document.getElementById('quiz-setup').style.display='block'; document.getElementById('quiz-result').style.display='none';">Configure Settings</button>
+
+    <div id="quiz" class="page">
+        <div id="quiz-setup" class="quiz-setup glass-card">
+            <h2>Configure Your Quiz</h2>
+            <p>Customize your learning experience. Select a specific unit to focus on, or test yourself across all
+                topics.</p>
+            <div class="setup-options">
+                <div>
+                    <label class="title">Target Syllabus</label>
+                    <select id="unit-select">
+                        <option value="all">All Units (Comprehensive)</option>
+                        <option value="1">Unit 1 – Introduction to Web Designing</option>
+                        <option value="2">Unit 2 – Lists and Linking</option>
+                        <option value="3">Unit 3 – Multimedia Elements</option>
+                        <option value="4">Unit 4 – Tables and Forms</option>
+                        <option value="5">Unit 5 – CSS (HTML Style)</option>
+                        <option value="6">Unit 6 – Tools and Hosting</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="title">Evaluation Mode</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="mode" value="practice" checked>
+                            <span><strong>Practice Mode</strong> — Reveals explanations and allows retries on wrong
+                                answers.</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="mode" value="exam">
+                            <span><strong>Exam Mode</strong> — Strict evaluation. No hints, no second chances.</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-main" onclick="beginQuiz()">Initialize Quiz</button>
+            <button class="btn-outline" onclick="showPage('home')">Return Home</button>
+        </div>
+
+        <div id="quiz-active" style="display:none; max-width:800px; margin:0 auto;">
+            <div class="quiz-box glass-card">
+                <div class="quiz-top">
+                    <div class="quiz-meta">
+                        <span id="q-unit-tag">Unit 1</span>
+                        <span id="q-topic-tag">HTML Basics</span>
+                    </div>
+                    <div class="quiz-counter" id="q-counter">Q 1 / 25</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="q-progress" style="width:4%"></div>
+                </div>
+
+                <div id="wrong-notice" class="wrong-msg">
+                    <strong>Incorrect Answer Selected</strong>
+                    <span id="wrong-explain"></span>
+                </div>
+
+                <p class="question-text" id="q-text">Loading...</p>
+                <div class="options-list" id="q-options"></div>
+            </div>
+        </div>
+
+        <div id="quiz-result" style="display:none;">
+            <div class="result-box glass-card" style="max-width: 700px; margin: 0 auto;">
+                <div style="font-size:3.5rem; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(99,102,241,0.5));">
+                    🏆</div>
+                <p id="result-msg" style="margin-bottom: 0;">Evaluation Complete</p>
+                <div class="result-score" id="result-score">0/25</div>
+
+                <div class="result-breakdown" id="result-breakdown"></div>
+
+                <button class="btn-main" onclick="beginQuiz()">Restart Assessment</button>
+                <button class="btn-outline"
+                    onclick="document.getElementById('quiz-setup').style.display='block'; document.getElementById('quiz-result').style.display='none';">Configure
+                    Settings</button>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="report" class="page">
-    <div class="glass-card" style="padding: 3rem; background: rgba(0,0,0,0.4);">
-        <h2 style="font-family: var(--font-heading); color: #fff; font-size: 2.2rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--glass-border); display: inline-block;">Project Report</h2>
-        
-        <div class="note-section" style="margin-bottom: 2rem;">
-            <h3>5. Team Members & Contributions</h3>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">This project was developed by a four-member group from Division A, First Year Diploma in Computer Engineering & IoT, CWIT Pune — Academic Year 2025-2026.</p>
-            <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1rem; list-style-type: none;">
-                <li style="margin-bottom: 1.2rem;">
-                    <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Yash Krishna Ganesh (Roll No. 255044)</strong> — Lead Developer & Project Head<br>
-                    <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Sole developer of the application codebase. Built the quiz engine, designed the full UI/UX, handled debugging, and authored 150+ MCQs.</span>
-                </li>
-                <li style="margin-bottom: 1.2rem;">
-                    <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Swarit Pawar (Roll No. 255042)</strong> — Content Reviewer & Documentation<br>
-                    <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Contributed to report documentation and formatting. Reviewed and cross-verified MCQ accuracy against syllabus.</span>
-                </li>
-                <li style="margin-bottom: 1.2rem;">
-                    <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Shreyash Sangawade (Roll No. 255047)</strong> — Testing & Quality Assurance<br>
-                    <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Performed systematic testing of all quiz modes and units. Reported UI/logic issues during development.</span>
-                </li>
-                <li style="margin-bottom: 1.2rem;">
-                    <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Shreyash Asalkar (Roll No. 255028)</strong> — Co-Tester & Deployment Assistant<br>
-                    <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Assisted in testing the application on various devices and platforms. Assisted in final review and submission preparation.</span>
-                </li>
-            </ul>
-        </div>
+    <div id="report" class="page">
+        <div class="glass-card" style="padding: 3rem; background: rgba(0,0,0,0.4);">
+            <h2
+                style="font-family: var(--font-heading); color: #fff; font-size: 2.2rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--glass-border); display: inline-block;">
+                Project Report</h2>
 
-        <div class="note-section" style="margin-bottom: 2rem;">
-            <h3>6. Applications</h3>
-            <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
-                <li>Useful for competitive exam preparation covering HTML, CSS, and web basics.</li>
-                <li>Can be embedded in college websites or LMS portals as a standalone widget.</li>
-                <li>The quiz format can be adapted for any subject by updating the question bank.</li>
-                <li>Teachers can project it in class for live interactive quiz sessions.</li>
-                <li>Students can use it as a self-revision tool before internal and external exams.</li>
-            </ul>
-        </div>
+            <div class="note-section" style="margin-bottom: 2rem;">
+                <h3>5. Team Members & Contributions</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">This project was
+                    developed by a four-member group from Division A, First Year Diploma in Computer Engineering & IoT,
+                    CWIT Pune — Academic Year 2025-2026.</p>
+                <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1rem; list-style-type: none;">
+                    <li style="margin-bottom: 1.2rem;">
+                        <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Yash Krishna Ganesh
+                            (Roll No. 255044)</strong> — Lead Developer & Project Head<br>
+                        <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Sole developer
+                            of the application codebase. Built the quiz engine, designed the full UI/UX, handled
+                            debugging, and authored 150+ MCQs.</span>
+                    </li>
+                    <li style="margin-bottom: 1.2rem;">
+                        <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Swarit Pawar (Roll No.
+                            255042)</strong> — Content Reviewer & Documentation<br>
+                        <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Contributed to
+                            report documentation and formatting. Reviewed and cross-verified MCQ accuracy against
+                            syllabus.</span>
+                    </li>
+                    <li style="margin-bottom: 1.2rem;">
+                        <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Shreyash Sangawade (Roll
+                            No. 255047)</strong> — Testing & Quality Assurance<br>
+                        <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Performed
+                            systematic testing of all quiz modes and units. Reported UI/logic issues during
+                            development.</span>
+                    </li>
+                    <li style="margin-bottom: 1.2rem;">
+                        <span style="color: var(--accent); font-size: 1.2rem;">•</span> <strong>Shreyash Asalkar (Roll
+                            No. 255028)</strong> — Co-Tester & Deployment Assistant<br>
+                        <span style="opacity:0.8; font-size:0.9rem; margin-left: 1.5rem; display: block;">Assisted in
+                            testing the application on various devices and platforms. Assisted in final review and
+                            submission preparation.</span>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="note-section" style="margin-bottom: 2rem;">
-            <h3>7. Advantages</h3>
-            <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
-                <li>Offline capable — can be saved and used without internet.</li>
-                <li>Fully responsive — works on phones, tablets, and desktops.</li>
-                <li>Both Practice and Exam modes cater to different learning needs.</li>
-                <li>Randomized questions ensure genuine knowledge testing.</li>
-                <li>Instant score and feedback — no manual checking required.</li>
-                <li>Zero setup — works directly from a browser with no installation.</li>
-            </ul>
-        </div>
+            <div class="note-section" style="margin-bottom: 2rem;">
+                <h3>6. Applications</h3>
+                <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
+                    <li>Useful for competitive exam preparation covering HTML, CSS, and web basics.</li>
+                    <li>Can be embedded in college websites or LMS portals as a standalone widget.</li>
+                    <li>The quiz format can be adapted for any subject by updating the question bank.</li>
+                    <li>Teachers can project it in class for live interactive quiz sessions.</li>
+                    <li>Students can use it as a self-revision tool before internal and external exams.</li>
+                </ul>
+            </div>
 
-        <div class="note-section" style="margin-bottom: 2rem;">
-            <h3>8. Disadvantages</h3>
-            <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
-                <li>Limited to MCQ format — no support for fill-in-the-blank or coding questions.</li>
-                <li>No user authentication or leaderboard functionality.</li>
-                <li>Adding new questions requires editing the HTML file directly.</li>
-                <li>No persistent storage — scores are not saved across sessions.</li>
-            </ul>
-        </div>
+            <div class="note-section" style="margin-bottom: 2rem;">
+                <h3>7. Advantages</h3>
+                <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
+                    <li>Offline capable — can be saved and used without internet.</li>
+                    <li>Fully responsive — works on phones, tablets, and desktops.</li>
+                    <li>Both Practice and Exam modes cater to different learning needs.</li>
+                    <li>Randomized questions ensure genuine knowledge testing.</li>
+                    <li>Instant score and feedback — no manual checking required.</li>
+                    <li>Zero setup — works directly from a browser with no installation.</li>
+                </ul>
+            </div>
 
-        <div class="note-section" style="margin-bottom: 1rem;">
-            <h3>9. Conclusion</h3>
-            <p style="color: #cbd5e1; line-height: 1.8;">The Web Designing Quiz Application was successfully designed, developed, and tested as a fully client-side interactive quiz platform. The project demonstrates strong proficiency in HTML5, CSS3, and JavaScript — particularly in DOM manipulation, dynamic rendering, and responsive UI design. Its offline capability, dual quiz modes, integrated notes, and randomized question engine make it a practical and well-rounded academic tool.</p>
+            <div class="note-section" style="margin-bottom: 2rem;">
+                <h3>8. Disadvantages</h3>
+                <ul style="color: #cbd5e1; line-height: 1.8; margin-left: 1.5rem;">
+                    <li>Limited to MCQ format — no support for fill-in-the-blank or coding questions.</li>
+                    <li>No user authentication or leaderboard functionality.</li>
+                    <li>Adding new questions requires editing the HTML file directly.</li>
+                    <li>No persistent storage — scores are not saved across sessions.</li>
+                </ul>
+            </div>
+
+            <div class="note-section" style="margin-bottom: 1rem;">
+                <h3>9. Conclusion</h3>
+                <p style="color: #cbd5e1; line-height: 1.8;">The Web Designing Quiz Application was successfully
+                    designed, developed, and tested as a fully client-side interactive quiz platform. The project
+                    demonstrates strong proficiency in HTML5, CSS3, and JavaScript — particularly in DOM manipulation,
+                    dynamic rendering, and responsive UI design. Its offline capability, dual quiz modes, integrated
+                    notes, and randomized question engine make it a practical and well-rounded academic tool.</p>
+            </div>
         </div>
     </div>
-</div>
 
-<footer>
-    <p>Cusrow Wadia Institute of Technology, Pune &nbsp;|&nbsp; Web Designing Masterclass</p>
-    <div style="margin-top:12px; display:flex; justify-content:center; gap: 10px; flex-wrap:wrap; opacity: 0.7;">
-        <span>Yash Krishna Ganesh (255044)</span> • 
-        <span>Swarit Pawar (255042)</span> • 
-        <span>Shreyash Sangawade (255047)</span> • 
-        <span>Shreyash Asalkar (255028)</span>
-    </div>
-    <p style="margin-top:10px; opacity: 0.5;">Div A &nbsp;•&nbsp; Academic Year 2026</p>
-</footer>
+    <footer>
+        <p>Cusrow Wadia Institute of Technology, Pune &nbsp;|&nbsp; Web Designing Masterclass</p>
+        <div style="margin-top:12px; display:flex; justify-content:center; gap: 10px; flex-wrap:wrap; opacity: 0.7;">
+            <span>Yash Krishna Ganesh (255044)</span> •
+            <span>Swarit Pawar (255042)</span> •
+            <span>Shreyash Sangawade (255047)</span> •
+            <span>Shreyash Asalkar (255028)</span>
+        </div>
+        <p style="margin-top:10px; opacity: 0.5;">Div A &nbsp;•&nbsp; Academic Year 2026</p>
+    </footer>
 
 
-<script>
-// ============================================================
-// QUESTION BANK — all 6 units, real content from notes
-// ============================================================
-const QUESTIONS = [
-  // ---- UNIT 1 ----
-  { unit:1, topic:"HTML Basics", q:"Who wrote the first version of HTML?", opts:["Bill Gates","Linus Torvalds","Tim Berners-Lee","Steve Jobs"], ans:2, explain:"Tim Berners-Lee wrote the first version of HTML in 1993." },
-  { unit:1, topic:"HTML Basics", q:"In which year was the first version of HTML written?", opts:["1995","1999","1989","1993"], ans:3, explain:"HTML was first written by Tim Berners-Lee in 1993." },
-  { unit:1, topic:"HTML Basics", q:"What does HTML stand for?", opts:["Hyper Transfer Markup Language","Hyper Text Markup Language","High Text Making Language","Hyper Text Making Links"], ans:1, explain:"HTML stands for Hyper Text Markup Language." },
-  { unit:1, topic:"Structure", q:"Which tag is used to declare the HTML5 document type?", opts:["<html5>","<doctype>","<!DOCTYPE html>","<version5>"], ans:2, explain:"<!DOCTYPE html> is the first tag in an HTML5 document, specifying the version." },
-  { unit:1, topic:"Structure", q:"The <title> tag must be placed inside which element?", opts:["<body>","<header>","<head>","<html>"], ans:2, explain:"<title> and </title> tags should be placed inside the <head> tag." },
-  { unit:1, topic:"Structure", q:"All visible content of a webpage is placed inside which tag?", opts:["<head>","<html>","<main>","<body>"], ans:3, explain:"All content displayed on the browser is written between <body> and </body> tags." },
-  { unit:1, topic:"Structure", q:"Which tag identifies the start and end of the entire HTML document?", opts:["<head>","<body>","<html>","<page>"], ans:2, explain:"<html> identifies the start and </html> the end of the web page." },
-  { unit:1, topic:"Headings", q:"Which heading tag defines the most important (largest) heading?", opts:["<h6>","<h3>","<heading>","<h1>"], ans:3, explain:"<h1> is the largest and most important heading. <h6> is the smallest." },
-  { unit:1, topic:"Headings", q:"How many levels of headings does HTML provide?", opts:["4","5","6","8"], ans:2, explain:"HTML provides 6 levels of headings: <h1> through <h6>." },
-  { unit:1, topic:"Headings", q:"Which heading tag defines the least important (smallest) heading?", opts:["<h1>","<h4>","<h5>","<h6>"], ans:3, explain:"<h6> defines the least important/smallest heading." },
-  { unit:1, topic:"Formatting", q:"Which is a LOGICAL formatting tag that indicates high importance?", opts:["<b>","<bold>","<strong>","<i>"], ans:2, explain:"<strong> is a logical tag that indicates high importance. <b> is a physical bold tag." },
-  { unit:1, topic:"Formatting", q:"Which tag highlights text with a yellow background?", opts:["<color>","<highlight>","<bg>","<mark>"], ans:3, explain:"<mark> tag highlights text with a yellow background." },
-  { unit:1, topic:"Block Elements", q:"Which is a block-level container element?", opts:["<span>","<a>","<div>","<em>"], ans:2, explain:"<div> is a block-level container element. <span> is an inline container." },
-  { unit:1, topic:"Tags", q:"<img> is what type of tag?", opts:["Paired","Block","Inline-Block","Unpaired"], ans:3, explain:"<img> is an unpaired tag — it has no closing tag." },
-  { unit:1, topic:"Tags", q:"Which character is used to indicate a closing/end tag in HTML?", opts:["*","^","/","#"], ans:2, explain:"A forward slash (/) is used to indicate an end tag, e.g., </html>." },
-  { unit:1, topic:"Tags", q:"Which tag is used for preformatted text that preserves spaces and line breaks?", opts:["<p>","<br>","<pre>","<code>"], ans:2, explain:"<pre> tag preserves all spaces and line breaks typed while coding." },
-  { unit:1, topic:"Tags", q:"The <br> tag is used for:", opts:["Bold text","Line break","Border","Background"], ans:1, explain:"<br> is an unpaired tag used for a line break / new line." },
-  { unit:1, topic:"Tags", q:"<hr> tag is used to add a:", opts:["Heading","Hyperlink","Horizontal rule (line)","Header block"], ans:2, explain:"<hr> tag adds a horizontal line (horizontal rule) on the page." },
-  { unit:1, topic:"Internet", q:"A collection of web pages grouped together with connecting links is called:", opts:["Web Server","Web Page","Search Engine","Website"], ans:3, explain:"A Website is a collection of web pages grouped together with links connecting them." },
-  { unit:1, topic:"Internet", q:"A computer that hosts a website on the Internet is called:", opts:["Web Browser","Search Engine","Web Server","ISP"], ans:2, explain:"A Web Server is a computer that hosts a website on the Internet." },
-  { unit:1, topic:"Formatting", q:"<b> tag is a ____ formatting tag.", opts:["Logical","Semantic","Physical","Block"], ans:2, explain:"<b> is a physical formatting tag (only visual). <strong> is the logical equivalent." },
-  { unit:1, topic:"Structure", q:"The <head> tag is used to:", opts:["Display text on page","Give title and link external files","Add images","Define paragraphs"], ans:1, explain:"The <head> tag is used to give title to the page and link external CSS/JS files." },
-  { unit:1, topic:"Tags", q:"Which tag aligns content to the center? (deprecated in HTML5)", opts:["<align>","<middle>","<center>","<justify>"], ans:2, explain:"<center> tag aligns text to the center, but it is not supported in HTML5." },
-  { unit:1, topic:"Tags", q:"<span> is what type of element?", opts:["Block-level","Inline","Table","Form"], ans:1, explain:"<span> is an inline container element, while <div> is block-level." },
-  { unit:1, topic:"Headings", q:"All heading tags (<h1> to <h6>) are which type?", opts:["Unpaired tags","Inline elements","Paired tags","Self-closing"], ans:2, explain:"All heading tags are paired tags — they have both an opening and closing tag." },
+    <script>
+        // ============================================================
+        // QUESTION BANK — all 6 units, real content from notes
+        // ============================================================
+        const QUESTIONS = [
+            // ---- UNIT 1 ----
+            { unit: 1, topic: "HTML Basics", q: "Who wrote the first version of HTML?", opts: ["Bill Gates", "Linus Torvalds", "Tim Berners-Lee", "Steve Jobs"], ans: 2, explain: "Tim Berners-Lee wrote the first version of HTML in 1993." },
+            { unit: 1, topic: "HTML Basics", q: "In which year was the first version of HTML written?", opts: ["1995", "1999", "1989", "1993"], ans: 3, explain: "HTML was first written by Tim Berners-Lee in 1993." },
+            { unit: 1, topic: "HTML Basics", q: "What does HTML stand for?", opts: ["Hyper Transfer Markup Language", "Hyper Text Markup Language", "High Text Making Language", "Hyper Text Making Links"], ans: 1, explain: "HTML stands for Hyper Text Markup Language." },
+            { unit: 1, topic: "Structure", q: "Which tag is used to declare the HTML5 document type?", opts: ["<html5>", "<doctype>", "<!DOCTYPE html>", "<version5>"], ans: 2, explain: "<!DOCTYPE html> is the first tag in an HTML5 document, specifying the version." },
+            { unit: 1, topic: "Structure", q: "The <title> tag must be placed inside which element?", opts: ["<body>", "<header>", "<head>", "<html>"], ans: 2, explain: "<title> and </title> tags should be placed inside the <head> tag." },
+            { unit: 1, topic: "Structure", q: "All visible content of a webpage is placed inside which tag?", opts: ["<head>", "<html>", "<main>", "<body>"], ans: 3, explain: "All content displayed on the browser is written between <body> and </body> tags." },
+            { unit: 1, topic: "Structure", q: "Which tag identifies the start and end of the entire HTML document?", opts: ["<head>", "<body>", "<html>", "<page>"], ans: 2, explain: "<html> identifies the start and </html> the end of the web page." },
+            { unit: 1, topic: "Headings", q: "Which heading tag defines the most important (largest) heading?", opts: ["<h6>", "<h3>", "<heading>", "<h1>"], ans: 3, explain: "<h1> is the largest and most important heading. <h6> is the smallest." },
+            { unit: 1, topic: "Headings", q: "How many levels of headings does HTML provide?", opts: ["4", "5", "6", "8"], ans: 2, explain: "HTML provides 6 levels of headings: <h1> through <h6>." },
+            { unit: 1, topic: "Headings", q: "Which heading tag defines the least important (smallest) heading?", opts: ["<h1>", "<h4>", "<h5>", "<h6>"], ans: 3, explain: "<h6> defines the least important/smallest heading." },
+            { unit: 1, topic: "Formatting", q: "Which is a LOGICAL formatting tag that indicates high importance?", opts: ["<b>", "<bold>", "<strong>", "<i>"], ans: 2, explain: "<strong> is a logical tag that indicates high importance. <b> is a physical bold tag." },
+            { unit: 1, topic: "Formatting", q: "Which tag highlights text with a yellow background?", opts: ["<color>", "<highlight>", "<bg>", "<mark>"], ans: 3, explain: "<mark> tag highlights text with a yellow background." },
+            { unit: 1, topic: "Block Elements", q: "Which is a block-level container element?", opts: ["<span>", "<a>", "<div>", "<em>"], ans: 2, explain: "<div> is a block-level container element. <span> is an inline container." },
+            { unit: 1, topic: "Tags", q: "<img> is what type of tag?", opts: ["Paired", "Block", "Inline-Block", "Unpaired"], ans: 3, explain: "<img> is an unpaired tag — it has no closing tag." },
+            { unit: 1, topic: "Tags", q: "Which character is used to indicate a closing/end tag in HTML?", opts: ["*", "^", "/", "#"], ans: 2, explain: "A forward slash (/) is used to indicate an end tag, e.g., </html>." },
+            { unit: 1, topic: "Tags", q: "Which tag is used for preformatted text that preserves spaces and line breaks?", opts: ["<p>", "<br>", "<pre>", "<code>"], ans: 2, explain: "<pre> tag preserves all spaces and line breaks typed while coding." },
+            { unit: 1, topic: "Tags", q: "The <br> tag is used for:", opts: ["Bold text", "Line break", "Border", "Background"], ans: 1, explain: "<br> is an unpaired tag used for a line break / new line." },
+            { unit: 1, topic: "Tags", q: "<hr> tag is used to add a:", opts: ["Heading", "Hyperlink", "Horizontal rule (line)", "Header block"], ans: 2, explain: "<hr> tag adds a horizontal line (horizontal rule) on the page." },
+            { unit: 1, topic: "Internet", q: "A collection of web pages grouped together with connecting links is called:", opts: ["Web Server", "Web Page", "Search Engine", "Website"], ans: 3, explain: "A Website is a collection of web pages grouped together with links connecting them." },
+            { unit: 1, topic: "Internet", q: "A computer that hosts a website on the Internet is called:", opts: ["Web Browser", "Search Engine", "Web Server", "ISP"], ans: 2, explain: "A Web Server is a computer that hosts a website on the Internet." },
+            { unit: 1, topic: "Formatting", q: "<b> tag is a ____ formatting tag.", opts: ["Logical", "Semantic", "Physical", "Block"], ans: 2, explain: "<b> is a physical formatting tag (only visual). <strong> is the logical equivalent." },
+            { unit: 1, topic: "Structure", q: "The <head> tag is used to:", opts: ["Display text on page", "Give title and link external files", "Add images", "Define paragraphs"], ans: 1, explain: "The <head> tag is used to give title to the page and link external CSS/JS files." },
+            { unit: 1, topic: "Tags", q: "Which tag aligns content to the center? (deprecated in HTML5)", opts: ["<align>", "<middle>", "<center>", "<justify>"], ans: 2, explain: "<center> tag aligns text to the center, but it is not supported in HTML5." },
+            { unit: 1, topic: "Tags", q: "<span> is what type of element?", opts: ["Block-level", "Inline", "Table", "Form"], ans: 1, explain: "<span> is an inline container element, while <div> is block-level." },
+            { unit: 1, topic: "Headings", q: "All heading tags (<h1> to <h6>) are which type?", opts: ["Unpaired tags", "Inline elements", "Paired tags", "Self-closing"], ans: 2, explain: "All heading tags are paired tags — they have both an opening and closing tag." },
 
-  // ---- UNIT 2 ----
-  { unit:2, topic:"Lists", q:"Which tag is used for an ordered (numbered) list?", opts:["<ul>","<list>","<dl>","<ol>"], ans:3, explain:"<ol> defines an ordered list. List items use <li> tags." },
-  { unit:2, topic:"Lists", q:"Which tag is used for an unordered (bulleted) list?", opts:["<ol>","<li>","<ul>","<bl>"], ans:2, explain:"<ul> defines an unordered (bulleted) list." },
-  { unit:2, topic:"Lists", q:"Which tag defines data term in a description list?", opts:["<dl>","<dd>","<li>","<dt>"], ans:3, explain:"<dt> defines the data term in a description list <dl>." },
-  { unit:2, topic:"Lists", q:"Which tag defines the data definition (description) in a description list?", opts:["<dl>","<dt>","<li>","<dd>"], ans:3, explain:"<dd> defines the description/definition for a term in a description list." },
-  { unit:2, topic:"Lists", q:"How many bullet types are available for an unordered list?", opts:["2","3","6","4"], ans:3, explain:"4 bullet types: disc, circle, square, none." },
-  { unit:2, topic:"Lists", q:"To create an ordered list with capital letters, which type attribute is used?", opts:["type='1'","type='i'","type='A'","type='I'"], ans:2, explain:"type='A' creates a list with capital letters A, B, C..." },
-  { unit:2, topic:"Anchor", q:"What does 'href' stand for in the anchor tag?", opts:["Hidden Reference","High Reference","Hypertext Reference","Hyperlink Route"], ans:2, explain:"href = Hypertext Reference — it points to the destination page or URL." },
-  { unit:2, topic:"Anchor", q:"Which target attribute value opens a link in a new tab?", opts:["_new","_parent","_self","_blank"], ans:3, explain:"target='_blank' opens the linked page in a new tab or window." },
-  { unit:2, topic:"Anchor", q:"Which target attribute value opens the link in the same tab (default)?", opts:["_blank","_self","_top","_parent"], ans:1, explain:"target='_self' is the default — opens the link in the same tab." },
-  { unit:2, topic:"Link States", q:"What color is an unvisited link by default?", opts:["Purple","Red","Green","Blue"], ans:3, explain:"Unvisited links are displayed underlined and blue by default." },
-  { unit:2, topic:"Link States", q:"What color is a visited link by default?", opts:["Blue","Red","Purple","Green"], ans:2, explain:"Visited links are displayed underlined and purple by default." },
-  { unit:2, topic:"Link States", q:"What color is an active link by default?", opts:["Blue","Purple","Orange","Red"], ans:3, explain:"An active link is underlined and red." },
-  { unit:2, topic:"Marquee", q:"What is the default marquee scroll speed?", opts:["4px/sec","10px/sec","6px/sec","2px/sec"], ans:2, explain:"The default marquee speed is 6px per second. Change it with scrollamount attribute." },
-  { unit:2, topic:"Marquee", q:"Which attribute is used to stop a marquee on mouse hover?", opts:["onstop","onmouseover","onpause","onclick"], ans:1, explain:"onmouseover='stop()' stops the marquee when user hovers over it." },
-  { unit:2, topic:"Marquee", q:"Which attribute changes the speed of a marquee?", opts:["speed","scrollspeed","marquee-speed","scrollamount"], ans:3, explain:"scrollamount attribute changes the scroll speed of a marquee." },
-  { unit:2, topic:"Special", q:"The HTML entity for a non-breaking space is:", opts:["&ensp;","&space;","&nbsp;","&emsp;"], ans:2, explain:"&nbsp; is the HTML entity for a non-breaking space." },
-  { unit:2, topic:"Navigation", q:"Which tag is used to group navigation links?", opts:["<links>","<menu>","<nav>","<ul>"], ans:2, explain:"<nav> tag is used to group navigation links." },
-  { unit:2, topic:"Lists", q:"List items inside both <ol> and <ul> are defined using which tag?", opts:["<item>","<list>","<option>","<li>"], ans:3, explain:"<li> tag defines each list item in both ordered and unordered lists." },
-  { unit:2, topic:"Anchor", q:"The anchor tag <a> creates:", opts:["A table","An image","A paragraph","A hyperlink"], ans:3, explain:"The anchor tag creates a hyperlink that links one page to another." },
-  { unit:2, topic:"Lists", q:"Which tag defines the description list itself (the container)?", opts:["<dl>","<dt>","<dd>","<li>"], ans:0, explain:"<dl> defines the description list container. <dt> = term, <dd> = definition." },
-  { unit:2, topic:"Lists", q:"An ordered list by default shows items numbered with:", opts:["Letters","Roman numerals","Numbers","Bullets"], ans:2, explain:"Ordered list default type is numbers (1, 2, 3...). Type attribute changes this." },
-  { unit:2, topic:"Marquee", q:"Which attribute adds delay between each marquee scroll step?", opts:["scrollamount","scrollwait","marquee-delay","scrolldelay"], ans:3, explain:"scrolldelay attribute adds delay in milliseconds between each scroll step." },
-  { unit:2, topic:"Special", q:"The HTML entity &emsp; represents:", opts:["Non-breaking space","En space","Narrow space","Em space (wider)"], ans:3, explain:"&emsp; is an em space (wider than &ensp;). &nbsp; is non-breaking space." },
-  { unit:2, topic:"Anchor", q:"If no target attribute is used in an anchor tag, the link opens:", opts:["In a new tab","In a popup","In the same page","In parent frame"], ans:2, explain:"Without target attribute, the link opens in the same page by default." },
-  { unit:2, topic:"Tags", q:"The <details> tag allows users to:", opts:["Add styling","Open and close additional details on demand","Add a description list","Create a form"], ans:1, explain:"<details> tag creates a widget that user can open/close to show more information." },
+            // ---- UNIT 2 ----
+            { unit: 2, topic: "Lists", q: "Which tag is used for an ordered (numbered) list?", opts: ["<ul>", "<list>", "<dl>", "<ol>"], ans: 3, explain: "<ol> defines an ordered list. List items use <li> tags." },
+            { unit: 2, topic: "Lists", q: "Which tag is used for an unordered (bulleted) list?", opts: ["<ol>", "<li>", "<ul>", "<bl>"], ans: 2, explain: "<ul> defines an unordered (bulleted) list." },
+            { unit: 2, topic: "Lists", q: "Which tag defines data term in a description list?", opts: ["<dl>", "<dd>", "<li>", "<dt>"], ans: 3, explain: "<dt> defines the data term in a description list <dl>." },
+            { unit: 2, topic: "Lists", q: "Which tag defines the data definition (description) in a description list?", opts: ["<dl>", "<dt>", "<li>", "<dd>"], ans: 3, explain: "<dd> defines the description/definition for a term in a description list." },
+            { unit: 2, topic: "Lists", q: "How many bullet types are available for an unordered list?", opts: ["2", "3", "6", "4"], ans: 3, explain: "4 bullet types: disc, circle, square, none." },
+            { unit: 2, topic: "Lists", q: "To create an ordered list with capital letters, which type attribute is used?", opts: ["type='1'", "type='i'", "type='A'", "type='I'"], ans: 2, explain: "type='A' creates a list with capital letters A, B, C..." },
+            { unit: 2, topic: "Anchor", q: "What does 'href' stand for in the anchor tag?", opts: ["Hidden Reference", "High Reference", "Hypertext Reference", "Hyperlink Route"], ans: 2, explain: "href = Hypertext Reference — it points to the destination page or URL." },
+            { unit: 2, topic: "Anchor", q: "Which target attribute value opens a link in a new tab?", opts: ["_new", "_parent", "_self", "_blank"], ans: 3, explain: "target='_blank' opens the linked page in a new tab or window." },
+            { unit: 2, topic: "Anchor", q: "Which target attribute value opens the link in the same tab (default)?", opts: ["_blank", "_self", "_top", "_parent"], ans: 1, explain: "target='_self' is the default — opens the link in the same tab." },
+            { unit: 2, topic: "Link States", q: "What color is an unvisited link by default?", opts: ["Purple", "Red", "Green", "Blue"], ans: 3, explain: "Unvisited links are displayed underlined and blue by default." },
+            { unit: 2, topic: "Link States", q: "What color is a visited link by default?", opts: ["Blue", "Red", "Purple", "Green"], ans: 2, explain: "Visited links are displayed underlined and purple by default." },
+            { unit: 2, topic: "Link States", q: "What color is an active link by default?", opts: ["Blue", "Purple", "Orange", "Red"], ans: 3, explain: "An active link is underlined and red." },
+            { unit: 2, topic: "Marquee", q: "What is the default marquee scroll speed?", opts: ["4px/sec", "10px/sec", "6px/sec", "2px/sec"], ans: 2, explain: "The default marquee speed is 6px per second. Change it with scrollamount attribute." },
+            { unit: 2, topic: "Marquee", q: "Which attribute is used to stop a marquee on mouse hover?", opts: ["onstop", "onmouseover", "onpause", "onclick"], ans: 1, explain: "onmouseover='stop()' stops the marquee when user hovers over it." },
+            { unit: 2, topic: "Marquee", q: "Which attribute changes the speed of a marquee?", opts: ["speed", "scrollspeed", "marquee-speed", "scrollamount"], ans: 3, explain: "scrollamount attribute changes the scroll speed of a marquee." },
+            { unit: 2, topic: "Special", q: "The HTML entity for a non-breaking space is:", opts: ["&ensp;", "&space;", "&nbsp;", "&emsp;"], ans: 2, explain: "&nbsp; is the HTML entity for a non-breaking space." },
+            { unit: 2, topic: "Navigation", q: "Which tag is used to group navigation links?", opts: ["<links>", "<menu>", "<nav>", "<ul>"], ans: 2, explain: "<nav> tag is used to group navigation links." },
+            { unit: 2, topic: "Lists", q: "List items inside both <ol> and <ul> are defined using which tag?", opts: ["<item>", "<list>", "<option>", "<li>"], ans: 3, explain: "<li> tag defines each list item in both ordered and unordered lists." },
+            { unit: 2, topic: "Anchor", q: "The anchor tag <a> creates:", opts: ["A table", "An image", "A paragraph", "A hyperlink"], ans: 3, explain: "The anchor tag creates a hyperlink that links one page to another." },
+            { unit: 2, topic: "Lists", q: "Which tag defines the description list itself (the container)?", opts: ["<dl>", "<dt>", "<dd>", "<li>"], ans: 0, explain: "<dl> defines the description list container. <dt> = term, <dd> = definition." },
+            { unit: 2, topic: "Lists", q: "An ordered list by default shows items numbered with:", opts: ["Letters", "Roman numerals", "Numbers", "Bullets"], ans: 2, explain: "Ordered list default type is numbers (1, 2, 3...). Type attribute changes this." },
+            { unit: 2, topic: "Marquee", q: "Which attribute adds delay between each marquee scroll step?", opts: ["scrollamount", "scrollwait", "marquee-delay", "scrolldelay"], ans: 3, explain: "scrolldelay attribute adds delay in milliseconds between each scroll step." },
+            { unit: 2, topic: "Special", q: "The HTML entity &emsp; represents:", opts: ["Non-breaking space", "En space", "Narrow space", "Em space (wider)"], ans: 3, explain: "&emsp; is an em space (wider than &ensp;). &nbsp; is non-breaking space." },
+            { unit: 2, topic: "Anchor", q: "If no target attribute is used in an anchor tag, the link opens:", opts: ["In a new tab", "In a popup", "In the same page", "In parent frame"], ans: 2, explain: "Without target attribute, the link opens in the same page by default." },
+            { unit: 2, topic: "Tags", q: "The <details> tag allows users to:", opts: ["Add styling", "Open and close additional details on demand", "Add a description list", "Create a form"], ans: 1, explain: "<details> tag creates a widget that user can open/close to show more information." },
 
-  // ---- UNIT 3 ----
-  { unit:3, topic:"Image Formats", q:"JPEG stands for Joint _____ Experts Group.", opts:["Photography","Photographic","Picture","Pixel"], ans:1, explain:"JPEG = Joint Photographic Experts Group. It uses lossy compression." },
-  { unit:3, topic:"Image Formats", q:"GIF stands for:", opts:["Graphical Interchange Format","General Image Format","Graphics Interchange Format","Graphics Illustrator File"], ans:2, explain:"GIF = Graphics Interchange Format. It supports animations and 256 colors." },
-  { unit:3, topic:"Image Formats", q:"PNG was designed to replace which image format?", opts:["JPEG","BMP","SVG","GIF"], ans:3, explain:"PNG (Portable Network Graphics) was designed to replace GIF." },
-  { unit:3, topic:"Image Formats", q:"Which image format supports lossless compression AND transparency?", opts:["JPEG","GIF","BMP","PNG"], ans:3, explain:"PNG is lossless and supports transparency (alpha channel)." },
-  { unit:3, topic:"Colors", q:"What is the hex code for the color Yellow?", opts:["#FF0000","#0000FF","#FFFFFF","#FFFF00"], ans:3, explain:"Yellow = #FFFF00 in hex, which is rgb(255, 255, 0)." },
-  { unit:3, topic:"Colors", q:"What is the hex code for Black?", opts:["#FFFFFF","#FF0000","#000000","#0000FF"], ans:2, explain:"Black = #000000, which is rgb(0, 0, 0)." },
-  { unit:3, topic:"Colors", q:"What is the hex code for Red?", opts:["#FFFF00","#FF0000","#00FF00","#0000FF"], ans:1, explain:"Red = #FF0000, which is rgb(255, 0, 0)." },
-  { unit:3, topic:"Colors", q:"What is the RGB value for pure Red?", opts:["(0, 255, 0)","(0, 0, 255)","(255, 255, 0)","(255, 0, 0)"], ans:3, explain:"Pure Red = rgb(255, 0, 0)." },
-  { unit:3, topic:"CSS Borders", q:"Which border-style value creates a 3D grooved effect?", opts:["solid","ridge","dotted","groove"], ans:3, explain:"groove defines a 3D grooved border. The effect depends on the border-color." },
-  { unit:3, topic:"CSS Borders", q:"Which border-style value creates a 3D ridged effect?", opts:["groove","inset","outset","ridge"], ans:3, explain:"ridge defines a 3D ridged border, opposite of groove." },
-  { unit:3, topic:"CSS Borders", q:"To make an image appear as a circle, which CSS property is used?", opts:["clip-path: circle","border-style: round","border-radius: 50%","border-round: true"], ans:2, explain:"border-radius: 50% makes an element appear as a perfect circle." },
-  { unit:3, topic:"Background", q:"To keep a background image fixed while scrolling, which CSS property is used?", opts:["background-repeat: no-repeat","background-position: fixed","background-attachment: fixed","background-stay: fixed"], ans:2, explain:"background-attachment: fixed keeps the image fixed while the page scrolls." },
-  { unit:3, topic:"Background", q:"background-repeat: repeat-x repeats an image:", opts:["Vertically only","Both directions","Diagonally","Horizontally only"], ans:3, explain:"repeat-x repeats the background image only horizontally." },
-  { unit:3, topic:"Background", q:"background-repeat: repeat-y repeats an image:", opts:["Horizontally only","Both directions","Vertically only","Once only"], ans:2, explain:"repeat-y repeats the background image only vertically." },
-  { unit:3, topic:"Background", q:"background-repeat: no-repeat shows the background image:", opts:["Twice","In a grid","Only once","Infinitely"], ans:2, explain:"no-repeat shows the background image only once." },
-  { unit:3, topic:"Padding", q:"CSS Padding creates space:", opts:["Outside the border","Between border and page margin","Inside the border, around content","Below the margin"], ans:2, explain:"Padding creates space around an element's content, inside of any defined borders." },
-  { unit:3, topic:"Padding", q:"Are negative values allowed for CSS padding?", opts:["Yes, always","Yes, only for padding-top","No, negative values are not allowed","Only for shorthand"], ans:2, explain:"Negative values are NOT allowed for padding. (Margins can be negative.)" },
-  { unit:3, topic:"Colors", q:"What is the hex code for Maroon?", opts:["#FF0000","#880000","#800000","#AA0000"], ans:2, explain:"Maroon = #800000, which is rgb(128, 0, 0)." },
-  { unit:3, topic:"Background", q:"background-attachment: scroll means:", opts:["Image stays fixed while scrolling","Image disappears on scroll","Image scrolls with the page","Image repeats on scroll"], ans:2, explain:"background-attachment: scroll means the image scrolls along with the rest of the page." },
-  { unit:3, topic:"CSS Borders", q:"Which border-style shows no border at all?", opts:["hidden","transparent","invisible","none"], ans:3, explain:"border-style: none removes any border display." },
-  { unit:3, topic:"Image Formats", q:"BMP (Bitmap) images are:", opts:["Lossy compressed","Lossless but large file size","Small animated files","Web-optimized"], ans:1, explain:"BMP files are lossless but have large file sizes, not ideal for web use." },
-  { unit:3, topic:"Background", q:"Which CSS property sets the position of a background image?", opts:["background-place","background-coords","background-origin","background-position"], ans:3, explain:"background-position sets where the background image appears on the element." },
-  { unit:3, topic:"CSS Borders", q:"How many values can the border-style property accept (for 4 sides)?", opts:["Only 1","Up to 2","Up to 4","Exactly 3"], ans:2, explain:"border-style can take 1 to 4 values (top, right, bottom, left)." },
-  { unit:3, topic:"CSS Borders", q:"Which border-style value creates a 3D inset effect?", opts:["groove","ridge","outset","inset"], ans:3, explain:"inset defines a 3D inset border effect." },
-  { unit:3, topic:"Padding", q:"Which CSS properties are used for padding individual sides?", opts:["padding-x, padding-y","pad-top, pad-left","padding-top, padding-right, padding-bottom, padding-left","padding-horizontal, padding-vertical"], ans:2, explain:"Individual side padding: padding-top, padding-right, padding-bottom, padding-left." },
+            // ---- UNIT 3 ----
+            { unit: 3, topic: "Image Formats", q: "JPEG stands for Joint _____ Experts Group.", opts: ["Photography", "Photographic", "Picture", "Pixel"], ans: 1, explain: "JPEG = Joint Photographic Experts Group. It uses lossy compression." },
+            { unit: 3, topic: "Image Formats", q: "GIF stands for:", opts: ["Graphical Interchange Format", "General Image Format", "Graphics Interchange Format", "Graphics Illustrator File"], ans: 2, explain: "GIF = Graphics Interchange Format. It supports animations and 256 colors." },
+            { unit: 3, topic: "Image Formats", q: "PNG was designed to replace which image format?", opts: ["JPEG", "BMP", "SVG", "GIF"], ans: 3, explain: "PNG (Portable Network Graphics) was designed to replace GIF." },
+            { unit: 3, topic: "Image Formats", q: "Which image format supports lossless compression AND transparency?", opts: ["JPEG", "GIF", "BMP", "PNG"], ans: 3, explain: "PNG is lossless and supports transparency (alpha channel)." },
+            { unit: 3, topic: "Colors", q: "What is the hex code for the color Yellow?", opts: ["#FF0000", "#0000FF", "#FFFFFF", "#FFFF00"], ans: 3, explain: "Yellow = #FFFF00 in hex, which is rgb(255, 255, 0)." },
+            { unit: 3, topic: "Colors", q: "What is the hex code for Black?", opts: ["#FFFFFF", "#FF0000", "#000000", "#0000FF"], ans: 2, explain: "Black = #000000, which is rgb(0, 0, 0)." },
+            { unit: 3, topic: "Colors", q: "What is the hex code for Red?", opts: ["#FFFF00", "#FF0000", "#00FF00", "#0000FF"], ans: 1, explain: "Red = #FF0000, which is rgb(255, 0, 0)." },
+            { unit: 3, topic: "Colors", q: "What is the RGB value for pure Red?", opts: ["(0, 255, 0)", "(0, 0, 255)", "(255, 255, 0)", "(255, 0, 0)"], ans: 3, explain: "Pure Red = rgb(255, 0, 0)." },
+            { unit: 3, topic: "CSS Borders", q: "Which border-style value creates a 3D grooved effect?", opts: ["solid", "ridge", "dotted", "groove"], ans: 3, explain: "groove defines a 3D grooved border. The effect depends on the border-color." },
+            { unit: 3, topic: "CSS Borders", q: "Which border-style value creates a 3D ridged effect?", opts: ["groove", "inset", "outset", "ridge"], ans: 3, explain: "ridge defines a 3D ridged border, opposite of groove." },
+            { unit: 3, topic: "CSS Borders", q: "To make an image appear as a circle, which CSS property is used?", opts: ["clip-path: circle", "border-style: round", "border-radius: 50%", "border-round: true"], ans: 2, explain: "border-radius: 50% makes an element appear as a perfect circle." },
+            { unit: 3, topic: "Background", q: "To keep a background image fixed while scrolling, which CSS property is used?", opts: ["background-repeat: no-repeat", "background-position: fixed", "background-attachment: fixed", "background-stay: fixed"], ans: 2, explain: "background-attachment: fixed keeps the image fixed while the page scrolls." },
+            { unit: 3, topic: "Background", q: "background-repeat: repeat-x repeats an image:", opts: ["Vertically only", "Both directions", "Diagonally", "Horizontally only"], ans: 3, explain: "repeat-x repeats the background image only horizontally." },
+            { unit: 3, topic: "Background", q: "background-repeat: repeat-y repeats an image:", opts: ["Horizontally only", "Both directions", "Vertically only", "Once only"], ans: 2, explain: "repeat-y repeats the background image only vertically." },
+            { unit: 3, topic: "Background", q: "background-repeat: no-repeat shows the background image:", opts: ["Twice", "In a grid", "Only once", "Infinitely"], ans: 2, explain: "no-repeat shows the background image only once." },
+            { unit: 3, topic: "Padding", q: "CSS Padding creates space:", opts: ["Outside the border", "Between border and page margin", "Inside the border, around content", "Below the margin"], ans: 2, explain: "Padding creates space around an element's content, inside of any defined borders." },
+            { unit: 3, topic: "Padding", q: "Are negative values allowed for CSS padding?", opts: ["Yes, always", "Yes, only for padding-top", "No, negative values are not allowed", "Only for shorthand"], ans: 2, explain: "Negative values are NOT allowed for padding. (Margins can be negative.)" },
+            { unit: 3, topic: "Colors", q: "What is the hex code for Maroon?", opts: ["#FF0000", "#880000", "#800000", "#AA0000"], ans: 2, explain: "Maroon = #800000, which is rgb(128, 0, 0)." },
+            { unit: 3, topic: "Background", q: "background-attachment: scroll means:", opts: ["Image stays fixed while scrolling", "Image disappears on scroll", "Image scrolls with the page", "Image repeats on scroll"], ans: 2, explain: "background-attachment: scroll means the image scrolls along with the rest of the page." },
+            { unit: 3, topic: "CSS Borders", q: "Which border-style shows no border at all?", opts: ["hidden", "transparent", "invisible", "none"], ans: 3, explain: "border-style: none removes any border display." },
+            { unit: 3, topic: "Image Formats", q: "BMP (Bitmap) images are:", opts: ["Lossy compressed", "Lossless but large file size", "Small animated files", "Web-optimized"], ans: 1, explain: "BMP files are lossless but have large file sizes, not ideal for web use." },
+            { unit: 3, topic: "Background", q: "Which CSS property sets the position of a background image?", opts: ["background-place", "background-coords", "background-origin", "background-position"], ans: 3, explain: "background-position sets where the background image appears on the element." },
+            { unit: 3, topic: "CSS Borders", q: "How many values can the border-style property accept (for 4 sides)?", opts: ["Only 1", "Up to 2", "Up to 4", "Exactly 3"], ans: 2, explain: "border-style can take 1 to 4 values (top, right, bottom, left)." },
+            { unit: 3, topic: "CSS Borders", q: "Which border-style value creates a 3D inset effect?", opts: ["groove", "ridge", "outset", "inset"], ans: 3, explain: "inset defines a 3D inset border effect." },
+            { unit: 3, topic: "Padding", q: "Which CSS properties are used for padding individual sides?", opts: ["padding-x, padding-y", "pad-top, pad-left", "padding-top, padding-right, padding-bottom, padding-left", "padding-horizontal, padding-vertical"], ans: 2, explain: "Individual side padding: padding-top, padding-right, padding-bottom, padding-left." },
 
-  // ---- UNIT 4 ----
-  { unit:4, topic:"Tables", q:"Which tag defines a header cell in an HTML table?", opts:["<td>","<tr>","<table>","<th>"], ans:3, explain:"<th> defines a header cell in a table. It is bold and centered by default." },
-  { unit:4, topic:"Tables", q:"Which tag defines a data cell in an HTML table?", opts:["<th>","<tr>","<tc>","<td>"], ans:3, explain:"<td> defines a regular data cell in a table." },
-  { unit:4, topic:"Tables", q:"Which tag defines a row in an HTML table?", opts:["<th>","<td>","<row>","<tr>"], ans:3, explain:"<tr> defines a table row." },
-  { unit:4, topic:"Tables", q:"Which attribute merges cells vertically (row-wise)?", opts:["colspan","merge","cellspan","rowspan"], ans:3, explain:"rowspan merges cells vertically (across multiple rows)." },
-  { unit:4, topic:"Tables", q:"Which attribute merges cells horizontally (column-wise)?", opts:["rowspan","cellmerge","colspan","hspan"], ans:2, explain:"colspan merges cells horizontally (across multiple columns)." },
-  { unit:4, topic:"Tables", q:"cellpadding defines space between:", opts:["Two cells","Cell border and cell content","Table and page","Rows"], ans:1, explain:"cellpadding defines space between the cell wall and the content inside the cell." },
-  { unit:4, topic:"Tables", q:"cellspacing defines space between:", opts:["Cell border and content","Table border and page","Cells themselves","Rows and columns"], ans:2, explain:"cellspacing defines the space between cells in a table." },
-  { unit:4, topic:"Tables", q:"Which tag is used to add a caption to a table?", opts:["<title>","<th>","<label>","<caption>"], ans:3, explain:"<caption> tag defines a table caption, placed right after <table>." },
-  { unit:4, topic:"Tables", q:"Which tag groups the header content rows in a table?", opts:["<thead>","<th>","<thgroup>","<tgroup>"], ans:0, explain:"<thead> groups the header content in a table." },
-  { unit:4, topic:"Tables", q:"Which tag groups the body content rows in a table?", opts:["<tgroup>","<tbody>","<tbodygroup>","<body>"], ans:1, explain:"<tbody> groups the body content in a table." },
-  { unit:4, topic:"Forms", q:"Which HTTP method appends form data to the URL?", opts:["PUT","POST","FETCH","GET"], ans:3, explain:"GET method appends form data to the URL, visible in the address bar." },
-  { unit:4, topic:"Forms", q:"Which HTTP method sends form data in the request body (not in URL)?", opts:["GET","PUT","POST","APPEND"], ans:2, explain:"POST submits form data in the request body, not visible in the URL." },
-  { unit:4, topic:"Forms", q:"Which form attribute specifies where to send the submitted data?", opts:["href","method","target","action"], ans:3, explain:"The action attribute specifies the URL where form data is sent on submission." },
-  { unit:4, topic:"Forms", q:"Which input type is used for obscured/hidden text (like passwords)?", opts:["hidden","secret","text","password"], ans:3, explain:"input type='password' shows bullets/dots instead of the actual characters." },
-  { unit:4, topic:"Forms", q:"Which input type clears all form fields when clicked?", opts:["clear","cancel","delete","reset"], ans:3, explain:"input type='reset' clears all form controls to their default values." },
-  { unit:4, topic:"Forms", q:"The <select> dropdown tag uses which tag for its options?", opts:["<item>","<list>","<option>","<choice>"], ans:2, explain:"<select> uses <option> tags to define each menu item in the dropdown." },
-  { unit:4, topic:"Frames", q:"Which tag is used to embed another HTML page inside the current page?", opts:["<frame>","<embed>","<window>","<iframe>"], ans:3, explain:"<iframe> (inline frame) embeds another HTML document inside the current page." },
-  { unit:4, topic:"Tables", q:"The 'valign' attribute aligns content in a table cell:", opts:["Horizontally","Diagonally","Vertically","Both directions"], ans:2, explain:"valign = vertical align. Values: top, middle, bottom." },
-  { unit:4, topic:"Tables", q:"By default, <th> cell content is displayed as:", opts:["Italic and red","Normal, left-aligned","Bold and centered","Underlined"], ans:2, explain:"<th> cells are bold and centered by default." },
-  { unit:4, topic:"Forms", q:"The method attribute of a <form> tag specifies:", opts:["Where to send data","How data is sent (GET or POST)","What type of input is used","The form's style"], ans:1, explain:"method attribute specifies whether to use GET or POST to send the form data." },
-  { unit:4, topic:"Tables", q:"Which attribute sets the background color of a table cell?", opts:["color","cellcolor","background","bgcolor"], ans:3, explain:"bgcolor attribute sets the background color of a table, row, or cell." },
-  { unit:4, topic:"Tables", q:"<table border='0'> means:", opts:["Red border","Invisible/no border","Thin 1px border","Double border"], ans:1, explain:"border='0' means no border is displayed around the table." },
-  { unit:4, topic:"Forms", q:"Which input type is used for submitting a form?", opts:["button","send","go","submit"], ans:0, explain:"input type='submit' creates a button that submits the form." },
-  { unit:4, topic:"Tables", q:"<td colspan='3'> merges:", opts:["3 rows vertically","3 rows horizontally","3 columns vertically","3 cells horizontally"], ans:3, explain:"colspan='3' merges 3 cells horizontally (across 3 columns)." },
-  { unit:4, topic:"Forms", q:"Which tag is used to create a multi-line text input in a form?", opts:["<input type='text'>","<multiline>","<textarea>","<input type='area'>"], ans:2, explain:"<textarea> creates a multi-line text input field." },
+            // ---- UNIT 4 ----
+            { unit: 4, topic: "Tables", q: "Which tag defines a header cell in an HTML table?", opts: ["<td>", "<tr>", "<table>", "<th>"], ans: 3, explain: "<th> defines a header cell in a table. It is bold and centered by default." },
+            { unit: 4, topic: "Tables", q: "Which tag defines a data cell in an HTML table?", opts: ["<th>", "<tr>", "<tc>", "<td>"], ans: 3, explain: "<td> defines a regular data cell in a table." },
+            { unit: 4, topic: "Tables", q: "Which tag defines a row in an HTML table?", opts: ["<th>", "<td>", "<row>", "<tr>"], ans: 3, explain: "<tr> defines a table row." },
+            { unit: 4, topic: "Tables", q: "Which attribute merges cells vertically (row-wise)?", opts: ["colspan", "merge", "cellspan", "rowspan"], ans: 3, explain: "rowspan merges cells vertically (across multiple rows)." },
+            { unit: 4, topic: "Tables", q: "Which attribute merges cells horizontally (column-wise)?", opts: ["rowspan", "cellmerge", "colspan", "hspan"], ans: 2, explain: "colspan merges cells horizontally (across multiple columns)." },
+            { unit: 4, topic: "Tables", q: "cellpadding defines space between:", opts: ["Two cells", "Cell border and cell content", "Table and page", "Rows"], ans: 1, explain: "cellpadding defines space between the cell wall and the content inside the cell." },
+            { unit: 4, topic: "Tables", q: "cellspacing defines space between:", opts: ["Cell border and content", "Table border and page", "Cells themselves", "Rows and columns"], ans: 2, explain: "cellspacing defines the space between cells in a table." },
+            { unit: 4, topic: "Tables", q: "Which tag is used to add a caption to a table?", opts: ["<title>", "<th>", "<label>", "<caption>"], ans: 3, explain: "<caption> tag defines a table caption, placed right after <table>." },
+            { unit: 4, topic: "Tables", q: "Which tag groups the header content rows in a table?", opts: ["<thead>", "<th>", "<thgroup>", "<tgroup>"], ans: 0, explain: "<thead> groups the header content in a table." },
+            { unit: 4, topic: "Tables", q: "Which tag groups the body content rows in a table?", opts: ["<tgroup>", "<tbody>", "<tbodygroup>", "<body>"], ans: 1, explain: "<tbody> groups the body content in a table." },
+            { unit: 4, topic: "Forms", q: "Which HTTP method appends form data to the URL?", opts: ["PUT", "POST", "FETCH", "GET"], ans: 3, explain: "GET method appends form data to the URL, visible in the address bar." },
+            { unit: 4, topic: "Forms", q: "Which HTTP method sends form data in the request body (not in URL)?", opts: ["GET", "PUT", "POST", "APPEND"], ans: 2, explain: "POST submits form data in the request body, not visible in the URL." },
+            { unit: 4, topic: "Forms", q: "Which form attribute specifies where to send the submitted data?", opts: ["href", "method", "target", "action"], ans: 3, explain: "The action attribute specifies the URL where form data is sent on submission." },
+            { unit: 4, topic: "Forms", q: "Which input type is used for obscured/hidden text (like passwords)?", opts: ["hidden", "secret", "text", "password"], ans: 3, explain: "input type='password' shows bullets/dots instead of the actual characters." },
+            { unit: 4, topic: "Forms", q: "Which input type clears all form fields when clicked?", opts: ["clear", "cancel", "delete", "reset"], ans: 3, explain: "input type='reset' clears all form controls to their default values." },
+            { unit: 4, topic: "Forms", q: "The <select> dropdown tag uses which tag for its options?", opts: ["<item>", "<list>", "<option>", "<choice>"], ans: 2, explain: "<select> uses <option> tags to define each menu item in the dropdown." },
+            { unit: 4, topic: "Frames", q: "Which tag is used to embed another HTML page inside the current page?", opts: ["<frame>", "<embed>", "<window>", "<iframe>"], ans: 3, explain: "<iframe> (inline frame) embeds another HTML document inside the current page." },
+            { unit: 4, topic: "Tables", q: "The 'valign' attribute aligns content in a table cell:", opts: ["Horizontally", "Diagonally", "Vertically", "Both directions"], ans: 2, explain: "valign = vertical align. Values: top, middle, bottom." },
+            { unit: 4, topic: "Tables", q: "By default, <th> cell content is displayed as:", opts: ["Italic and red", "Normal, left-aligned", "Bold and centered", "Underlined"], ans: 2, explain: "<th> cells are bold and centered by default." },
+            { unit: 4, topic: "Forms", q: "The method attribute of a <form> tag specifies:", opts: ["Where to send data", "How data is sent (GET or POST)", "What type of input is used", "The form's style"], ans: 1, explain: "method attribute specifies whether to use GET or POST to send the form data." },
+            { unit: 4, topic: "Tables", q: "Which attribute sets the background color of a table cell?", opts: ["color", "cellcolor", "background", "bgcolor"], ans: 3, explain: "bgcolor attribute sets the background color of a table, row, or cell." },
+            { unit: 4, topic: "Tables", q: "<table border='0'> means:", opts: ["Red border", "Invisible/no border", "Thin 1px border", "Double border"], ans: 1, explain: "border='0' means no border is displayed around the table." },
+            { unit: 4, topic: "Forms", q: "Which input type is used for submitting a form?", opts: ["button", "send", "go", "submit"], ans: 0, explain: "input type='submit' creates a button that submits the form." },
+            { unit: 4, topic: "Tables", q: "<td colspan='3'> merges:", opts: ["3 rows vertically", "3 rows horizontally", "3 columns vertically", "3 cells horizontally"], ans: 3, explain: "colspan='3' merges 3 cells horizontally (across 3 columns)." },
+            { unit: 4, topic: "Forms", q: "Which tag is used to create a multi-line text input in a form?", opts: ["<input type='text'>", "<multiline>", "<textarea>", "<input type='area'>"], ans: 2, explain: "<textarea> creates a multi-line text input field." },
 
-  // ---- UNIT 5 ----
-  { unit:5, topic:"CSS Basics", q:"CSS stands for:", opts:["Creative Style Sheet","Cascading Style Sheet","Computer Style Syntax","Cascading Style Syntax"], ans:1, explain:"CSS = Cascading Style Sheet. It is used to design and style HTML elements." },
-  { unit:5, topic:"CSS Basics", q:"A CSS rule has a selector and a _____ block.", opts:["Logic","Attribute","Declaration","Function"], ans:2, explain:"A CSS rule = Selector { Property: Value; } — this is called a Declaration block." },
-  { unit:5, topic:"CSS Basics", q:"How many ways are there to insert CSS into an HTML document?", opts:["1","2","4","3"], ans:3, explain:"Three ways: External CSS, Internal CSS, and Inline CSS." },
-  { unit:5, topic:"Box Model", q:"What is the INNERMOST part of the CSS Box Model?", opts:["Margin","Border","Padding","Content"], ans:3, explain:"The CSS Box Model from inside out: Content → Padding → Border → Margin." },
-  { unit:5, topic:"Box Model", q:"What is the OUTERMOST part of the CSS Box Model?", opts:["Padding","Border","Content","Margin"], ans:3, explain:"Margin is the outermost part of the CSS Box Model." },
-  { unit:5, topic:"Box Model", q:"Which part of the Box Model is the transparent space around content inside the border?", opts:["Margin","Content","Border","Padding"], ans:3, explain:"Padding is the transparent space between content and the border." },
-  { unit:5, topic:"Display", q:"What is the default display value for a <div> element?", opts:["inline","flex","inline-block","block"], ans:3, explain:"<div> is a block-level element — its default display value is 'block'." },
-  { unit:5, topic:"Display", q:"Which property hides an element BUT keeps its space in the layout?", opts:["display: none","opacity: 0","visibility: hidden","overflow: hidden"], ans:2, explain:"visibility: hidden hides the element but preserves its space. display: none removes it completely." },
-  { unit:5, topic:"Display", q:"Which property removes an element AND its space from the layout?", opts:["opacity: 0","visibility: hidden","overflow: hidden","display: none"], ans:3, explain:"display: none removes the element and its space from the document flow." },
-  { unit:5, topic:"Position", q:"Which CSS position value makes an element stay fixed while page scrolls?", opts:["absolute","sticky","relative","fixed"], ans:3, explain:"position: fixed keeps an element in the same place even when scrolling." },
-  { unit:5, topic:"Position", q:"Which CSS property controls the stacking order (overlap) of elements?", opts:["stack-order","layer","z-index","overlap"], ans:2, explain:"z-index controls which elements appear on top when they overlap." },
-  { unit:5, topic:"Margin", q:"To horizontally center a block element, which margin value is used?", opts:["margin: center","margin: 0","margin: align-center","margin: auto"], ans:3, explain:"margin: auto centers a block element horizontally within its container." },
-  { unit:5, topic:"Animation", q:"Animation keyframes in CSS are defined using:", opts:["@animation","@steps","@frames","@keyframes"], ans:3, explain:"@keyframes rule defines the animation steps/stages at different points." },
-  { unit:5, topic:"CSS Basics", q:"HTML, CSS, and _____ are the three main technologies used in web designing.", opts:["Python","PHP","Java","JavaScript"], ans:3, explain:"HTML for structure, CSS for styling, and JavaScript for interactivity." },
-  { unit:5, topic:"Box Model", q:"Correct order of CSS Box Model from OUTSIDE to INSIDE:", opts:["Content → Padding → Border → Margin","Margin → Border → Padding → Content","Padding → Margin → Border → Content","Border → Margin → Content → Padding"], ans:1, explain:"From outside in: Margin → Border → Padding → Content." },
-  { unit:5, topic:"Margin", q:"Can CSS margin values be negative?", opts:["No, never","Only margin-top","Yes, negative values are allowed","Only on inline elements"], ans:2, explain:"CSS margins CAN be negative. CSS padding cannot be negative." },
-  { unit:5, topic:"Display", q:"Which is NOT a valid value for CSS position property?", opts:["fixed","sticky","center","absolute"], ans:2, explain:"'center' is not a position value. Valid values include static, relative, absolute, fixed, sticky." },
-  { unit:5, topic:"CSS Basics", q:"Which type of CSS is written directly in the HTML tag using the style attribute?", opts:["External CSS","Class CSS","Internal CSS","Inline CSS"], ans:3, explain:"Inline CSS is written directly within HTML tags using the style attribute." },
-  { unit:5, topic:"Background", q:"CSS background shorthand syntax is written as:", opts:["All background properties in one line separated by spaces","A list of properties","background(color, image, repeat, position)","background-all: ..."], ans:0, explain:"CSS background shorthand combines all properties: background: color url() repeat position" },
-  { unit:5, topic:"CSS Basics", q:"Which CSS property is used to specify text color?", opts:["font-color","text-color","foreground","color"], ans:3, explain:"The 'color' property sets the text/foreground color of an element." },
-  { unit:5, topic:"Position", q:"position: absolute positions an element relative to:", opts:["The viewport","The screen","Its nearest positioned parent element","The browser window"], ans:2, explain:"position: absolute is positioned relative to its nearest positioned ancestor element." },
-  { unit:5, topic:"Animation", q:"Which CSS property specifies how long an animation runs?", opts:["animation-speed","animation-time","animation-length","animation-duration"], ans:3, explain:"animation-duration specifies how long the animation takes to complete one cycle." },
-  { unit:5, topic:"Box Model", q:"Which CSS property creates space OUTSIDE an element's border?", opts:["padding","gap","border-spacing","margin"], ans:3, explain:"Margin creates space outside the border of an element." },
-  { unit:5, topic:"CSS Basics", q:"CSS stands for Cascading _____ Sheets.", opts:["Styling","Script","System","Style"], ans:3, explain:"CSS = Cascading Style Sheets — Style is the correct word." },
-  { unit:5, topic:"Display", q:"position: relative positions element relative to:", opts:["The viewport","The page top-left","Its parent element","Its own normal position"], ans:3, explain:"position: relative moves an element relative to its own original/normal position." },
+            // ---- UNIT 5 ----
+            { unit: 5, topic: "CSS Basics", q: "CSS stands for:", opts: ["Creative Style Sheet", "Cascading Style Sheet", "Computer Style Syntax", "Cascading Style Syntax"], ans: 1, explain: "CSS = Cascading Style Sheet. It is used to design and style HTML elements." },
+            { unit: 5, topic: "CSS Basics", q: "A CSS rule has a selector and a _____ block.", opts: ["Logic", "Attribute", "Declaration", "Function"], ans: 2, explain: "A CSS rule = Selector { Property: Value; } — this is called a Declaration block." },
+            { unit: 5, topic: "CSS Basics", q: "How many ways are there to insert CSS into an HTML document?", opts: ["1", "2", "4", "3"], ans: 3, explain: "Three ways: External CSS, Internal CSS, and Inline CSS." },
+            { unit: 5, topic: "Box Model", q: "What is the INNERMOST part of the CSS Box Model?", opts: ["Margin", "Border", "Padding", "Content"], ans: 3, explain: "The CSS Box Model from inside out: Content → Padding → Border → Margin." },
+            { unit: 5, topic: "Box Model", q: "What is the OUTERMOST part of the CSS Box Model?", opts: ["Padding", "Border", "Content", "Margin"], ans: 3, explain: "Margin is the outermost part of the CSS Box Model." },
+            { unit: 5, topic: "Box Model", q: "Which part of the Box Model is the transparent space around content inside the border?", opts: ["Margin", "Content", "Border", "Padding"], ans: 3, explain: "Padding is the transparent space between content and the border." },
+            { unit: 5, topic: "Display", q: "What is the default display value for a <div> element?", opts: ["inline", "flex", "inline-block", "block"], ans: 3, explain: "<div> is a block-level element — its default display value is 'block'." },
+            { unit: 5, topic: "Display", q: "Which property hides an element BUT keeps its space in the layout?", opts: ["display: none", "opacity: 0", "visibility: hidden", "overflow: hidden"], ans: 2, explain: "visibility: hidden hides the element but preserves its space. display: none removes it completely." },
+            { unit: 5, topic: "Display", q: "Which property removes an element AND its space from the layout?", opts: ["opacity: 0", "visibility: hidden", "overflow: hidden", "display: none"], ans: 3, explain: "display: none removes the element and its space from the document flow." },
+            { unit: 5, topic: "Position", q: "Which CSS position value makes an element stay fixed while page scrolls?", opts: ["absolute", "sticky", "relative", "fixed"], ans: 3, explain: "position: fixed keeps an element in the same place even when scrolling." },
+            { unit: 5, topic: "Position", q: "Which CSS property controls the stacking order (overlap) of elements?", opts: ["stack-order", "layer", "z-index", "overlap"], ans: 2, explain: "z-index controls which elements appear on top when they overlap." },
+            { unit: 5, topic: "Margin", q: "To horizontally center a block element, which margin value is used?", opts: ["margin: center", "margin: 0", "margin: align-center", "margin: auto"], ans: 3, explain: "margin: auto centers a block element horizontally within its container." },
+            { unit: 5, topic: "Animation", q: "Animation keyframes in CSS are defined using:", opts: ["@animation", "@steps", "@frames", "@keyframes"], ans: 3, explain: "@keyframes rule defines the animation steps/stages at different points." },
+            { unit: 5, topic: "CSS Basics", q: "HTML, CSS, and _____ are the three main technologies used in web designing.", opts: ["Python", "PHP", "Java", "JavaScript"], ans: 3, explain: "HTML for structure, CSS for styling, and JavaScript for interactivity." },
+            { unit: 5, topic: "Box Model", q: "Correct order of CSS Box Model from OUTSIDE to INSIDE:", opts: ["Content → Padding → Border → Margin", "Margin → Border → Padding → Content", "Padding → Margin → Border → Content", "Border → Margin → Content → Padding"], ans: 1, explain: "From outside in: Margin → Border → Padding → Content." },
+            { unit: 5, topic: "Margin", q: "Can CSS margin values be negative?", opts: ["No, never", "Only margin-top", "Yes, negative values are allowed", "Only on inline elements"], ans: 2, explain: "CSS margins CAN be negative. CSS padding cannot be negative." },
+            { unit: 5, topic: "Display", q: "Which is NOT a valid value for CSS position property?", opts: ["fixed", "sticky", "center", "absolute"], ans: 2, explain: "'center' is not a position value. Valid values include static, relative, absolute, fixed, sticky." },
+            { unit: 5, topic: "CSS Basics", q: "Which type of CSS is written directly in the HTML tag using the style attribute?", opts: ["External CSS", "Class CSS", "Internal CSS", "Inline CSS"], ans: 3, explain: "Inline CSS is written directly within HTML tags using the style attribute." },
+            { unit: 5, topic: "Background", q: "CSS background shorthand syntax is written as:", opts: ["All background properties in one line separated by spaces", "A list of properties", "background(color, image, repeat, position)", "background-all: ..."], ans: 0, explain: "CSS background shorthand combines all properties: background: color url() repeat position" },
+            { unit: 5, topic: "CSS Basics", q: "Which CSS property is used to specify text color?", opts: ["font-color", "text-color", "foreground", "color"], ans: 3, explain: "The 'color' property sets the text/foreground color of an element." },
+            { unit: 5, topic: "Position", q: "position: absolute positions an element relative to:", opts: ["The viewport", "The screen", "Its nearest positioned parent element", "The browser window"], ans: 2, explain: "position: absolute is positioned relative to its nearest positioned ancestor element." },
+            { unit: 5, topic: "Animation", q: "Which CSS property specifies how long an animation runs?", opts: ["animation-speed", "animation-time", "animation-length", "animation-duration"], ans: 3, explain: "animation-duration specifies how long the animation takes to complete one cycle." },
+            { unit: 5, topic: "Box Model", q: "Which CSS property creates space OUTSIDE an element's border?", opts: ["padding", "gap", "border-spacing", "margin"], ans: 3, explain: "Margin creates space outside the border of an element." },
+            { unit: 5, topic: "CSS Basics", q: "CSS stands for Cascading _____ Sheets.", opts: ["Styling", "Script", "System", "Style"], ans: 3, explain: "CSS = Cascading Style Sheets — Style is the correct word." },
+            { unit: 5, topic: "Display", q: "position: relative positions element relative to:", opts: ["The viewport", "The page top-left", "Its parent element", "Its own normal position"], ans: 3, explain: "position: relative moves an element relative to its own original/normal position." },
 
-  // ---- UNIT 6 ----
-  { unit:6, topic:"HTTP", q:"HTTP stands for:", opts:["High Transfer Text Protocol","Hyper Text Transfer Protocol","Hyperlink Text Transfer Protocol","Hyper Transfer Text Page"], ans:1, explain:"HTTP = Hyper Text Transfer Protocol. It is the foundation of data on the web." },
-  { unit:6, topic:"HTTP", q:"HTTP is which type of protocol?", opts:["Stateful","Persistent","Multi-session","Stateless"], ans:3, explain:"HTTP is a stateless protocol — each request is independent of previous ones." },
-  { unit:6, topic:"HTTP", q:"Which HTTP method is used to RETRIEVE data from a server?", opts:["POST","PUT","DELETE","GET"], ans:3, explain:"GET method retrieves data from the server. It is also used to request web pages." },
-  { unit:6, topic:"HTTP", q:"Which HTTP method is used to SUBMIT form data or CREATE a new resource?", opts:["GET","PUT","DELETE","POST"], ans:3, explain:"POST submits data to the server, typically used to submit forms or create resources." },
-  { unit:6, topic:"HTTP", q:"Which HTTP method REPLACES an existing resource entirely?", opts:["POST","PATCH","GET","PUT"], ans:3, explain:"PUT replaces an existing resource with the data provided in the request body." },
-  { unit:6, topic:"HTTP", q:"Which HTTP method PARTIALLY updates an existing resource?", opts:["PUT","POST","GET","PATCH"], ans:3, explain:"PATCH partially updates an existing resource, unlike PUT which replaces it entirely." },
-  { unit:6, topic:"HTTP", q:"Which HTTP method DELETES a resource from the server?", opts:["REMOVE","CLEAR","DELETE","DESTROY"], ans:2, explain:"DELETE method removes/deletes a resource from the server." },
-  { unit:6, topic:"Error Codes", q:"HTTP status code 404 means:", opts:["Internal Server Error","Forbidden","Unauthorized","Not Found"], ans:3, explain:"404 = Not Found. The requested resource cannot be found on the server." },
-  { unit:6, topic:"Error Codes", q:"HTTP status code 500 means:", opts:["Not Found","Forbidden","Bad Request","Internal Server Error"], ans:3, explain:"500 = Internal Server Error. A generic server-side error." },
-  { unit:6, topic:"Error Codes", q:"HTTP status code 401 means:", opts:["Not Found","Bad Request","Forbidden","Unauthorized"], ans:3, explain:"401 = Unauthorized. The request requires authentication/valid credentials." },
-  { unit:6, topic:"Error Codes", q:"HTTP status code 403 means:", opts:["Not Found","Unauthorized","Internal Server Error","Forbidden"], ans:3, explain:"403 = Forbidden. The server understands but refuses to grant access." },
-  { unit:6, topic:"Error Codes", q:"HTTP status code 400 means:", opts:["Not Found","Bad Request","Forbidden","Unauthorized"], ans:1, explain:"400 = Bad Request. The server cannot understand the request due to syntax errors." },
-  { unit:6, topic:"Error Codes", q:"HTTP 4xx error codes represent:", opts:["Server errors","Informational messages","Redirects","Client errors"], ans:3, explain:"4xx codes indicate client errors — the client's request has a problem." },
-  { unit:6, topic:"Error Codes", q:"HTTP 5xx error codes represent:", opts:["Client errors","Success responses","Server errors","Redirect responses"], ans:2, explain:"5xx codes indicate server errors — the server failed to fulfill a valid request." },
-  { unit:6, topic:"DNS", q:"DNS stands for:", opts:["Data Network System","Digital Name Server","Domain Name Service","Domain Name System"], ans:3, explain:"DNS = Domain Name System. It translates domain names to IP addresses." },
-  { unit:6, topic:"DNS", q:"How many IP addresses serve the DNS root zone?", opts:["10","50","13","100"], ans:2, explain:"There are 13 different IP addresses that serve the DNS root zone." },
-  { unit:6, topic:"DNS", q:"DNS translates human domain names to:", opts:["HTML code","IP addresses","Port numbers","Server names"], ans:1, explain:"DNS translates domain names (like google.com) into IP addresses (like 8.8.8.8)." },
-  { unit:6, topic:"Hosting", q:"Which hosting type provides an entire server dedicated to one user?", opts:["Shared","Cloud","VPS","Dedicated"], ans:3, explain:"Dedicated hosting gives the entire physical server to one client/user." },
-  { unit:6, topic:"Hosting", q:"In Shared Hosting:", opts:["One user gets entire server","Multiple websites share the same server","User gets a virtual portion","No server is involved"], ans:1, explain:"In shared hosting, many websites share the same server resources." },
-  { unit:6, topic:"Hosting", q:"VPS stands for:", opts:["Virtual Page Server","Visual Private Server","Virtual Private Server","Virtual Public Server"], ans:2, explain:"VPS = Virtual Private Server. It gives dedicated virtual resources on shared hardware." },
-  { unit:6, topic:"Photoshop", q:"Which Photoshop tool is used for complex freehand selections?", opts:["Magic Wand","Quick Select","Healing Brush","Lasso"], ans:3, explain:"The Lasso Tool is used for complex, freehand selections in Photoshop." },
-  { unit:6, topic:"Photoshop", q:"Which Photoshop tool copies/retouches pixels from one area to another?", opts:["Healing Brush","Magic Wand","Dodge Tool","Clone Stamp"], ans:3, explain:"The Clone Stamp tool samples pixels from one area and paints them elsewhere." },
-  { unit:6, topic:"Photoshop", q:"Which Photoshop tool selects areas based on color similarity?", opts:["Lasso","Quick Select","Magic Wand","Healing Brush"], ans:2, explain:"Magic Wand tool selects a region based on color similarity." },
-  { unit:6, topic:"Adobe XD", q:"Adobe XD is primarily used for:", opts:["Digital painting","Photo editing","Video editing","UI/UX wireframing and prototyping"], ans:3, explain:"Adobe XD is a UX/UI prototyping tool for designing websites and mobile app interfaces." },
-  { unit:6, topic:"Adobe XD", q:"Procreate is primarily used for:", opts:["Web hosting","UI/UX wireframing","Server configuration","Digital painting and illustration"], ans:3, explain:"Procreate is a digital painting and illustration app, mainly for iPad/iPhone." },
-];
+            // ---- UNIT 6 ----
+            { unit: 6, topic: "HTTP", q: "HTTP stands for:", opts: ["High Transfer Text Protocol", "Hyper Text Transfer Protocol", "Hyperlink Text Transfer Protocol", "Hyper Transfer Text Page"], ans: 1, explain: "HTTP = Hyper Text Transfer Protocol. It is the foundation of data on the web." },
+            { unit: 6, topic: "HTTP", q: "HTTP is which type of protocol?", opts: ["Stateful", "Persistent", "Multi-session", "Stateless"], ans: 3, explain: "HTTP is a stateless protocol — each request is independent of previous ones." },
+            { unit: 6, topic: "HTTP", q: "Which HTTP method is used to RETRIEVE data from a server?", opts: ["POST", "PUT", "DELETE", "GET"], ans: 3, explain: "GET method retrieves data from the server. It is also used to request web pages." },
+            { unit: 6, topic: "HTTP", q: "Which HTTP method is used to SUBMIT form data or CREATE a new resource?", opts: ["GET", "PUT", "DELETE", "POST"], ans: 3, explain: "POST submits data to the server, typically used to submit forms or create resources." },
+            { unit: 6, topic: "HTTP", q: "Which HTTP method REPLACES an existing resource entirely?", opts: ["POST", "PATCH", "GET", "PUT"], ans: 3, explain: "PUT replaces an existing resource with the data provided in the request body." },
+            { unit: 6, topic: "HTTP", q: "Which HTTP method PARTIALLY updates an existing resource?", opts: ["PUT", "POST", "GET", "PATCH"], ans: 3, explain: "PATCH partially updates an existing resource, unlike PUT which replaces it entirely." },
+            { unit: 6, topic: "HTTP", q: "Which HTTP method DELETES a resource from the server?", opts: ["REMOVE", "CLEAR", "DELETE", "DESTROY"], ans: 2, explain: "DELETE method removes/deletes a resource from the server." },
+            { unit: 6, topic: "Error Codes", q: "HTTP status code 404 means:", opts: ["Internal Server Error", "Forbidden", "Unauthorized", "Not Found"], ans: 3, explain: "404 = Not Found. The requested resource cannot be found on the server." },
+            { unit: 6, topic: "Error Codes", q: "HTTP status code 500 means:", opts: ["Not Found", "Forbidden", "Bad Request", "Internal Server Error"], ans: 3, explain: "500 = Internal Server Error. A generic server-side error." },
+            { unit: 6, topic: "Error Codes", q: "HTTP status code 401 means:", opts: ["Not Found", "Bad Request", "Forbidden", "Unauthorized"], ans: 3, explain: "401 = Unauthorized. The request requires authentication/valid credentials." },
+            { unit: 6, topic: "Error Codes", q: "HTTP status code 403 means:", opts: ["Not Found", "Unauthorized", "Internal Server Error", "Forbidden"], ans: 3, explain: "403 = Forbidden. The server understands but refuses to grant access." },
+            { unit: 6, topic: "Error Codes", q: "HTTP status code 400 means:", opts: ["Not Found", "Bad Request", "Forbidden", "Unauthorized"], ans: 1, explain: "400 = Bad Request. The server cannot understand the request due to syntax errors." },
+            { unit: 6, topic: "Error Codes", q: "HTTP 4xx error codes represent:", opts: ["Server errors", "Informational messages", "Redirects", "Client errors"], ans: 3, explain: "4xx codes indicate client errors — the client's request has a problem." },
+            { unit: 6, topic: "Error Codes", q: "HTTP 5xx error codes represent:", opts: ["Client errors", "Success responses", "Server errors", "Redirect responses"], ans: 2, explain: "5xx codes indicate server errors — the server failed to fulfill a valid request." },
+            { unit: 6, topic: "DNS", q: "DNS stands for:", opts: ["Data Network System", "Digital Name Server", "Domain Name Service", "Domain Name System"], ans: 3, explain: "DNS = Domain Name System. It translates domain names to IP addresses." },
+            { unit: 6, topic: "DNS", q: "How many IP addresses serve the DNS root zone?", opts: ["10", "50", "13", "100"], ans: 2, explain: "There are 13 different IP addresses that serve the DNS root zone." },
+            { unit: 6, topic: "DNS", q: "DNS translates human domain names to:", opts: ["HTML code", "IP addresses", "Port numbers", "Server names"], ans: 1, explain: "DNS translates domain names (like google.com) into IP addresses (like 8.8.8.8)." },
+            { unit: 6, topic: "Hosting", q: "Which hosting type provides an entire server dedicated to one user?", opts: ["Shared", "Cloud", "VPS", "Dedicated"], ans: 3, explain: "Dedicated hosting gives the entire physical server to one client/user." },
+            { unit: 6, topic: "Hosting", q: "In Shared Hosting:", opts: ["One user gets entire server", "Multiple websites share the same server", "User gets a virtual portion", "No server is involved"], ans: 1, explain: "In shared hosting, many websites share the same server resources." },
+            { unit: 6, topic: "Hosting", q: "VPS stands for:", opts: ["Virtual Page Server", "Visual Private Server", "Virtual Private Server", "Virtual Public Server"], ans: 2, explain: "VPS = Virtual Private Server. It gives dedicated virtual resources on shared hardware." },
+            { unit: 6, topic: "Photoshop", q: "Which Photoshop tool is used for complex freehand selections?", opts: ["Magic Wand", "Quick Select", "Healing Brush", "Lasso"], ans: 3, explain: "The Lasso Tool is used for complex, freehand selections in Photoshop." },
+            { unit: 6, topic: "Photoshop", q: "Which Photoshop tool copies/retouches pixels from one area to another?", opts: ["Healing Brush", "Magic Wand", "Dodge Tool", "Clone Stamp"], ans: 3, explain: "The Clone Stamp tool samples pixels from one area and paints them elsewhere." },
+            { unit: 6, topic: "Photoshop", q: "Which Photoshop tool selects areas based on color similarity?", opts: ["Lasso", "Quick Select", "Magic Wand", "Healing Brush"], ans: 2, explain: "Magic Wand tool selects a region based on color similarity." },
+            { unit: 6, topic: "Adobe XD", q: "Adobe XD is primarily used for:", opts: ["Digital painting", "Photo editing", "Video editing", "UI/UX wireframing and prototyping"], ans: 3, explain: "Adobe XD is a UX/UI prototyping tool for designing websites and mobile app interfaces." },
+            { unit: 6, topic: "Adobe XD", q: "Procreate is primarily used for:", opts: ["Web hosting", "UI/UX wireframing", "Server configuration", "Digital painting and illustration"], ans: 3, explain: "Procreate is a digital painting and illustration app, mainly for iPad/iPhone." },
+        ];
 
-// ============================================================
-// STATE
-// ============================================================
-let quizPool = [];
-let currentIdx = 0;
-let score = 0;
-let totalQ = 25;
-let wrongCount = 0;
-let quizMode = 'practice';
-let selectedUnit = 'all';
+        // ============================================================
+        // STATE
+        // ============================================================
+        let quizPool = [];
+        let currentIdx = 0;
+        let score = 0;
+        let totalQ = 25;
+        let wrongCount = 0;
+        let quizMode = 'practice';
+        let selectedUnit = 'all';
 
-// ============================================================
-// NAVIGATION
-// ============================================================
-function showPage(name) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById(name).classList.add('active');
-    const btn = document.getElementById('btn-' + name);
-    if (btn) btn.classList.add('active');
-    window.scrollTo(0,0);
-}
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
+        function showPage(name) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+            document.getElementById(name).classList.add('active');
+            const btn = document.getElementById('btn-' + name);
+            if (btn) btn.classList.add('active');
+            window.scrollTo(0, 0);
+        }
 
-function startQuiz() {
-    showPage('quiz');
-    document.getElementById('quiz-setup').style.display = 'block';
-    document.getElementById('quiz-active').style.display = 'none';
-    document.getElementById('quiz-result').style.display = 'none';
-}
+        function startQuiz() {
+            showPage('quiz');
+            document.getElementById('quiz-setup').style.display = 'block';
+            document.getElementById('quiz-active').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'none';
+        }
 
-// ============================================================
-// TABS (Notes page)
-// ============================================================
-function showTab(id, btn) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
-}
+        // ============================================================
+        // TABS (Notes page)
+        // ============================================================
+        function showTab(id, btn) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            btn.classList.add('active');
+        }
 
-// ============================================================
-// QUIZ LOGIC
-// ============================================================
-function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
+        // ============================================================
+        // QUIZ LOGIC
+        // ============================================================
+        function shuffle(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
 
-function beginQuiz() {
-    selectedUnit = document.getElementById('unit-select').value;
-    quizMode = document.querySelector('input[name=mode]:checked').value;
-    totalQ = 25;
+        function beginQuiz() {
+            selectedUnit = document.getElementById('unit-select').value;
+            quizMode = document.querySelector('input[name=mode]:checked').value;
+            totalQ = 25;
 
-    let pool = selectedUnit === 'all'
-        ? [...QUESTIONS]
-        : QUESTIONS.filter(q => q.unit == parseInt(selectedUnit));
+            let pool = selectedUnit === 'all'
+                ? [...QUESTIONS]
+                : QUESTIONS.filter(q => q.unit == parseInt(selectedUnit));
 
-    shuffle(pool);
-    quizPool = pool.slice(0, totalQ);
-    currentIdx = 0;
-    score = 0;
-    wrongCount = 0;
+            shuffle(pool);
+            quizPool = pool.slice(0, totalQ);
+            currentIdx = 0;
+            score = 0;
+            wrongCount = 0;
 
-    document.getElementById('quiz-setup').style.display = 'none';
-    document.getElementById('quiz-active').style.display = 'block';
-    document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-setup').style.display = 'none';
+            document.getElementById('quiz-active').style.display = 'block';
+            document.getElementById('quiz-result').style.display = 'none';
 
-    renderQuestion();
-}
+            renderQuestion();
+        }
 
-function renderQuestion() {
-    const q = quizPool[currentIdx];
-    document.getElementById('wrong-notice').style.display = 'none';
-    document.getElementById('q-unit-tag').textContent = 'Unit ' + q.unit;
-    document.getElementById('q-topic-tag').textContent = q.topic;
-    document.getElementById('q-counter').textContent = 'Q ' + (currentIdx + 1) + ' / ' + totalQ;
-    document.getElementById('q-progress').style.width = (((currentIdx + 1) / totalQ) * 100) + '%';
-    document.getElementById('q-text').textContent = q.q;
+        function renderQuestion() {
+            const q = quizPool[currentIdx];
+            document.getElementById('wrong-notice').style.display = 'none';
+            document.getElementById('q-unit-tag').textContent = 'Unit ' + q.unit;
+            document.getElementById('q-topic-tag').textContent = q.topic;
+            document.getElementById('q-counter').textContent = 'Q ' + (currentIdx + 1) + ' / ' + totalQ;
+            document.getElementById('q-progress').style.width = (((currentIdx + 1) / totalQ) * 100) + '%';
+            document.getElementById('q-text').textContent = q.q;
 
-    // Shuffle options
-    let opts = q.opts.map((text, i) => ({ text, correct: i === q.ans }));
-    shuffle(opts);
+            // Shuffle options
+            let opts = q.opts.map((text, i) => ({ text, correct: i === q.ans }));
+            shuffle(opts);
 
-    const labels = ['A','B','C','D'];
-    const container = document.getElementById('q-options');
-    container.innerHTML = '';
-    opts.forEach((o, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'option-btn';
-        btn.innerHTML = `<span class="opt-label">${labels[i]}</span> ${escHtml(o.text)}`;
-        btn.dataset.correct = o.correct;
-        btn.onclick = function() { handleAnswer(o.correct, o.text, this, q.explain); };
-        container.appendChild(btn);
-    });
-}
-
-function escHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&gt;');
-}
-
-function handleAnswer(isCorrect, chosen, btnElement, explain) {
-    // Disable all options
-    const btns = document.querySelectorAll('.option-btn');
-    btns.forEach(b => b.style.pointerEvents = 'none');
-
-    if (isCorrect) score++;
-    else wrongCount++;
-
-    if (quizMode === 'exam') {
-        // Strict mode: immediately go to next question with no hints
-        nextQuestion();
-    } else {
-        // Practice mode: Show detailed explanation
-        const notice = document.getElementById('wrong-notice');
-        notice.style.display = 'block';
-        
-        if (isCorrect) {
-            notice.style.background = 'rgba(34, 197, 94, 0.1)';
-            notice.style.borderColor = 'rgba(34, 197, 94, 0.3)';
-            notice.style.color = '#86efac';
-            notice.innerHTML = `<strong>✅ Correct!</strong> <span id="wrong-explain">${explain}</span>`;
-            btnElement.style.borderColor = '#22c55e';
-            btnElement.style.background = 'rgba(34, 197, 94, 0.1)';
-        } else {
-            notice.style.background = 'rgba(239, 68, 68, 0.1)';
-            notice.style.borderColor = 'rgba(239, 68, 68, 0.3)';
-            notice.style.color = '#fca5a5';
-            notice.innerHTML = `<strong>❌ Incorrect!</strong> <span id="wrong-explain">The correct answer was highlighted. Details: ${explain}</span>`;
-            btnElement.style.borderColor = '#ef4444';
-            btnElement.style.background = 'rgba(239, 68, 68, 0.1)';
-            
-            // Highlight the correct option
-            btns.forEach(b => {
-                if (b.dataset.correct === "true") {
-                    b.style.borderColor = '#22c55e';
-                    b.style.background = 'rgba(34, 197, 94, 0.1)';
-                }
+            const labels = ['A', 'B', 'C', 'D'];
+            const container = document.getElementById('q-options');
+            container.innerHTML = '';
+            opts.forEach((o, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerHTML = `<span class="opt-label">${labels[i]}</span> ${escHtml(o.text)}`;
+                btn.dataset.correct = o.correct;
+                btn.onclick = function () { handleAnswer(o.correct, o.text, this, q.explain); };
+                container.appendChild(btn);
             });
         }
-        
-        // Add Next button
-        const nextBtn = document.createElement('button');
-        nextBtn.className = 'btn-main';
-        nextBtn.style.marginTop = '14px';
-        nextBtn.textContent = 'Next Question ➔';
-        nextBtn.onclick = () => {
-            notice.style.display = 'none';
-            nextBtn.remove();
-            nextQuestion();
-        };
-        document.getElementById('q-options').appendChild(nextBtn);
-    }
-}
 
-function nextQuestion() {
-    currentIdx++;
-    if (currentIdx >= totalQ) {
-        showResult();
-    } else {
-        renderQuestion();
-    }
-}
+        function escHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&gt;');
+        }
 
-function showResult() {
-    document.getElementById('quiz-active').style.display = 'none';
-    document.getElementById('quiz-result').style.display = 'block';
+        function handleAnswer(isCorrect, chosen, btnElement, explain) {
+            // Disable all options
+            const btns = document.querySelectorAll('.option-btn');
+            btns.forEach(b => b.style.pointerEvents = 'none');
 
-    const pct = Math.round((score / totalQ) * 100);
-    document.getElementById('result-score').textContent = score + ' / ' + totalQ;
+            if (isCorrect) score++;
+            else wrongCount++;
 
-    let msg = '';
-    if (pct >= 90) msg = "Excellent! Outstanding performance!";
-    else if (pct >= 70) msg = "Good job! Keep practicing.";
-    else if (pct >= 50) msg = "Average. Review your notes and try again.";
-    else msg = "Needs more practice. Go through the Notes section.";
-    document.getElementById('result-msg').textContent = msg;
+            if (quizMode === 'exam') {
+                // Strict mode: immediately go to next question with no hints
+                nextQuestion();
+            } else {
+                // Practice mode: Show detailed explanation
+                const notice = document.getElementById('wrong-notice');
+                notice.style.display = 'block';
 
-    const breakdown = document.getElementById('result-breakdown');
-    breakdown.innerHTML = `
+                if (isCorrect) {
+                    notice.style.background = 'rgba(34, 197, 94, 0.1)';
+                    notice.style.borderColor = 'rgba(34, 197, 94, 0.3)';
+                    notice.style.color = '#86efac';
+                    notice.innerHTML = `<strong>✅ Correct!</strong> <span id="wrong-explain">${explain}</span>`;
+                    btnElement.style.borderColor = '#22c55e';
+                    btnElement.style.background = 'rgba(34, 197, 94, 0.1)';
+                } else {
+                    notice.style.background = 'rgba(239, 68, 68, 0.1)';
+                    notice.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+                    notice.style.color = '#fca5a5';
+                    notice.innerHTML = `<strong>❌ Incorrect!</strong> <span id="wrong-explain">The correct answer was highlighted. Details: ${explain}</span>`;
+                    btnElement.style.borderColor = '#ef4444';
+                    btnElement.style.background = 'rgba(239, 68, 68, 0.1)';
+
+                    // Highlight the correct option
+                    btns.forEach(b => {
+                        if (b.dataset.correct === "true") {
+                            b.style.borderColor = '#22c55e';
+                            b.style.background = 'rgba(34, 197, 94, 0.1)';
+                        }
+                    });
+                }
+
+                // Add Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'btn-main';
+                nextBtn.style.marginTop = '14px';
+                nextBtn.textContent = 'Next Question ➔';
+                nextBtn.onclick = () => {
+                    notice.style.display = 'none';
+                    nextBtn.remove();
+                    nextQuestion();
+                };
+                document.getElementById('q-options').appendChild(nextBtn);
+            }
+        }
+
+        function nextQuestion() {
+            currentIdx++;
+            if (currentIdx >= totalQ) {
+                showResult();
+            } else {
+                renderQuestion();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-active').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+
+            const pct = Math.round((score / totalQ) * 100);
+            document.getElementById('result-score').textContent = score + ' / ' + totalQ;
+
+            let msg = '';
+            if (pct >= 90) msg = "Excellent! Outstanding performance!";
+            else if (pct >= 70) msg = "Good job! Keep practicing.";
+            else if (pct >= 50) msg = "Average. Review your notes and try again.";
+            else msg = "Needs more practice. Go through the Notes section.";
+            document.getElementById('result-msg').textContent = msg;
+
+            const breakdown = document.getElementById('result-breakdown');
+            breakdown.innerHTML = `
         <div class="breakdown-item"><div class="val">${score}</div><div class="lbl">Correct</div></div>
         <div class="breakdown-item"><div class="val">${totalQ - score}</div><div class="lbl">Wrong</div></div>
         <div class="breakdown-item"><div class="val">${pct}%</div><div class="lbl">Score</div></div>
     `;
-}
-</script>
+        }
+    </script>
 
 </body>
+
 </html>
