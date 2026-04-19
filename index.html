@@ -855,6 +855,404 @@
             backdrop-filter: blur(10px);
         }
 
+        /* ===== AI FEATURES STYLES ===== */
+        /* AI Chat Widget */
+        #ai-fab {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulse-ai 2.5s infinite;
+        }
+
+        @keyframes pulse-ai {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 4px 35px rgba(168, 85, 247, 0.7);
+            }
+        }
+
+        #ai-fab:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        #ai-fab .ai-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.55rem;
+            font-weight: 800;
+            padding: 2px 5px;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        #ai-chat-panel {
+            position: fixed;
+            bottom: 100px;
+            right: 28px;
+            width: 360px;
+            max-height: 520px;
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #ai-chat-panel.open {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ai-chat-header {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .ai-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .ai-chat-header-info h4 {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .ai-chat-header-info p {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        .ai-online-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            margin-left: auto;
+            box-shadow: 0 0 8px #22c55e;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        #ai-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 200px;
+            max-height: 320px;
+        }
+
+        .ai-msg {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            animation: msgIn 0.2s ease;
+        }
+
+        @keyframes msgIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .ai-msg.bot {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            color: #e2e8f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .ai-msg.user {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .ai-suggestions {
+            display: flex;
+            gap: 6px;
+            padding: 0 16px 10px;
+            flex-wrap: wrap;
+        }
+
+        .ai-suggest-btn {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 20px;
+            color: #a5b4fc;
+            font-size: 0.72rem;
+            padding: 4px 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-main);
+        }
+
+        .ai-suggest-btn:hover {
+            background: rgba(99, 102, 241, 0.25);
+            color: #fff;
+        }
+
+        .ai-chat-input-row {
+            display: flex;
+            gap: 8px;
+            padding: 12px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        #ai-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 9px 12px;
+            color: #fff;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        #ai-input:focus {
+            border-color: var(--primary);
+        }
+
+        #ai-send {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 10px;
+            width: 38px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        #ai-send:hover {
+            transform: scale(1.1);
+        }
+
+        /* AI Hint Button */
+        .ai-hint-btn {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 10px;
+            color: #a5b4fc;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 12px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ai-hint-btn:hover {
+            background: rgba(99, 102, 241, 0.3);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        #ai-hint-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.08));
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-top: 10px;
+            color: #c4b5fd;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        #ai-hint-box .hint-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* AI Analysis Section */
+        #ai-analysis {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.06));
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+            text-align: left;
+        }
+
+        #ai-analysis h4 {
+            color: #a5b4fc;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #ai-analysis-text {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        #ai-analysis-text .topic-tag {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            color: #f9a8d4;
+            border-radius: 6px;
+            padding: 1px 8px;
+            font-size: 0.78rem;
+            margin: 2px;
+        }
+
+        #ai-analysis-text .strength-tag {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #86efac;
+            border-radius: 6px;
+            padding: 1px 8px;
+            font-size: 0.78rem;
+            margin: 2px;
+        }
+
+        .ai-study-plan {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .ai-study-plan h5 {
+            color: #c4b5fd;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .study-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .study-step .step-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        /* Adaptive Mode badge */
+        .adaptive-badge {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.82rem;
+            color: #f9a8d4;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
         .tab-content {
             display: none;
             animation: fadeIn 0.4s;
@@ -977,6 +1375,9 @@
             <button onclick="showPage('notes')" id="btn-notes">Notes</button>
             <button onclick="showPage('report')" id="btn-report">Report</button>
             <button onclick="startQuiz()" id="btn-quiz">Start Quiz</button>
+            <button onclick="showPage('ai-page')" id="btn-ai-page"
+                style="background:linear-gradient(135deg,rgba(99,102,241,0.3),rgba(168,85,247,0.3));border-color:rgba(99,102,241,0.5);color:#c4b5fd;">🤖
+                AI Tools</button>
         </nav>
     </header>
 
@@ -1627,9 +2028,13 @@
                     <strong>Incorrect Answer Selected</strong>
                     <span id="wrong-explain"></span>
                 </div>
-
                 <p class="question-text" id="q-text">Loading...</p>
+                <div id="ai-hint-box">
+                    <div class="hint-label">🤖 AI Hint</div>
+                    <span id="ai-hint-text"></span>
+                </div>
                 <div class="options-list" id="q-options"></div>
+                <div style="margin-top:10px;" id="ai-hint-area"></div>
             </div>
         </div>
 
@@ -1639,9 +2044,11 @@
                     🏆</div>
                 <p id="result-msg" style="margin-bottom: 0;">Evaluation Complete</p>
                 <div class="result-score" id="result-score">0/25</div>
-
                 <div class="result-breakdown" id="result-breakdown"></div>
-
+                <div id="ai-analysis">
+                    <h4>🤖 AI Performance Analysis</h4>
+                    <div id="ai-analysis-text"></div>
+                </div>
                 <button class="btn-main" onclick="beginQuiz()">Restart Assessment</button>
                 <button class="btn-outline"
                     onclick="document.getElementById('quiz-setup').style.display='block'; document.getElementById('quiz-result').style.display='none';">Configure
@@ -1734,6 +2141,123 @@
                     dynamic rendering, and responsive UI design. Its offline capability, dual quiz modes, integrated
                     notes, and randomized question engine make it a practical and well-rounded academic tool.</p>
             </div>
+        </div>
+    </div>
+
+    <!-- AI Tools Page -->
+    <div id="ai-page" class="page">
+        <div class="home-hero glass-card" style="text-align:center;padding:3rem 2rem;">
+            <div style="font-size:3rem;margin-bottom:1rem;">🤖</div>
+            <h2
+                style="font-family:var(--font-heading);font-size:2.2rem;font-weight:800;background:linear-gradient(to right,#fff,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem;">
+                AI Learning Hub</h2>
+            <p style="color:var(--text-muted);font-size:1rem;max-width:600px;margin:0 auto;">Supercharge your learning
+                with AI-powered tools. Get instant answers, smart hints, personalized analysis, and adaptive quizzes.
+            </p>
+        </div>
+        <div class="unit-cards" style="margin-top:2rem;">
+            <div class="unit-card" style="cursor:default;">
+                <h4>Feature 1</h4>
+                <h3>🤖 AI Study Buddy</h3>
+                <p>Ask any web design question and get instant AI-powered answers. Available as a floating chat bubble
+                    on every page.</p>
+                <button class="ai-hint-btn" style="margin-top:14px;"
+                    onclick="document.getElementById('ai-fab').click()">Open Chat →</button>
+            </div>
+            <div class="unit-card" style="cursor:default;">
+                <h4>Feature 2</h4>
+                <h3>💡 AI Hint System</h3>
+                <p>Stuck on a question? Request an AI hint in Practice Mode without giving away the answer. Learn
+                    smarter, not harder.</p>
+                <button class="ai-hint-btn" style="margin-top:14px;" onclick="startQuiz()">Try in Quiz →</button>
+            </div>
+            <div class="unit-card" style="cursor:default;">
+                <h4>Feature 3</h4>
+                <h3>📊 AI Performance Analysis</h3>
+                <p>After every quiz, receive a detailed AI breakdown of your strengths, weak topics, and a personalized
+                    study plan.</p>
+                <button class="ai-hint-btn" style="margin-top:14px;" onclick="startQuiz()">Take Quiz →</button>
+            </div>
+            <div class="unit-card" style="cursor:default;">
+                <h4>Feature 4</h4>
+                <h3>🎯 Adaptive Quiz Mode</h3>
+                <p>AI selects questions from your weakest topic areas, giving you a targeted quiz to improve where you
+                    need it most.</p>
+                <button class="ai-hint-btn" style="margin-top:14px;" id="adaptive-btn"
+                    onclick="startAdaptiveQuiz()">Start Adaptive Quiz →</button>
+            </div>
+            <div class="unit-card" style="cursor:default;">
+                <h4>Feature 5</h4>
+                <h3>🔮 AI Topic Explainer</h3>
+                <p>Select any topic and get a concise AI-generated summary to refresh your memory before attempting
+                    questions.</p>
+                <div style="margin-top:14px;">
+                    <select id="explain-topic-select"
+                        style="width:100%;padding:8px 12px;background:rgba(15,23,42,0.6);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:var(--font-main);font-size:0.85rem;outline:none;margin-bottom:8px;">
+                        <option value="">Select a topic...</option>
+                        <option value="html">HTML Basics</option>
+                        <option value="lists">Lists &amp; Linking</option>
+                        <option value="multimedia">Multimedia &amp; CSS</option>
+                        <option value="tables">Tables &amp; Forms</option>
+                        <option value="css">CSS &amp; Box Model</option>
+                        <option value="hosting">Hosting &amp; HTTP</option>
+                    </select>
+                    <button class="ai-hint-btn" style="width:100%;justify-content:center;"
+                        onclick="showTopicExplainer()">Explain Topic →</button>
+                    <div id="topic-explainer-box"
+                        style="display:none;margin-top:10px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:10px;padding:12px;color:#cbd5e1;font-size:0.85rem;line-height:1.7;">
+                    </div>
+                </div>
+            </div>
+            <div class="unit-card" style="cursor:default;">
+                <h4>Feature 6</h4>
+                <h3>📝 AI Quiz Generator</h3>
+                <p>Generate a brand new 5-question mini-quiz on any unit instantly, powered by the AI question engine.
+                </p>
+                <select id="mini-quiz-unit"
+                    style="width:100%;padding:8px 12px;background:rgba(15,23,42,0.6);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:var(--font-main);font-size:0.85rem;outline:none;margin:14px 0 8px;">
+                    <option value="1">Unit 1 – HTML Basics</option>
+                    <option value="2">Unit 2 – Lists &amp; Links</option>
+                    <option value="3">Unit 3 – Multimedia</option>
+                    <option value="4">Unit 4 – Tables &amp; Forms</option>
+                    <option value="5">Unit 5 – CSS</option>
+                    <option value="6">Unit 6 – Tools &amp; Hosting</option>
+                </select>
+                <button class="ai-hint-btn" style="width:100%;justify-content:center;"
+                    onclick="startMiniQuiz()">Generate Mini-Quiz →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating AI Chat Widget -->
+    <button id="ai-fab" onclick="toggleAiChat()" title="AI Study Buddy">
+        🤖
+        <span class="ai-badge">AI</span>
+    </button>
+    <div id="ai-chat-panel">
+        <div class="ai-chat-header">
+            <div class="ai-avatar">🤖</div>
+            <div class="ai-chat-header-info">
+                <h4>AI Study Buddy</h4>
+                <p>Web Design Expert • Always Online</p>
+            </div>
+            <div class="ai-online-dot"></div>
+        </div>
+        <div id="ai-messages">
+            <div class="ai-msg bot">👋 Hi! I'm your AI Study Buddy. Ask me anything about HTML, CSS, Web Design, or your
+                quiz topics!</div>
+            <div class="ai-msg bot">Try asking: <em>"What is the box model?"</em> or <em>"Explain z-index"</em></div>
+        </div>
+        <div class="ai-suggestions">
+            <button class="ai-suggest-btn" onclick="aiQuickAsk('What is HTML?')">What is HTML?</button>
+            <button class="ai-suggest-btn" onclick="aiQuickAsk('Explain CSS Box Model')">Box Model</button>
+            <button class="ai-suggest-btn" onclick="aiQuickAsk('What is DNS?')">DNS?</button>
+            <button class="ai-suggest-btn" onclick="aiQuickAsk('HTTP methods')">HTTP Methods</button>
+        </div>
+        <div class="ai-chat-input-row">
+            <input type="text" id="ai-input" placeholder="Ask a web design question..."
+                onkeydown="if(event.key==='Enter')sendAiMsg()">
+            <button id="ai-send" onclick="sendAiMsg()">➤</button>
         </div>
     </div>
 
@@ -1927,6 +2451,45 @@
         let wrongCount = 0;
         let quizMode = 'practice';
         let selectedUnit = 'all';
+        // AI tracking
+        let wrongTopics = {};
+        let correctTopics = {};
+        
+        // ============================================================
+        // GEMINI API HELPER
+        // ============================================================
+        async function callGemini(prompt, jsonSchema = null) {
+            const apiKey = "AIzaSyBF_zVAZgJbfdhfuTg0rz2rQ34EwHfwhRc"; // Provided by execution environment
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            let retries = 5;
+            let delays = [1000, 2000, 4000, 8000, 16000];
+
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const payload = { contents: [{ parts: [{ text: prompt }] }] };
+                    if (jsonSchema) {
+                        payload.generationConfig = {
+                            responseMimeType: "application/json",
+                            responseSchema: jsonSchema
+                        };
+                    }
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const data = await response.json();
+                    return data.candidates[0].content.parts[0].text;
+                } catch (e) {
+                    if (i === retries - 1) {
+                        console.error("Gemini API failed after retries:", e);
+                        throw e;
+                    }
+                    await new Promise(r => setTimeout(r, delays[i]));
+                }
+            }
+        }
 
         // ============================================================
         // NAVIGATION
@@ -1973,6 +2536,10 @@
             quizMode = document.querySelector('input[name=mode]:checked').value;
             totalQ = 25;
 
+            // Reset AI tracking
+            wrongTopics = {}; correctTopics = {};
+            document.getElementById('ai-analysis').style.display = 'none';
+
             let pool = selectedUnit === 'all'
                 ? [...QUESTIONS]
                 : QUESTIONS.filter(q => q.unit == parseInt(selectedUnit));
@@ -1993,6 +2560,7 @@
         function renderQuestion() {
             const q = quizPool[currentIdx];
             document.getElementById('wrong-notice').style.display = 'none';
+            document.getElementById('ai-hint-box').style.display = 'none';
             document.getElementById('q-unit-tag').textContent = 'Unit ' + q.unit;
             document.getElementById('q-topic-tag').textContent = q.topic;
             document.getElementById('q-counter').textContent = 'Q ' + (currentIdx + 1) + ' / ' + totalQ;
@@ -2014,6 +2582,14 @@
                 btn.onclick = function () { handleAnswer(o.correct, o.text, this, q.explain); };
                 container.appendChild(btn);
             });
+
+            // AI Hint button (Practice mode only)
+            const hintArea = document.getElementById('ai-hint-area');
+            if (quizMode === 'practice') {
+                hintArea.innerHTML = `<button class="ai-hint-btn" onclick="showAiHint()">🤖 Get AI Hint</button>`;
+            } else {
+                hintArea.innerHTML = '';
+            }
         }
 
         function escHtml(str) {
@@ -2021,9 +2597,14 @@
         }
 
         function handleAnswer(isCorrect, chosen, btnElement, explain) {
+            // AI: track per-topic performance
+            trackAnswer(isCorrect, quizPool[currentIdx]);
+
             // Disable all options
             const btns = document.querySelectorAll('.option-btn');
             btns.forEach(b => b.style.pointerEvents = 'none');
+            // Also hide the hint button
+            document.getElementById('ai-hint-area').innerHTML = '';
 
             if (isCorrect) score++;
             else wrongCount++;
@@ -2091,10 +2672,10 @@
             document.getElementById('result-score').textContent = score + ' / ' + totalQ;
 
             let msg = '';
-            if (pct >= 90) msg = "Excellent! Outstanding performance!";
-            else if (pct >= 70) msg = "Good job! Keep practicing.";
-            else if (pct >= 50) msg = "Average. Review your notes and try again.";
-            else msg = "Needs more practice. Go through the Notes section.";
+            if (pct >= 90) msg = "🏆 Excellent! Outstanding performance!";
+            else if (pct >= 70) msg = "👍 Good job! Keep practicing.";
+            else if (pct >= 50) msg = "📖 Average. Review your notes and try again.";
+            else msg = "💪 Needs more practice. Go through the Notes section.";
             document.getElementById('result-msg').textContent = msg;
 
             const breakdown = document.getElementById('result-breakdown');
@@ -2103,6 +2684,275 @@
         <div class="breakdown-item"><div class="val">${totalQ - score}</div><div class="lbl">Wrong</div></div>
         <div class="breakdown-item"><div class="val">${pct}%</div><div class="lbl">Score</div></div>
     `;
+            runAiAnalysis(pct);
+        }
+
+        function trackAnswer(isCorrect, q) {
+            const key = 'Unit ' + q.unit + ': ' + q.topic;
+            if (isCorrect) { correctTopics[key] = (correctTopics[key] || 0) + 1; }
+            else { wrongTopics[key] = (wrongTopics[key] || 0) + 1; }
+        }
+
+        function runAiAnalysis(pct) {
+            const el = document.getElementById('ai-analysis');
+            const txt = document.getElementById('ai-analysis-text');
+            el.style.display = 'block';
+
+            const weakArr = Object.entries(wrongTopics).sort((a, b) => b[1] - a[1]).slice(0, 4);
+            const strongArr = Object.entries(correctTopics).sort((a, b) => b[1] - a[1]).slice(0, 3);
+
+            let html = '';
+            if (pct >= 90) {
+                html += `<p>🌟 <strong>Outstanding!</strong> You have a thorough command of Web Design. Your performance indicates strong conceptual clarity across all units.</p>`;
+            } else if (pct >= 70) {
+                html += `<p>✅ <strong>Good performance!</strong> You have a solid understanding of most concepts. A few focused review sessions will make you exam-ready.</p>`;
+            } else {
+                html += `<p>📚 <strong>Keep going!</strong> You need more practice. Use the Notes section to revisit theory before retaking the quiz.</p>`;
+            }
+
+            if (weakArr.length > 0) {
+                html += `<p style="margin-top:10px;"><strong>🔴 Weak Areas to Revise:</strong><br>`;
+                weakArr.forEach(([t]) => { html += `<span class="topic-tag">${t}</span>`; });
+                html += `</p>`;
+            }
+            if (strongArr.length > 0) {
+                html += `<p style="margin-top:8px;"><strong>🟢 Your Strengths:</strong><br>`;
+                strongArr.forEach(([t]) => { html += `<span class="strength-tag">${t}</span>`; });
+                html += `</p>`;
+            }
+
+            // Study plan
+            if (weakArr.length > 0) {
+                html += `<div class="ai-study-plan"><h5>🎯 AI Study Plan</h5>`;
+                weakArr.forEach(([t], i) => {
+                    const steps = ['Review the notes section for this topic carefully',
+                        'Re-attempt quiz questions specifically on this topic',
+                        'Use the AI Study Buddy to ask follow-up questions',
+                        'Take an Adaptive Quiz targeting this area'];
+                    html += `<div class="study-step"><div class="step-num">${i + 1}</div><div><strong>${t}</strong> — ${steps[i] || 'Practice more questions'}</div></div>`;
+                });
+                html += `</div>`;
+            }
+
+            txt.innerHTML = html;
+        }
+
+        // ============================================================
+        // AI HINT SYSTEM
+        // ============================================================
+        async function showAiHint() {
+            const q = quizPool[currentIdx];
+            const hintBox = document.getElementById('ai-hint-box');
+            const hintText = document.getElementById('ai-hint-text');
+            hintBox.style.display = 'block';
+            document.getElementById('ai-hint-area').innerHTML = '';
+            hintText.innerHTML = '✨ Generating a subtle hint...';
+
+            const prompt = `The user is taking a web design quiz. The question is: "${q.q}". The options are: ${q.opts.join(', ')}. The correct answer is option ${q.ans} (${q.opts[q.ans]}). Give a short, subtle hint in 1-2 sentences that helps them arrive at the answer WITHOUT directly giving it away. Use an encouraging tone.`;
+
+            try {
+                const hint = await callGemini(prompt);
+                hintText.innerHTML = '✨ ' + hint;
+            } catch (e) {
+                hintText.innerHTML = '⚠️ Failed to generate hint. Try again later.';
+            }
+        }
+
+        // ============================================================
+        // ADAPTIVE QUIZ MODE
+        // ============================================================
+        function startAdaptiveQuiz() {
+            const weakUnits = Object.keys(wrongTopics);
+            showPage('quiz');
+            document.getElementById('quiz-setup').style.display = 'none';
+            document.getElementById('quiz-active').style.display = 'block';
+            document.getElementById('quiz-result').style.display = 'none';
+
+            wrongTopics = {}; correctTopics = {};
+            quizMode = 'practice';
+            totalQ = 10;
+
+            let pool;
+            if (weakUnits.length > 0) {
+                const weakUnitNums = weakUnits.map(k => parseInt(k.replace('Unit ', ''))).filter(Boolean);
+                pool = QUESTIONS.filter(q => weakUnitNums.includes(q.unit));
+                if (pool.length < 10) pool = [...QUESTIONS];
+            } else {
+                pool = [...QUESTIONS];
+            }
+
+            shuffle(pool);
+            quizPool = pool.slice(0, totalQ);
+            currentIdx = 0; score = 0; wrongCount = 0;
+
+            // Show adaptive badge
+            const quizTop = document.querySelector('.quiz-top');
+            if (quizTop && !document.getElementById('adaptive-mode-badge')) {
+                const badge = document.createElement('div');
+                badge.id = 'adaptive-mode-badge';
+                badge.className = 'adaptive-badge';
+                badge.innerHTML = '🎯 Adaptive Mode — AI Targeted';
+                badge.style.margin = '0 0 12px';
+                document.getElementById('quiz-active').querySelector('.quiz-box').insertBefore(badge, quizTop);
+            }
+            renderQuestion();
+        }
+
+        // ============================================================
+        // AI TOPIC EXPLAINER
+        // ============================================================
+        async function showTopicExplainer() {
+            const topicSelect = document.getElementById('explain-topic-select');
+            const topic = topicSelect.options[topicSelect.selectedIndex].text;
+            const box = document.getElementById('topic-explainer-box');
+            if (!topicSelect.value) { box.style.display = 'none'; return; }
+
+            box.style.display = 'block';
+            box.innerHTML = '✨ Generating dynamic explanation...';
+
+            const prompt = `Explain the web design topic '${topic}' to a beginner in 3-4 sentences. Keep it concise, engaging, and format it with light HTML (<b>, <em>) for readability.`;
+
+            try {
+                const explanation = await callGemini(prompt);
+                box.innerHTML = '✨ ' + explanation;
+            } catch (e) {
+                box.innerHTML = '⚠️ Failed to load explanation. Please try again.';
+            }
+        }
+
+        // ============================================================
+        // MINI QUIZ GENERATOR
+        // ============================================================
+        async function startMiniQuiz() {
+            const unitSelect = document.getElementById('mini-quiz-unit');
+            const unitName = unitSelect.options[unitSelect.selectedIndex].text;
+            const btn = document.querySelector('#ai-page .unit-card:nth-child(6) button');
+            const originalText = btn.innerHTML;
+
+            btn.innerHTML = '✨ Generating AI Quiz...';
+            btn.disabled = true;
+
+            const schema = {
+                type: "OBJECT",
+                properties: {
+                    questions: {
+                        type: "ARRAY",
+                        items: {
+                            type: "OBJECT",
+                            properties: {
+                                q: { type: "STRING", description: "The question text" },
+                                opts: { type: "ARRAY", items: { type: "STRING" }, description: "Array of exactly 4 options" },
+                                ans: { type: "INTEGER", description: "Index of the correct option (0-3)" },
+                                explain: { type: "STRING", description: "Short explanation of the correct answer" },
+                                unit: { type: "INTEGER", description: "Unit number (1-6)" },
+                                topic: { type: "STRING", description: "Brief topic name" }
+                            }
+                        }
+                    }
+                }
+            };
+
+            const prompt = `Generate exactly 5 multiple choice questions about web design specifically focusing on: "${unitName}". Make them challenging but fair. Ensure "opts" always has exactly 4 items, and "ans" is the correct integer index (0, 1, 2, or 3).`;
+
+            try {
+                const jsonText = await callGemini(prompt, schema);
+                const data = JSON.parse(jsonText);
+
+                if (data && data.questions && data.questions.length > 0) {
+                    showPage('quiz');
+                    document.getElementById('quiz-setup').style.display = 'none';
+                    document.getElementById('quiz-active').style.display = 'block';
+                    document.getElementById('quiz-result').style.display = 'none';
+
+                    wrongTopics = {}; correctTopics = {};
+                    quizMode = 'practice';
+                    totalQ = data.questions.length;
+                    quizPool = data.questions;
+                    currentIdx = 0; score = 0; wrongCount = 0;
+
+                    // Add or update AI badge
+                    const quizTop = document.querySelector('.quiz-top');
+                    let badge = document.getElementById('adaptive-mode-badge');
+                    if (!badge) {
+                         badge = document.createElement('div');
+                         badge.id = 'adaptive-mode-badge';
+                         badge.className = 'adaptive-badge';
+                         badge.style.margin = '0 0 12px';
+                         document.getElementById('quiz-active').querySelector('.quiz-box').insertBefore(badge, quizTop);
+                    }
+                    badge.style.background = 'linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2))';
+                    badge.style.borderColor = 'rgba(99, 102, 241, 0.3)';
+                    badge.style.color = '#c4b5fd';
+                    badge.innerHTML = '✨ AI Generated Quiz';
+
+                    renderQuestion();
+                } else {
+                    throw new Error("Invalid format");
+                }
+            } catch (e) {
+                console.error("Quiz Gen Error:", e);
+                btn.innerHTML = '⚠️ Error generating. Try again.';
+                setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000);
+                return;
+            }
+
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }
+
+        // ============================================================
+        // AI CHAT BOT
+        // ============================================================
+        function toggleAiChat() {
+            const panel = document.getElementById('ai-chat-panel');
+            panel.classList.toggle('open');
+        }
+
+        function aiQuickAsk(q) {
+            document.getElementById('ai-input').value = q;
+            sendAiMsg();
+        }
+
+        async function sendAiMsg() {
+            const input = document.getElementById('ai-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+            input.value = '';
+            appendAiMsg(msg, 'user');
+
+            // Add temporary loading indicator
+            const msgs = document.getElementById('ai-messages');
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'ai-msg bot';
+            loadingDiv.id = 'ai-loading-indicator';
+            loadingDiv.innerHTML = '✨ Thinking...';
+            msgs.appendChild(loadingDiv);
+            msgs.scrollTop = msgs.scrollHeight;
+
+            try {
+                const reply = await getAiReply(msg);
+                loadingDiv.remove();
+                appendAiMsg(reply, 'bot');
+            } catch (e) {
+                loadingDiv.remove();
+                console.error('AI reply error:', e);
+                appendAiMsg('⚠️ Error retrieving AI response. Please try again.', 'bot');
+            }
+        }
+
+        function appendAiMsg(text, role) {
+            const msgs = document.getElementById('ai-messages');
+            const div = document.createElement('div');
+            div.className = 'ai-msg ' + role;
+            // basic markdown to HTML for bolding and italics
+            div.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>');
+            msgs.appendChild(div);
+            msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        async function getAiReply(msg) {
+            const prompt = `You are an AI Study Buddy for a Web Design course. Answer the following student question concisely, accurately, and encouragingly. Keep the response to 2-3 sentences. Use basic markdown formatting like **bold** if helpful.\n\nStudent: "${msg}"`;
+            return await callGemini(prompt);
         }
     </script>
 
